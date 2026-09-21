@@ -26,7 +26,8 @@ collections:
               - { label: "Tittel", name: "title", widget: "string" }
               - { label: "Ingress / Teaser (1-2 linjer for forside)", name: "teaser", widget: "text" }
               - { label: "Brødtekst / Innhold", name: "body", widget: "markdown" }
-              - { label: "YouTube Video-ID (valgfri, f.eks. kNKM3Q06l2I)", name: "youtube", widget: "string", required: false }
+- { label: "YouTube Video-ID (valgfri)", name: "youtube", widget: "string", required: false }
+              - { label: "Artikkelbilde (valgfritt)", name: "image", widget: "image", required: false }
               - label: "Relevante lenker / knapper"
                 name: "links"
                 widget: "list"
