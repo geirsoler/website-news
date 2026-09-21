@@ -22,11 +22,11 @@ collections:
             fields:
               - { label: "Artikkel-ID (unik, kun små bokstaver og bindestrek)", name: "id", widget: "string" }
               - { label: "Dato (f.eks. September 2026)", name: "date", widget: "string" }
-             - { label: "Kategori", name: "category", widget: "select", options: ["Concert Band", "Orchestra", "Stage", "Choir", "Website", "Sheet Music & Sales"] }
+              - { label: "Kategori", name: "category", widget: "select", options: ["Concert Band", "Orchestra", "Stage", "Choir", "Website", "Sheet Music & Sales"] }
               - { label: "Tittel", name: "title", widget: "string" }
               - { label: "Ingress / Teaser (1-2 linjer for forside)", name: "teaser", widget: "text" }
               - { label: "Brødtekst / Innhold", name: "body", widget: "markdown" }
-- { label: "YouTube Video-ID (valgfri)", name: "youtube", widget: "string", required: false }
+              - { label: "YouTube Video-ID (valgfri, f.eks. kNKM3Q06l2I)", name: "youtube", widget: "string", required: false }
               - { label: "Artikkelbilde (valgfritt)", name: "image", widget: "image", required: false }
               - label: "Relevante lenker / knapper"
                 name: "links"
