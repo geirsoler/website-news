@@ -1,68 +1,70 @@
-[
-  {
-    "id": "victorys-desolation",
-    "date": "September 2026",
-    "category": "Concert Band",
-    "title": "«Victory's Desolation» publisert for janitsjar",
-    "teaser": "3. sats fra Suite for Concert Band er nå tilgjengelig med fullt partitur, stemmer og partiturvideo.",
-    "body": "<p>Stykket beskriver Marko på slagmarken etter at han har felt sin elskede Adriane – sørgelig, voldsomt, galskap, men med håp.</p><p>Urfremført av Ulefoss Musikkorps på Jubileumsrevyen 2025. Tilrettelagt for Grade 3.5 med fleksibel besetning og omfattende cross-cueing.</p>",
-    "youtube": "kNKM3Q06l2I",
-    "links": [
-      {
-        "label": "Noter på Score Exchange",
-        "url": "https://www.scoreexchange.com/scores/victorys-desolation-692650.html"
-      },
-      {
-        "label": "Se i verklisten",
-        "url": "catalogue.html#cat-band"
-      }
-    ]
-  },
-  {
-    "id": "market-in-lydia",
-    "date": "September 2026",
-    "category": "Concert Band",
-    "title": "«Market in Lydia» tilgjengelig for janitsjar",
-    "teaser": "2. sats fra Suite for Concert Band. En livlig og spenstig konsertmarsj i Grade 2.5.",
-    "body": "<p>Frittstående konsertmarsj basert på markedsstemningen fra opera-musikalen Marko og Adriane. Urfremført av Ulefoss Musikkorps høsten 2025.</p>",
-    "youtube": "XBfpxgsNHYQ",
-    "links": [
-      {
-        "label": "Noter på Score Exchange",
-        "url": "https://www.scoreexchange.com/scores/market-in-lydia-692166.html"
-      },
-      {
-        "label": "Se i verklisten",
-        "url": "catalogue.html#cat-band"
-      }
-    ]
-  },
-  {
-    "id": "score-exchange-valgt",
-    "date": "August 2026",
-    "category": "Noter & Salg",
-    "title": "Score Exchange valgt som plattform for digitalt notesalg",
-    "teaser": "Fullstendige partiturer og stemmesett distribueres nå digitalt via Score Exchange.",
-    "body": "<p>For å gjøre verkene raskt og sikkert tilgjengelige for korps, dirigenter og ensembler internasjonalt, er Score Exchange etablert som primær salgskanal for digitale noter.</p><p>Her tilbys direkte digital levering av både fullpartiturer og komplette stemmesett med umiddelbar utskriftstillatelse.</p>",
-    "links": [
-      {
-        "label": "Besøk Score Exchange-profilen",
-        "url": "https://www.scoreexchange.com/profiles/geir-solerod"
-      }
-    ]
-  },
-  {
-    "id": "publikasjon-av-nettsiden",
-    "date": "August 2026",
-    "category": "Nettsted",
-    "title": "Offisiell lansering av geirsolerod.no",
-    "teaser": "Komponistens nye nettside er lansert med komplett verkliste, lytteeksempler og partiturforespørsler.",
-    "body": "<p>Velkommen til offisiell hjemmeside for komponist, tekstforfatter og arrangør Geir Solerød.</p><p>Siden samler verk for fullt symfoniorkester, janitsjarkorps, musikkteater, kor og studioarkiv på ett sted, med direkte tilgang til studiepartiturer og bestillinger.</p>",
-    "links": [
-      {
-        "label": "Utforsk katalogen",
-        "url": "catalogue.html"
-      }
-    ]
-  }
-]
+{
+  "items": [
+    {
+      "id": "victorys-desolation",
+      "date": "September 2026",
+      "category": "Concert Band",
+      "title": "«Victory's Desolation» publisert for janitsjar",
+      "teaser": "3. sats fra Suite for Concert Band er nå tilgjengelig med fullt partitur, stemmer og partiturvideo.",
+      "body": "Stykket beskriver Marko på slagmarken etter at han har felt sin elskede Adriane – sørgelig, voldsomt, galskap, men med håp.\n\nUrfremført av Ulefoss Musikkorps på Jubileumsrevyen 2025. Tilrettelagt for Grade 3.5 med fleksibel besetning og omfattende cross-cueing.",
+      "youtube": "kNKM3Q06l2I",
+      "links": [
+        {
+          "label": "Noter på Score Exchange",
+          "url": "https://www.scoreexchange.com/scores/victorys-desolation-692650.html"
+        },
+        {
+          "label": "Se i verklisten",
+          "url": "catalogue.html#cat-band"
+        }
+      ]
+    },
+    {
+      "id": "market-in-lydia",
+      "date": "September 2026",
+      "category": "Concert Band",
+      "title": "«Market in Lydia» tilgjengelig for janitsjar",
+      "teaser": "2. sats fra Suite for Concert Band. En livlig og spenstig konsertmarsj i Grade 2.5.",
+      "body": "Frittstående konsertmarsj basert på markedsstemningen fra opera-musikalen Marko og Adriane. Urfremført av Ulefoss Musikkorps høsten 2025.",
+      "youtube": "XBfpxgsNHYQ",
+      "links": [
+        {
+          "label": "Noter på Score Exchange",
+          "url": "https://www.scoreexchange.com/scores/market-in-lydia-692166.html"
+        },
+        {
+          "label": "Se i verklisten",
+          "url": "catalogue.html#cat-band"
+        }
+      ]
+    },
+    {
+      "id": "score-exchange-valgt",
+      "date": "August 2026",
+      "category": "Noter & Salg",
+      "title": "Score Exchange valgt som plattform for digitalt notesalg",
+      "teaser": "Fullstendige partiturer og stemmesett distribueres nå digitalt via Score Exchange.",
+      "body": "For å gjøre verkene raskt og sikkert tilgjengelige for korps, dirigenter og ensembler internasjonalt, er Score Exchange etablert som primær salgskanal for digitale noter.\n\nHer tilbys direkte digital levering av både fullpartiturer og komplette stemmesett med umiddelbar utskriftstillatelse.",
+      "links": [
+        {
+          "label": "Besøk Score Exchange-profilen",
+          "url": "https://www.scoreexchange.com/profiles/geir-solerod"
+        }
+      ]
+    },
+    {
+      "id": "publikasjon-av-nettsiden",
+      "date": "August 2026",
+      "category": "Nettsted",
+      "title": "Offisiell lansering av geirsolerod.no",
+      "teaser": "Komponistens nye nettside er lansert med komplett verkliste, lytteeksempler og partiturforespørsler.",
+      "body": "Velkommen til offisiell hjemmeside for komponist, tekstforfatter og arrangør Geir Solerød.\n\nSiden samler verk for fullt symfoniorkester, janitsjarkorps, musikkteater, kor og studioarkiv på ett sted, med direkte tilgang til studiepartiturer og bestillinger.",
+      "links": [
+        {
+          "label": "Utforsk katalogen",
+          "url": "catalogue.html"
+        }
+      ]
+    }
+  ]
+}
