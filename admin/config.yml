@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: geirsoler/website-news
+  branch: main
+
+media_folder: "images"
+public_folder: "https://raw.githubusercontent.com/geirsoler/website-news/main/images"
+
+collections:
+  - name: "news"
+    label: "Nyheter & Oppdateringer"
+    files:
+      - file: "news.json"
+        name: "news_list"
+        label: "Nyhetsartikler"
+        fields:
+          - name: "items"
+            label: "Artikler"
+            label_singular: "Artikkel"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.date}})"
+            fields:
+              - { label: "Artikkel-ID (unik, kun små bokstaver og bindestrek)", name: "id", widget: "string" }
+              - { label: "Dato (f.eks. September 2026)", name: "date", widget: "string" }
+              - { label: "Kategori", name: "category", widget: "select", options: ["Concert Band", "Orchestra", "Stage", "Choir", "Nettsted", "Noter & Salg"] }
+              - { label: "Tittel", name: "title", widget: "string" }
+              - { label: "Ingress / Teaser (1-2 linjer for forside)", name: "teaser", widget: "text" }
+              - { label: "Brødtekst / Innhold", name: "body", widget: "markdown" }
+              - { label: "YouTube Video-ID (valgfri, f.eks. kNKM3Q06l2I)", name: "youtube", widget: "string", required: false }
+              - label: "Relevante lenker / knapper"
+                name: "links"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Knappetekst (f.eks. Noter på Score Exchange)", name: "label", widget: "string" }
+                  - { label: "Nettadresse (URL)", name: "url", widget: "string" }
