@@ -2,7 +2,7 @@
   "items": [
     {
       "id": "velsigne-dette-land",
-      "date": "2026-09-13",
+      "date": "2026-09-26",
       "displayDate": "September 2026",
       "category": "Choir",
       "title": "«Velsigne dette land»",
@@ -67,17 +67,21 @@
       ]
     },
     {
-      "id": "symphony-no-1-revision",
-      "date": "2026-08-28",
+      "id": "sheet-music-available-on-score-exchange",
+      "date": "2026-08-25",
       "displayDate": "August 2026",
-      "category": "Orchestra",
-      "title": "Symphony No. 1 Score Revision Completed",
-      "teaser": "Full score revision of the four-movement symphony prepared for orchestral presentation and reading sessions.",
-      "body": "The extensive revision of Symphony No. 1 has now been finalized. The full score and instrumental parts have been carefully revised and formatted for large symphony orchestra, bringing the work into its final third edition.",
+      "category": "Sheet Music & Sales",
+      "title": "Sheet Music Available on Score Exchange",
+      "teaser": "Digital sheet music editions, complete study scores, and instrumental parts are now available for purchase and instant download.",
+      "body": "A curated collection of concert band pieces, choral works, and chamber arrangements is now available via Score Exchange.\n\nScores and individual parts can be previewed directly with full audio playback before purchasing digital PDF downloads.",
       "youtube": "",
-      "thumb": "/images/Geir Solerød profilbilde 1_1.jpg",
-      "image": "/images/Geir Solerød profilbilde 1_1.jpg",
+      "thumb": "/images/Score Exchange_thumb.png",
+      "image": "/images/Score Exchange_thumb.png",
       "links": [
+        {
+          "label": "Visit Score Exchange Profile",
+          "url": "https://www.scoreexchange.com/profiles/geir-solerod"
+        },
         {
           "label": "View in Works Catalogue",
           "url": "../../catalogue.html"
