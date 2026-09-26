@@ -7,9 +7,9 @@
       "category": "Choir",
       "title": "«Velsigne dette land»",
       "teaser": "An earthbound, gently spiritual choral piece from the opera Marko og Adriane, well suited as an accessible concert work.",
-      "body": "Velsigne dette land» (Bless This Land) is an intimate choral setting for SATB choir and piano, originating from the opera \"Marko og Adriane\".\n\nCharacterized by melodic warmth, flowing voice leading, and an unpretentious, contemplative spirit, the piece offers a serene blessing over nature, life, and community. With its accessible vocal range and gentle tempo, it works equally well as an evocative concert piece or an anthem of peace.",
+      "body": "«Velsigne dette land» (Bless This Land) is an intimate choral setting for SATB choir and piano, originating from the opera \"Marko og Adriane\".\n\nCharacterized by melodic warmth, flowing voice leading, and an unpretentious, contemplative spirit, the piece offers a serene blessing over nature, life, and community. With its accessible vocal range and gentle tempo, it works equally well as an evocative concert piece or an anthem of peace.",
       "youtube": "",
-      "thumb": "/images/Velsigne dette land_thumbnail.jpg",
+      "thumb": "images/Velsigne dette land_thumbnail.jpg",
       "image": "images/velsigne-denne-jord.jpg",
       "links": [
         {
@@ -62,6 +62,42 @@
         },
         {
           "label": "View in Works Catalogue",
+          "url": "../../catalogue.html"
+        }
+      ]
+    },
+    {
+      "id": "symphony-no-1-revision",
+      "date": "2026-08-28",
+      "displayDate": "August 2026",
+      "category": "Orchestra",
+      "title": "Symphony No. 1 Score Revision Completed",
+      "teaser": "Full score revision of the four-movement symphony prepared for orchestral presentation and reading sessions.",
+      "body": "The extensive revision of Symphony No. 1 has now been finalized. The full score and instrumental parts have been carefully revised and formatted for large symphony orchestra, bringing the work into its final third edition.",
+      "youtube": "",
+      "thumb": "images/symphony-no-1-thumb.jpg",
+      "image": "images/symphony-no-1.jpg",
+      "links": [
+        {
+          "label": "View in Works Catalogue",
+          "url": "../../catalogue.html"
+        }
+      ]
+    },
+    {
+      "id": "new-composer-website-launched",
+      "date": "2026-08-15",
+      "displayDate": "August 2026",
+      "category": "Website",
+      "title": "New Composer Website and Works Catalogue Launched",
+      "teaser": "A dedicated home for orchestral works, concert band compositions, choral pieces, and upcoming news.",
+      "body": "Welcome to the new official website. Here you will find an up-to-date works catalogue with instrumentation details, audio samples, score video excerpts, and direct links to available sheet music editions.",
+      "youtube": "",
+      "thumb": "images/website-launch-thumb.jpg",
+      "image": "images/website-launch.jpg",
+      "links": [
+        {
+          "label": "Explore Works Catalogue",
           "url": "../../catalogue.html"
         }
       ]
