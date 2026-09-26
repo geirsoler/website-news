@@ -1,68 +1,70 @@
-[
-  {
-    "id": "velsigne-denne-jord",
-    "date": "2026-09-14",
-    "displayDate": "September 2026",
-    "category": "Choir",
-    "title": "«Velsigne denne jord»",
-    "teaser": "Et lyrisk og varmt korverk med fokus på nærhet, klangrikdom og melodisk bærekraft.",
-    "thumb": "images/velsigne-denne-jord-thumb.jpg",
-    "image": "images/velsigne-denne-jord.jpg",
-    "youtube": "",
-    "body": "«Velsigne denne jord» er et vokalverk skrevet med fokus på melodisk klarhet, organisk stemmeføring og akustisk varme.\n\nStykket utforsker et kontemplativt og naturlyrisk tema, der samklangen mellom stemmene bærer frem teksten med ro og verdighet. Arrangementet er tilrettelagt for framføring med god vokal fleksibilitet og klanglig balanse.",
-    "links": [
-      {
-        "label": "Sheet Music on Score Exchange",
-        "url": "https://www.scoreexchange.com/profiles/geir-solerod"
-      },
-      {
-        "label": "View in Works Catalogue",
-        "url": "../../catalogue.html"
-      }
-    ]
-  },
-  {
-    "id": "victorys-desolation",
-    "date": "2026-09-15",
-    "displayDate": "September 2026",
-    "category": "Concert Band",
-    "title": "«Victory's Desolation» Published for Concert Band",
-    "teaser": "Movement III from Suite for Concert Band is now available with full score, parts, and score video.",
-    "thumb": "images/victorys-desolation-thumb.jpg",
-    "image": "images/victorys-desolation.jpg",
-    "youtube": "XBfpxgsNHYQ",
-    "body": "The piece portrays Marko on the battlefield after striking down his beloved Adriane—sorrowful, violent, mad, yet sustained by hope.\n\nPremiered by Ulefoss Musikkorps at the 2025 Anniversary Revue. Arranged for Grade 3.5 with flexible instrumentation and extensive cross-cueing.",
-    "links": [
-      {
-        "label": "Sheet Music on Score Exchange",
-        "url": "https://www.scoreexchange.com/profiles/geir-solerod"
-      },
-      {
-        "label": "View in Works Catalogue",
-        "url": "../../catalogue.html"
-      }
-    ]
-  },
-  {
-    "id": "market-in-lydia",
-    "date": "2026-09-08",
-    "displayDate": "September 2026",
-    "category": "Concert Band",
-    "title": "«Market in Lydia» Available for Concert Band",
-    "teaser": "Movement II from Suite for Concert Band. A lively and spirited concert march in Grade 2.5.",
-    "thumb": "images/market-in-lydia-thumb.jpg",
-    "image": "images/market-in-lydia.jpg",
-    "youtube": "",
-    "body": "Movement II from Suite for Concert Band captures the vivid atmosphere and rhythmic energy of the market scenes. Designed to be both pedagogical and musically engaging for ensembles at Grade 2.5.",
-    "links": [
-      {
-        "label": "Sheet Music on Score Exchange",
-        "url": "https://www.scoreexchange.com/profiles/geir-solerod"
-      },
-      {
-        "label": "View in Works Catalogue",
-        "url": "../../catalogue.html"
-      }
-    ]
-  }
-]
+{
+  "items": [
+    {
+      "id": "velsigne-denne-jord",
+      "date": "2026-09-26",
+      "displayDate": "September 2026",
+      "category": "Choir",
+      "title": "«Velsigne denne jord»",
+      "teaser": "Et lyrisk og varmt korverk med fokus på nærhet, klangrikdom og melodisk bærekraft.",
+      "thumb": "images/velsigne-denne-jord-thumb.jpg",
+      "image": "images/velsigne-denne-jord.jpg",
+      "youtube": "",
+      "body": "«Velsigne denne jord» er et vokalverk skrevet med fokus på melodisk klarhet, organisk stemmeføring og akustisk varme.\n\nStykket utforsker et kontemplativt og naturlyrisk tema, der samklangen mellom stemmene bærer frem teksten med ro og verdighet. Arrangementet er tilrettelagt for framføring med god vokal fleksibilitet og klanglig balanse.",
+      "links": [
+        {
+          "label": "Sheet Music on Score Exchange",
+          "url": "https://www.scoreexchange.com/profiles/geir-solerod"
+        },
+        {
+          "label": "View in Works Catalogue",
+          "url": "../../catalogue.html"
+        }
+      ]
+    },
+    {
+      "id": "victorys-desolation",
+      "date": "2026-09-15",
+      "displayDate": "September 2026",
+      "category": "Concert Band",
+      "title": "«Victory's Desolation» Published for Concert Band",
+      "teaser": "Movement III from Suite for Concert Band is now available with full score, parts, and score video.",
+      "thumb": "images/victorys-desolation-thumb.jpg",
+      "image": "images/victorys-desolation.jpg",
+      "youtube": "XBfpxgsNHYQ",
+      "body": "The piece portrays Marko on the battlefield after striking down his beloved Adriane—sorrowful, violent, mad, yet sustained by hope.\n\nPremiered by Ulefoss Musikkorps at the 2025 Anniversary Revue. Arranged for Grade 3.5 with flexible instrumentation and extensive cross-cueing.",
+      "links": [
+        {
+          "label": "Sheet Music on Score Exchange",
+          "url": "https://www.scoreexchange.com/profiles/geir-solerod"
+        },
+        {
+          "label": "View in Works Catalogue",
+          "url": "../../catalogue.html"
+        }
+      ]
+    },
+    {
+      "id": "market-in-lydia",
+      "date": "2026-09-08",
+      "displayDate": "September 2026",
+      "category": "Concert Band",
+      "title": "«Market in Lydia» Available for Concert Band",
+      "teaser": "Movement II from Suite for Concert Band. A lively and spirited concert march in Grade 2.5.",
+      "thumb": "images/market-in-lydia-thumb.jpg",
+      "image": "images/market-in-lydia.jpg",
+      "youtube": "",
+      "body": "Movement II from Suite for Concert Band captures the vivid atmosphere and rhythmic energy of the market scenes. Designed to be both pedagogical and musically engaging for ensembles at Grade 2.5.",
+      "links": [
+        {
+          "label": "Sheet Music on Score Exchange",
+          "url": "https://www.scoreexchange.com/profiles/geir-solerod"
+        },
+        {
+          "label": "View in Works Catalogue",
+          "url": "../../catalogue.html"
+        }
+      ]
+    }
+  ]
+}
