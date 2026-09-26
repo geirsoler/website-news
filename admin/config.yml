@@ -21,7 +21,7 @@ collections:
             summary: "{{fields.title}} ({{fields.date}})"
             fields:
               - { label: "Artikkel-ID (unik, kun små bokstaver og bindestrek)", name: "id", widget: "string" }
-              - { label: "Dato (for sortering og årstall-mappe)", name: "date", widget: "date", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD" }
+              - { label: "Dato (for sortering og årstall)", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
               - { label: "Visningsdato (f.eks. September 2026)", name: "displayDate", widget: "string", required: false }
               - { label: "Kategori", name: "category", widget: "select", options: ["Concert Band", "Orchestra", "Stage", "Choir", "Website", "Sheet Music & Sales"] }
               - { label: "Tittel", name: "title", widget: "string" }
