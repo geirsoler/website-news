@@ -2,7 +2,8 @@
   "items": [
     {
       "id": "victorys-desolation",
-      "date": "September 2026",
+      "date": "2026-09-26",
+      "displayDate": "",
       "category": "Concert Band",
       "title": "«Victory's Desolation» Published for Concert Band",
       "teaser": "Movement III from Suite for Concert Band is now available with full score, parts, and score video.",
@@ -23,7 +24,8 @@
     },
     {
       "id": "market-in-lydia",
-      "date": "September 2026",
+      "date": "2026-09-26",
+      "displayDate": "",
       "category": "Concert Band",
       "title": "«Market in Lydia» Available for Concert Band",
       "teaser": "Movement II from Suite for Concert Band. A lively and spirited concert march in Grade 2.5.",
@@ -44,7 +46,8 @@
     },
     {
       "id": "score-exchange-valgt",
-      "date": "September 2026",
+      "date": "2026-09-26",
+      "displayDate": "",
       "category": "Sheet Music & Sales",
       "title": "Score Exchange Selected for Digital Sheet Music Distribution",
       "teaser": "Complete conductor scores and instrument part sets are now distributed digitally via Score Exchange.",
@@ -61,7 +64,8 @@
     },
     {
       "id": "publikasjon-av-nettsiden",
-      "date": "September 2026",
+      "date": "2026-09-26",
+      "displayDate": "",
       "category": "Website",
       "title": "Official Launch of geirsolerod.no",
       "teaser": "New official composer website launched featuring full works catalogue, audio samples, and score requests.",
