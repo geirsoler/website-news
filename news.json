@@ -1,24 +1,20 @@
 {
   "items": [
     {
-      "id": "velsigne-dette-land",
-      "date": "2026-09-14",
+      "id": "new-composer-website-launched",
+      "date": "2026-09-16",
       "displayDate": "September 2026",
-      "category": "Choir",
-      "title": "«Velsigne dette land»",
-      "teaser": "An earthbound, gently spiritual choral piece from the opera Marko og Adriane, well suited as an accessible concert work.",
-      "body": "«Velsigne dette land» (Bless This Land) is an intimate choral setting for SATB choir and piano, originating from the opera \"Marko og Adriane\".\n\nCharacterized by melodic warmth, flowing voice leading, and an unpretentious, contemplative spirit, the piece offers a serene blessing over nature, life, and community. With its accessible vocal range and gentle tempo, it works equally well as an evocative concert piece or an anthem of peace.",
+      "category": "Website",
+      "title": "New Composer Website and Works Catalogue Launched",
+      "teaser": "A dedicated home for orchestral works, concert band compositions, choral pieces, and upcoming news.",
+      "body": "Welcome to the new official website. Here you will find an up-to-date works catalogue with instrumentation details, audio samples, score video excerpts, and direct links to available sheet music editions.",
       "youtube": "",
-      "thumb": "/images/Velsigne dette land_thumbnail.jpg",
-      "image": "",
+      "thumb": "/images/Geir Solerød profilbilde 1_1.jpg",
+      "image": "/images/Geir Solerød profilbilde 1_1.jpg",
       "links": [
         {
-          "label": "Sheet Music on Score Exchange",
-          "url": "https://www.scoreexchange.com/profiles/geir-solerod"
-        },
-        {
-          "label": "View in Works Catalogue",
-          "url": "https://geirsolerod.no/catalogue#cat-choir"
+          "label": "Home",
+          "url": "https://geirsolerod.no/"
         }
       ]
     },
@@ -45,31 +41,9 @@
       ]
     },
     {
-      "id": "market-in-lydia",
-      "date": "2026-09-08",
-      "displayDate": "September 2026",
-      "category": "Concert Band",
-      "title": "«Market in Lydia» Available for Concert Band",
-      "teaser": "Movement II from Suite for Concert Band. A lively and spirited concert march in Grade 2.5.",
-      "body": "Movement II from Suite for Concert Band captures the vivid atmosphere and rhythmic energy of the market scenes. Designed to be both pedagogical and musically engaging for ensembles at Grade 2.5.",
-      "youtube": "XBfpxgsNHYQ",
-      "thumb": "/images/Market in Lydia_thumb.png",
-      "image": "",
-      "links": [
-        {
-          "label": "Sheet Music on Score Exchange",
-          "url": "https://www.scoreexchange.com/profiles/geir-solerod"
-        },
-        {
-          "label": "View in Works Catalogue",
-          "url": "https://geirsolerod.no/catalogue#cat-band"
-        }
-      ]
-    },
-    {
       "id": "sheet-music-available-on-score-exchange",
       "date": "2026-09-15",
-      "displayDate": "August 2026",
+      "displayDate": "September 2026",
       "category": "Sheet Music & Sales",
       "title": "Sheet Music Available on Score Exchange",
       "teaser": "Digital sheet music editions, complete study scores, and instrumental parts are now available for purchase and instant download.",
@@ -89,20 +63,46 @@
       ]
     },
     {
-      "id": "new-composer-website-launched",
-      "date": "2026-09-16",
-      "displayDate": "August 2026",
-      "category": "Website",
-      "title": "New Composer Website and Works Catalogue Launched",
-      "teaser": "A dedicated home for orchestral works, concert band compositions, choral pieces, and upcoming news.",
-      "body": "Welcome to the new official website. Here you will find an up-to-date works catalogue with instrumentation details, audio samples, score video excerpts, and direct links to available sheet music editions.",
+      "id": "velsigne-dette-land",
+      "date": "2026-09-14",
+      "displayDate": "September 2026",
+      "category": "Choir",
+      "title": "«Velsigne dette land»",
+      "teaser": "An earthbound, gently spiritual choral piece from the opera Marko og Adriane, well suited as an accessible concert work.",
+      "body": "«Velsigne dette land» (Bless This Land) is an intimate choral setting for SATB choir and piano, originating from the opera \"Marko og Adriane\".\n\nCharacterized by melodic warmth, flowing voice leading, and an unpretentious, contemplative spirit, the piece offers a serene blessing over nature, life, and community. With its accessible vocal range and gentle tempo, it works equally well as an evocative concert piece or an anthem of peace.",
       "youtube": "",
-      "thumb": "/images/Geir Solerød profilbilde 1_1.jpg",
-      "image": "/images/Geir Solerød profilbilde 1_1.jpg",
+      "thumb": "/images/Velsigne dette land_thumbnail.jpg",
+      "image": "",
       "links": [
         {
-          "label": "Home",
-          "url": "https://geirsolerod.no/"
+          "label": "Sheet Music on Score Exchange",
+          "url": "https://www.scoreexchange.com/profiles/geir-solerod"
+        },
+        {
+          "label": "View in Works Catalogue",
+          "url": "https://geirsolerod.no/catalogue#cat-choir"
+        }
+      ]
+    },
+    {
+      "id": "market-in-lydia",
+      "date": "2026-09-08",
+      "displayDate": "September 2026",
+      "category": "Concert Band",
+      "title": "«Market in Lydia» Available for Concert Band",
+      "teaser": "Movement II from Suite for Concert Band. A lively and spirited concert march in Grade 2.5.",
+      "body": "Movement II from Suite for Concert Band captures the vivid atmosphere and rhythmic energy of the market scenes. Designed to be both pedagogical and musically engaging for ensembles at Grade 2.5.",
+      "youtube": "XBfpxpxgsNHYQ",
+      "thumb": "/images/Market in Lydia_thumb.png",
+      "image": "",
+      "links": [
+        {
+          "label": "Sheet Music on Score Exchange",
+          "url": "https://www.scoreexchange.com/profiles/geir-solerod"
+        },
+        {
+          "label": "View in Works Catalogue",
+          "url": "https://geirsolerod.no/catalogue#cat-band"
         }
       ]
     }
