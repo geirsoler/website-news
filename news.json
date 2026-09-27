@@ -1,24 +1,6 @@
 {
   "items": [
     {
-      "id": "new-composer-website-launched",
-      "date": "2026-09-16",
-      "displayDate": "September 2026",
-      "category": "Website",
-      "title": "New Composer Website and Works Catalogue Launched",
-      "teaser": "A dedicated home for orchestral works, concert band compositions, choral pieces, and upcoming news.",
-      "body": "Welcome to the new official website. Here you will find an up-to-date works catalogue with instrumentation details, audio samples, score video excerpts, and direct links to available sheet music editions.",
-      "youtube": "",
-      "thumb": "/images/Geir Solerød profilbilde 1_1.jpg",
-      "image": "/images/Geir Solerød profilbilde 1_1.jpg",
-      "links": [
-        {
-          "label": "Home",
-          "url": "https://geirsolerod.no/"
-        }
-      ]
-    },
-    {
       "id": "victorys-desolation",
       "date": "2026-09-15",
       "displayDate": "September 2026",
@@ -103,6 +85,24 @@
         {
           "label": "View in Works Catalogue",
           "url": "https://geirsolerod.no/catalogue#cat-band"
+        }
+      ]
+    },
+        {
+      "id": "new-composer-website-launched",
+      "date": "2026-09-16",
+      "displayDate": "September 2026",
+      "category": "Website",
+      "title": "New Composer Website and Works Catalogue Launched",
+      "teaser": "A dedicated home for orchestral works, concert band compositions, choral pieces, and upcoming news.",
+      "body": "Welcome to the new official website. Here you will find an up-to-date works catalogue with instrumentation details, audio samples, score video excerpts, and direct links to available sheet music editions.",
+      "youtube": "",
+      "thumb": "/images/Geir Solerød profilbilde 1_1.jpg",
+      "image": "/images/Geir Solerød profilbilde 1_1.jpg",
+      "links": [
+        {
+          "label": "Home",
+          "url": "https://geirsolerod.no/"
         }
       ]
     }
