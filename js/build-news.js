@@ -299,6 +299,20 @@ function buildArticleHtml(item, year) {
             filter: brightness(0) !important;
         }
 
+        @media (max-width: 850px) {
+    .main-nav {
+        margin: 0 auto 0.6rem !important;
+    }
+
+    .article-wrapper {
+        margin-top: 1rem !important;
+    }
+
+    .back-nav {
+        margin-bottom: 1rem !important;
+    }
+}
+
         @media (max-width: 768px) {
             .main-nav {
                 top: 0;
