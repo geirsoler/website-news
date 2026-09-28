@@ -84,8 +84,8 @@
             padding: 0 1.5rem;
         }
 
-        /* Navigasjonslinje: Forrige / Alle nyheter / Neste */
-.news-nav-bar {
+        /* Navigasjonslinje: < Prev    All News     Next > */
+        .news-nav-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -182,34 +182,40 @@
             font-size: 1.02rem;
             line-height: 1.75;
             color: var(--text);
-            margin: 2rem 0;
+            margin: 2rem 0 0 0;
         }
 
         .article-body p {
             margin-bottom: 1.4rem;
         }
 
+        /* Ressursseksjon - Alternativ A: Ren redaksjonell stil */
+        .article-resources {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            background: transparent;
+        }
+
+        .resources-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #94a3b8;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+        }
+
         .article-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2.5rem;
-            padding-top: 1.8rem;
-            border-top: 1px solid var(--border);
+            gap: 0.8rem;
         }
 
-        .btn-primary .icon-score {
-            width: 14px;
-            height: 17px;
-            transform: translateY(1px);
-            filter: brightness(0) !important;
-        }
-
-        .btn-primary .icon-cat {
-            width: 14px;
-            height: 14px;
-            transform: translateY(0);
-            filter: brightness(0) !important;
+        .article-btn {
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
         }
 
         @media (max-width: 850px) {
@@ -243,34 +249,6 @@
             .single-article-card {
                 padding: 1.5rem;
             }
-        }
-        .article-resources {
-            margin-top: 2rem;
-            padding: 1.2rem 1.4rem;
-            background: rgba(12, 16, 21, 0.6);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-
-        .resources-label {
-            display: block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        .article-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .article-btn {
-            font-size: 0.85rem;
-            padding: 0.5rem 1rem;
         }
     </style>
 </head>
@@ -364,7 +342,7 @@
 
             
         <div class="article-resources">
-            <span class="resources-label">Score & Catalogue Links:</span>
+            <span class="resources-label">Score & Catalogue Links</span>
             <div class="article-links">
                 
                         <a href="https://geirsolerod.no/" class="btn btn-secondary article-btn" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem;">
