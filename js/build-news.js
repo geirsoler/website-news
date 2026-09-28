@@ -397,10 +397,22 @@ function buildArticleHtml(item, year) {
     </nav>
 
     <main class="article-wrapper">
-        <div class="back-nav">
-            <a href="../../news.html" class="back-link">&larr; Back to all news</a>
-        </div>
+<nav class="news-nav-bar" aria-label="News navigation">
+    <!-- Forrige sak (skjules eller deaktiveres hvis det er første sak) -->
+    <a href="/news/2026/forrige-sak.html" class="news-nav-btn news-nav-prev">
+        &larr; Prev.
+    </a>
 
+    <!-- Tilbake til oversikt -->
+    <a href="/news.html" class="news-nav-btn news-nav-all">
+        All News
+    </a>
+
+    <!-- Neste sak (skjules eller deaktiveres hvis det er siste sak) -->
+    <a href="/news/2026/neste-sak.html" class="news-nav-btn news-nav-next">
+        Next &rarr;
+    </a>
+</nav>
         <article class="single-article-card">
             <header>
                 <div class="article-meta">
