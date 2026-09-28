@@ -110,13 +110,13 @@ function buildArticleHtml(item, year, index, allItems) {
         nextBtnHtml = `<span class="news-nav-btn disabled" style="opacity: 0.3; cursor: default;">Next &gt;</span>`;
     }
 
-    const navBarHtml = `
-    <nav class="news-nav-btn" aria-label="News navigation">
+const navBarHtml = `
+    <nav class="news-nav-bar" aria-label="News navigation">
         ${prevBtnHtml}
-        <a href="../../news.html" class="news-nav-btn news-nav-all">All News</a>
+        <a href="../../news.html" class="news-nav-btn">All News</a>
         ${nextBtnHtml}
     </nav>`;
-
+    
     return `<!DOCTYPE html>
 <html lang="en">
 <head>

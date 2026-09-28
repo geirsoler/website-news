@@ -923,7 +923,10 @@ body.menu-open .nav-global {
         }
 
         .news-nav-btn {
-            color: var(--accent);
+            color: var(--accent) !important;
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -931,10 +934,10 @@ body.menu-open .nav-global {
         }
 
         .news-nav-btn:hover {
-            color: var(--accent-hover);
+            color: var(--accent-hover) !important;
             text-decoration: underline;
         }
-
+        
 .news-nav-all {
     color: var(--text-bright);
     background: var(--card-bg, rgba(255, 255, 255, 0.05));
