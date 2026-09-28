@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geir Solerød | Composer & Arranger</title>
+  <meta name="description" content="Official website of Norwegian composer Geir Solerød. Symphonic, stage, concert band, and choral music.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c1015;
+      --card-bg: #141a22;
+      --card-bg-light: #1c2430;
+      --border: #283342;
+      --text: #c5d1de;
+      --text-bright: #f0f6fc;
+      --accent: #c49a45;
+      --accent-hover: #dbb057;
+      --btn-bg: #1f2733;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    header {
+      padding: 5rem 1.5rem 3.5rem;
+      text-align: center;
+      background: linear-gradient(180deg, #141a22 0%, #0c1015 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.85rem;
+      color: var(--text-bright);
+      letter-spacing: 2px;
+      margin-bottom: 0.4rem;
+    }
+    .subtitle {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
+    }
+    section { margin-bottom: 5rem; }
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.75rem;
+      color: var(--text-bright);
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.6rem;
+      letter-spacing: 1px;
+    }
+    h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin: 2rem 0 1rem;
+    }
+    /* Bio Layout */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 2.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .bio-image {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+    .bio-content {
+      padding: 2.5rem 2.5rem 2.5rem 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+    @media (max-width: 820px) {
+      .bio-grid { grid-template-columns: 1fr; }
+      .bio-content { padding: 2rem; }
+      .bio-image { height: 420px; }
+    }
+    /* Works & Cards */
+    .work-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2.2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .work-title {
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 0.25rem;
+    }
+    .work-meta {
+      color: var(--accent);
+      font-size: 0.92rem;
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      background: #000;
+      border: 1px solid var(--border);
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+    .score-previews {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .score-thumb {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .score-thumb:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+    .score-thumb img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .score-caption {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      padding: 0.5rem 0.75rem;
+      background: var(--card-bg-light);
+      text-align: center;
+      font-weight: 500;
+    }
+    /* Fixed Piano Atmosphere Banner */
+    .studio-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .studio-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      object-position: center 65%;
+      display: block;
+      filter: brightness(0.9);
+    }
+    .studio-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem 2.5rem 2rem;
+      background: linear-gradient(180deg, transparent 0%, rgba(12, 16, 21, 0.95) 75%);
+      color: var(--text-bright);
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.92rem;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0c1015;
+      font-weight: 600;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-secondary {
+      background: var(--btn-bg);
+      color: var(--text-bright);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--accent); }
+    /* Contact Form */
+    form {
+      display: grid;
+      gap: 1.2rem;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.85rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-bright);
+      font-family: inherit;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    footer {
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Geir Solerød</h1>
+    <div class="subtitle">Composer & Arranger</div>
+  </header>
+
+  <main class="container">
+    
+<!-- Top Bio (Executive Summary) -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="bio-grid">
+        <img src="img/profile.jpg" alt="Geir Solerød" class="bio-image">
+        <div class="bio-content">
+          <p>Geir Solerød is a Norwegian composer, arranger, and conductor. His output spans large-scale symphonic works, musical theater, concert band compositions, and choral music.</p>
+          <p>Guided by melodic clarity, rich harmonic textures, and organic momentum, his music balances artistic depth with rewarding playability for performing ensembles.</p>
+<div class="btn-group">
+            <a href="#works" class="btn btn-primary">Selected Works</a>
+            <a href="https://www.facebook.com/gsun.music" target="_blank" rel="noopener" class="btn btn-secondary">News & Updates (Facebook)</a>
+            <a href="https://www.jwpepper.com/myscore/geirsolerod" target="_blank" rel="noopener" class="btn btn-secondary">JW Pepper Store</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Works / Catalogue -->
+    <section id="works">
+      <h2>Selected Works & Catalogue</h2>
+
+      <!-- 1. Concert Band -->
+      <h3>Concert Band & Wind Ensembles</h3>
+      
+      <div class="work-card">
+        <div class="work-title">Market in Lydia</div>
+        <div class="work-meta">Concert Band / Wind Ensemble • Grade 2.5–3 (Medium / Easy) • Duration: ca. 2:45</div>
+        <p>An energetic, festive character piece extracted as Part 2 from the <em>Suite for Concert Band</em> (based on the opera-musical <em>Marko and Adriane</em>). The piece paints a bustling town square arrival with buoyant 12/8 rhythms, sparkling woodwind runs, rich brass textures, and a joyful procession fanfare. Designed with flexible orchestration suitable for standard and smaller ensembles.</p>
+        
+        <div class="video-container">
+          <iframe src="https://www.youtube-nocookie.com/embed/XBfpxgsNHYQ" title="Market in Lydia - ScoreVideo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="score-previews">
+          <a href="img/score-page1.png" target="_blank" class="score-thumb" title="Click to view instrumentation & notes">
+            <img src="img/score-page1.png" alt="Market in Lydia - Instrumentation">
+            <div class="score-caption">Instrumentation & Program Notes (View)</div>
+          </a>
+          <a href="img/score-page2.png" target="_blank" class="score-thumb" title="Click to view score spread">
+            <img src="img/score-page2.png" alt="Market in Lydia - Full Score Excerpt">
+            <div class="score-caption">Full Score Spread Excerpt (View)</div>
+          </a>
+        </div>
+
+        <div class="btn-group">
+          <a href="https://www.jwpepper.com/myscore/geirsolerod" target="_blank" rel="noopener" class="btn btn-primary">Sheet Music & Parts (JW Pepper)</a>
+          <a href="#contact" class="btn btn-secondary">Inquire About This Work</a>
+        </div>
+      </div>
+
+<!-- 2. Symphonic / Major Works -->
+      <h3>Symphonic & Orchestral Works</h3>
+
+      <div class="work-card">
+        <div class="work-title">Symphony No. 1</div>
+        <div class="work-meta">Full Symphony Orchestra • Three Movements • Duration: ca. 35 min</div>
+        <p>A substantial orchestral work structured across three expansive movements. Rather than adhering strictly to traditional symphonic forms, the piece unfolds organically—anchored by distinct core themes interwoven with freer episodic ideas. Lyrical melodic lines and rich harmonic warmth are juxtaposed with moments of rhythmic propulsion, dramatic weight, and Beethovenian drive.</p>
+        <div class="btn-group">
+          <a href="#contact" class="btn btn-secondary">Request Perusal Score / Performance Materials</a>
+        </div>
+      </div>
+
+<!-- 3. Stage & Opera-Musical -->
+      <h3>Stage & Dramatic Works</h3>
+
+      <div class="work-card">
+        <div class="work-title">Marko and Adriane</div>
+        <div class="work-meta">Opera-Musical • 10 Soloists, Choir, Chamber Orchestra & Dance Ensemble</div>
+        <p>A full-scale dramatic stage work fusing lyrical vocal storytelling, choral grandeur, and vivid theatrical orchestration. Excerpts received their premiere at Villa Lunde in 2022 under the direction of Jakob Zethner. The rich thematic material also serves as the foundation for instrumental suites and concert band adaptations.</p>
+        <div class="btn-group">
+          <a href="#contact" class="btn btn-secondary">Inquire for Staging & Score Materials</a>
+        </div>
+      </div>
+
+<!-- 4. Choral & Vocal -->
+      <h3>Choral & Vocal Music</h3>
+
+      <div class="work-card">
+        <div class="work-title">Choral Works & Anthems</div>
+        <div class="work-meta">Mixed Choir (SATB) / A Cappella & Accompanied</div>
+        <p>Expressive sacred and secular choral pieces emphasizing natural vocal phrasing, rich voice leading, and evocative textual setting. Explore available choral scores directly in the catalog.</p>
+        <div class="btn-group">
+          <a href="https://www.jwpepper.com/myscore/geirsolerod" target="_blank" rel="noopener" class="btn btn-primary">View Choral Catalog (JW Pepper)</a>
+          <a href="#contact" class="btn btn-secondary">Inquire for Perusal Scores</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Studio / Atmosphere Banner -->
+    <div class="studio-card">
+      <img src="img/piano.jpg" alt="Geir Solerød composing at the piano" class="studio-img">
+      <div class="studio-overlay">
+        "Music shaped by emotional honesty, clarity of line, and acoustic color."
+      </div>
+    </div>
+	
+	<!-- In-Depth Biography & Background -->
+    <section id="biography">
+      <h2>Biography & Background</h2>
+      
+      <div class="work-card" style="margin-bottom: 2rem;">
+        <h3 style="margin-top: 0;">Artistic Background & Profile</h3>
+        <p style="margin-bottom: 1rem;">With decades of practical experience across wind bands, orchestras, and choirs as both an active instrumentalist and conductor, Geir Solerød writes with an intimate, firsthand understanding of acoustic balance, voicing, and ensemble dynamics. His compositional craftsmanship focuses on providing each instrumental voice with meaningful melodic purpose while constructing engaging, large-scale musical narratives.</p>
+        <p>In addition to concert and theatrical works, his exploratory music and independent projects delve into ambient, modal, and textural soundscapes.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div class="work-card" style="margin-bottom: 0;">
+          <h3 style="margin-top: 0; font-size: 1.15rem;">Education & Musical Studies</h3>
+          <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
+            <li><strong>Composition & Orchestration:</strong> Independent & score studies</li>
+            <li><strong>Conducting:</strong> Ensemble and band leadership</li>
+            <li><strong>Clarinet & Instrumental Studies:</strong> Performance practice</li>
+          </ul>
+        </div>
+<div class="work-card" style="margin-bottom: 0;">
+          <h3 style="margin-top: 0; font-size: 1.15rem;">Key Milestones</h3>
+          <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
+            <li><strong>2022:</strong> Premiere excerpts of <em>Marko & Adriane</em> (Villa Lunde)</li>
+            <li><strong>Major Works:</strong> <em>Symphony No. 1</em> (3 movements, 35 min)</li>
+            <li><strong>2026:</strong> <em>Suite for Concert Band</em> (5 pieces from <em>Marko and Adriane</em>)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Other Projects / Bandcamp -->
+      <div class="work-card">
+        <div class="work-title">Exploratory & Independent Projects</div>
+        <div class="work-meta">Ambient • Textural • Studio Recordings</div>
+        <p>Parallel to acoustic and concert works, exploratory releases, arrangements, and experimental audio projects are cataloged on Bandcamp.</p>
+        <div class="btn-group">
+          <a href="https://geirsolerod.bandcamp.com/" target="_blank" rel="noopener" class="btn btn-secondary">Visit Bandcamp Archive</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact & Inquiries</h2>
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
+        <div>
+          <label for="name" style="display:block; margin-bottom:0.4rem; font-weight:500;">Name / Ensemble / Organization</label>
+          <input type="text" id="name" name="name" required placeholder="Your name or organization">
+        </div>
+        <div>
+          <label for="email" style="display:block; margin-bottom:0.4rem; font-weight:500;">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div>
+          <label for="message" style="display:block; margin-bottom:0.4rem; font-weight:500;">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Score perusal requests, concert inquiries, or commissions..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="cursor:pointer; border:none;">Send Message</button>
+      </form>
+    </section>
+	
+	<footer>
+    <div style="margin-bottom: 1.25rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+      <a href="https://www.facebook.com/gsun.music" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Facebook / News</a>
+      <span style="color: var(--border);">•</span>
+      <a href="https://www.jwpepper.com/myscore/geirsolerod" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">JW Pepper Catalog</a>
+      <span style="color: var(--border);">•</span>
+      <a href="https://geirsolerod.bandcamp.com/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Bandcamp</a>
+    </div>
+    <p>&copy; 2026 Geir Solerød. All rights reserved.</p>
+  </footer>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Geir Solerød. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

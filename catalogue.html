@@ -1,0 +1,1205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Works &amp; Catalogue | Geir Soler&oslash;d</title>    <meta name="description" content="Complete catalogue of works by Norwegian composer and lyricist Geir Soler&oslash;d. Symphonic, concert band, stage, choral, and vocal music.">
+    <meta name="author" content="Geir Soler&oslash;d">
+    <link rel="canonical" href="https://geirsolerod.no/catalogue.html">
+    <link rel="icon" type="image/svg+xml" href="my-favicons/favicon.svg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Felles CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Sidespesifikk CSS for Katalog og Tabeller -->
+    <style>
+        h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            color: var(--text-bright);
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        /* Kontrollert brekkpunkt for mobil header */
+        .mobile-br {
+            display: none;
+        }
+
+        .desktop-bullet {
+            display: inline;
+        }
+
+        /* Svevende kapsel-meny (Desktop) */
+        .nav-wrapper {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+            width: 100%;
+            max-width: 580px;
+            margin: 1.4rem auto 1rem;
+            background: rgba(15, 20, 26, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+            overflow: visible;
+        }
+
+        .nav-global {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.55rem 1.4rem;
+            width: 100%;
+        }
+
+        .nav-global a {
+            color: var(--text-bright);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-global a:hover {
+            color: var(--accent);
+        }
+
+        /* Pil opp – identisk styling med Home-lenken */
+        .nav-jump-top {
+            font-size: 1.1rem;
+            line-height: 1;
+            padding: 0 0.5rem;
+            color: var(--text-bright);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-jump-top:hover {
+            color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 8.5rem;
+        }
+
+        h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.75rem;
+            color: var(--text-bright);
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            letter-spacing: 0.6px;
+            font-weight: 600;
+        }
+
+        /* Tabeller (Desktop / Standard) */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.88rem;
+        }
+
+        th, td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        th {
+            background: rgba(28, 36, 48, 0.6);
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.76rem;
+            letter-spacing: 0.8px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        td.title-cell {
+            color: var(--text-bright);
+            font-weight: 600;
+        }
+
+        td.title-cell span.subtext {
+            display: block;
+            font-size: 0.80rem;
+            color: #94a3b8;
+            font-weight: 400;
+            margin-top: 0.2rem;
+        }
+
+        /* Accordion / Foldable styling */
+        .suite-accordion summary.suite-summary {
+            cursor: pointer;
+            padding: 0.75rem 1.2rem;
+            background: rgba(22, 29, 39, 0.7);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: var(--accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+
+        .suite-accordion summary.suite-summary:hover {
+            background: rgba(196, 154, 69, 0.1);
+        }
+
+        .suite-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .suite-accordion[open] .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-icon {
+            font-size: 1.2rem;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+
+        /* Badges for satser */
+        .mvt-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: #94a3b8;
+            font-size: 0.74rem;
+            font-weight: 500;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 2.5rem 1.5rem 1rem;
+        }
+
+        /* ===================================================
+           Tablet (iPad 820px) – Eksakt match mot index.html
+           =================================================== */
+        @media (max-width: 850px) {
+            header {
+                padding: 1.8rem 1rem 1rem !important;
+            }
+
+            .nav-wrapper {
+                margin: 0 auto 0.6rem !important;
+            }
+
+            .container {
+                padding: 0.6rem 1rem 3rem !important;
+            }
+
+            .inpage-nav-row {
+                margin: 0 0 0.8rem 0 !important;
+                padding-bottom: 0.2rem !important;
+            }
+
+            section {
+                margin-bottom: 2.5rem !important;
+                scroll-margin-top: 6.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem !important;
+            }
+        }
+
+        /* ===================================================
+           Mobil (Under 768px – Flat list og tabell som kort)
+           =================================================== */
+        @media (max-width: 768px) {
+            .mobile-br {
+                display: inline;
+            }
+
+            .desktop-bullet {
+                display: none;
+            }
+
+            h1 {
+                font-size: 1.85rem;
+                line-height: 1.2;
+                letter-spacing: 0.5px;
+            }
+
+            .subtitle {
+                font-size: 0.78rem;
+                letter-spacing: 1.5px;
+                line-height: 1.45;
+                margin-top: 0.3rem;
+            }
+
+            h2 {
+                font-size: 1.45rem !important;
+                margin-bottom: 1.1rem;
+            }
+
+            .nav-wrapper {
+                top: 0;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                border-left: none !important;
+                border-right: none !important;
+                border-top: none !important;
+                border-bottom: 1px solid var(--border) !important;
+                padding: 0.65rem 1rem !important;
+                margin: 0 0 0.5rem 0 !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-global {
+                padding: 0;
+            }
+
+            .nav-global a {
+                font-size: 0.75rem;
+            }
+
+            .container {
+                padding: 0.4rem 0.8rem 3rem !important;
+            }
+
+            .inpage-nav-row {
+                margin: 0 0 1.2rem 0 !important;
+            }
+
+            .table-responsive {
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                overflow-x: visible;
+                margin-bottom: 1rem;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                background: var(--card-bg);
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                padding: 0.9rem 1rem;
+                margin-bottom: 0.85rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            tr:hover td {
+                background: transparent;
+            }
+
+            td {
+                padding: 0.25rem 0 !important;
+                border: none !important;
+                font-size: 0.85rem;
+                color: var(--text);
+            }
+
+            td.title-cell {
+                font-size: 1rem;
+                color: var(--text-bright);
+                margin-bottom: 0.35rem;
+                padding-left: 0 !important;
+            }
+
+            td.title-cell span.subtext {
+                font-size: 0.82rem;
+                margin-top: 0.2rem;
+            }
+
+            tr td:nth-child(2)::before {
+                content: "Year: ";
+                color: #94a3b8;
+                font-size: 0.76rem;
+            }
+
+            tr td:nth-child(3)::before {
+                content: "Ensemble: ";
+                color: #94a3b8;
+                font-size: 0.76rem;
+            }
+
+            tr td:nth-child(4)::before {
+                content: "Duration: ";
+                color: #94a3b8;
+                font-size: 0.76rem;
+            }
+
+            tr td:last-child {
+                margin-top: 0.5rem;
+                padding-top: 0.4rem !important;
+                border-top: 1px dashed rgba(255, 255, 255, 0.08) !important;
+            }
+
+            /* Hindrer lenkene i tabellkortene fra å bli heldekkende bjelker */
+            td:last-child .table-link {
+                display: inline-flex !important;
+                width: fit-content !important;
+                padding: 0.35rem 0.6rem;
+                border-radius: 4px;
+                background: rgba(196, 154, 69, 0.08);
+            }
+
+            .footer-cta .btn {
+                display: inline-flex !important;
+                width: auto !important;
+                margin: 0.3rem !important;
+            }
+
+            .suite-accordion summary.suite-summary {
+                border-radius: 8px;
+                font-size: 0.80rem;
+                padding: 0.65rem 0.8rem;
+            }
+
+            .suite-movements-table table tr {
+                background: var(--card-bg-light);
+                margin: 0.6rem 0;
+                padding: 0.75rem 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="top">
+        <h1>Works Catalogue</h1>
+        <div class="subtitle">Geir Soler&oslash;d <span class="desktop-bullet">&bull;</span><br class="mobile-br"> Composer, Lyricist &amp; Arranger</div>
+    </header>
+
+    <!-- Sticky Global Navigation -->
+    <nav class="nav-wrapper" id="main-nav">
+        <div class="nav-global">
+            <a href="index.html" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+                <img src="svg/home-svgrepo-com.svg" alt="Home" class="table-icon icon-home">
+                <span>Home</span>
+            </a>
+
+            <!-- Subtil pil opp -->
+            <a href="#top" class="nav-jump-top" title="Scroll to top" aria-label="Jump to top">&uarr;</a>
+
+            <!-- Global Hamburgermeny -->
+            <div class="menu-dropdown-wrapper">
+                <button id="menu-btn" class="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
+                <div id="dropdown-menu" class="dropdown-menu">
+                    <div class="dropdown-header">Pages</div>
+                    <a href="index.html" class="dropdown-item">
+                        <img src="svg/home-svgrepo-com.svg" alt="Home" class="table-icon icon-home">
+                        <span>Home</span>
+                    </a>
+                    <a href="catalogue.html" class="dropdown-item active-page">
+                        <img src="svg/bulleted-list-catalogue-svgrepo-com.svg" alt="Catalogue" class="table-icon icon-cat">
+                        <span>Complete Catalogue</span>
+                    </a>
+                    <a href="news.html" class="dropdown-item">
+    <img src="svg/chat-bubble-sign-svgrepo-com.svg" alt="News" class="table-icon icon-news">
+    <span>News & Updates</span>
+</a>
+
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-header">Catalogue Categories</div>
+                    <a href="#cat-orchestra" class="dropdown-item">Orchestra</a>
+                    <a href="#cat-band" class="dropdown-item">Concert Band</a>
+                    <a href="#cat-stage" class="dropdown-item">Stage Works</a>
+                    <a href="#cat-choir" class="dropdown-item">Choral Music</a>
+                    <a href="#cat-theatre" class="dropdown-item">Children's Theatre</a>
+                    <a href="#cat-songs" class="dropdown-item">Songwriting &amp; Studio</a>
+
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-header">Inquiries</div>
+                    <a href="index.html#contact" class="dropdown-item">
+                        <img src="svg/email-svgrepo-com.svg" alt="Contact" class="table-icon icon-email">
+                        <span>Contact / Score Request</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- In-page Filterrad -->
+        <div class="inpage-nav-row" id="cat-nav">
+            <a href="#cat-orchestra" class="inpage-nav-btn" title="Jump to Symphonic &amp; Orchestral works">Orchestra</a>
+            <a href="#cat-band" class="inpage-nav-btn" title="Jump to Concert Band works">Band</a>
+            <a href="#cat-stage" class="inpage-nav-btn" title="Jump to Stage &amp; Dramatic works">Stage</a>
+            <a href="#cat-choir" class="inpage-nav-btn" title="Jump to Choral works">Choir</a>
+            <a href="#cat-theatre" class="inpage-nav-btn" title="Jump to Children's Theatre">Theatre</a>
+            <a href="#cat-songs" class="inpage-nav-btn" title="Jump to Songwriting &amp; Studio releases">Songs</a>
+        </div>
+
+        <!-- 1. ORKESTER -->
+        <section id="cat-orchestra">
+            <h2>Symphonic &amp; Orchestral Works</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 34%;">Title / Description</th>
+                            <th style="width: 10%;">Year</th>
+                            <th style="width: 26%;">Instrumentation</th>
+                            <th style="width: 12%;">Duration</th>
+                            <th style="width: 18%;">Materials / Scores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="title-cell">
+                                Symphony No. 1
+                                <span class="subtext">Three movements. Organic core themes &amp; episodic flow.</span>
+                            </td>
+                            <td>2024–26</td>
+                            <td>Full Symphony Orchestra</td>
+                            <td>ca. 35 min</td>
+                            <td>
+                                <a href="index.html?subject=Score%20Request:%20Symphony%20No.%201#contact"
+                                   class="table-link"
+                                   title="Request perusal score for conductor study">
+                                    Perusal Score
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 2. KORPS / CONCERT BAND -->
+        <section id="cat-band">
+            <h2>Concert Band &amp; Wind Ensembles</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 34%;">Title / Description</th>
+                            <th style="width: 10%;">Year</th>
+                            <th style="width: 26%;">Instrumentation &amp; Level</th>
+                            <th style="width: 12%;">Duration</th>
+                            <th style="width: 18%;">Materials / Scores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(196, 154, 69, 0.06);">
+                            <td class="title-cell">
+                                <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+                                    <span>Suite for Concert Band</span>
+                                </div>
+                                <span class="subtext">Complete 5-movement suite based on themes from the opera-musical <em>Marko and Adriane</em>.</span>
+                            </td>
+                            <td>2024–26</td>
+                            <td>Concert Band<br><span style="color:#94a3b8; font-size:0.8rem;">Grade 2.5–3.5 (Medium)</span></td>
+                            <td>ca. 19 min</td>
+                            <td>
+                                <a href="index.html?subject=Inquiry:%20Suite%20for%20Concert%20Band#contact"
+                                   class="table-link"
+                                   title="Contact composer for full concert band suite score and parts">
+                                    Inquire / Full Suite
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="5" style="padding: 0; border-bottom: none;">
+                                <details class="suite-accordion">
+                                    <summary class="suite-summary">
+                                        <span>Suite Movements (1–5) &bull; Details &amp; Individual Scores</span>
+                                        <span class="accordion-icon">&plus;</span>
+                                    </summary>
+                                    <div class="suite-movements-table">
+                                        <table style="width: 100%; border: none; background: transparent;">
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    <div style="display:flex; align-items:flex-start; gap:0.75rem;">
+                                                        <span class="mvt-badge">1</span>
+                                                        <div>
+                                                            Overture
+                                                            <span class="subtext">Potpurri over central themes.</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td style="width: 10%;">2026</td>
+                                                <td style="width: 26%;">Concert Band &bull; Grade 3.5</td>
+                                                <td style="width: 12%;">ca. 5m 30s</td>
+                                                <td style="width: 18%;">
+                                                    <a href="index.html?subject=Score%20Request:%20Suite%201.%20Overture#contact"
+                                                       class="table-link"
+                                                       title="Request score for Suite Mvt. 1 Overture">
+                                                        Request Score
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <!-- Market in Lydia -->
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    <div style="display:flex; align-items:flex-start; gap:0.75rem;">
+                                                        <span class="mvt-badge">2</span>
+                                                        <div>
+                                                            Market in Lydia
+                                                            <span class="subtext">Lively march. Premiered October 2025 with Ulefoss Musikkorps. Available as standalone score.</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td style="width: 10%;">2025</td>
+                                                <td style="width: 26%;">Concert Band &bull; Grade 2.5</td>
+                                                <td style="width: 12%;">ca. 2 min</td>
+                                                <td style="width: 18%;">
+                                                    <div style="display: flex; flex-direction: column; gap: 0.4rem; align-items: flex-start;">
+                                                        <a href="https://www.youtube.com/watch?v=XBfpxgsNHYQ"
+                                                           target="_blank"
+                                                           rel="noopener"
+                                                           class="table-link"
+                                                           title="Watch score video on YouTube">
+                                                            <img src="svg/Video1.svg" alt="Video" class="table-icon icon-video">
+                                                            <span>Score Video</span>
+                                                        </a>
+
+                                                        <a href="https://www.scoreexchange.com/scores/market-in-lydia-692166.html"
+                                                           target="_blank"
+                                                           rel="noopener"
+                                                           class="table-link"
+                                                           title="View and purchase sheet music on Score Exchange">
+                                                            <img src="svg/C-clef.svg" alt="Score" class="table-icon icon-score">
+                                                            <span>Score Exchange</span>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    <div style="display:flex; align-items:flex-start; gap:0.75rem;">
+                                                        <span class="mvt-badge">3</span>
+                                                        <div>
+                                                            Victory's Desolation
+                                                            <span class="subtext">Dramatic concert piece. Premiered with Ulefoss Musikkorps March 2025. Available as standalone score.</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td style="width: 10%;">2025–26</td>
+                                                <td style="width: 26%;">Concert Band &bull; Grade 3.5</td>
+                                                <td style="width: 12%;">ca. 4 min</td>
+                                                <td style="width: 18%;">
+                                                    <div style="display: flex; flex-direction: column; gap: 0.4rem; align-items: flex-start;">
+                                                        <a href="https://youtu.be/kNKM3Q06l2I"
+                                                           target="_blank"
+                                                           rel="noopener"
+                                                           class="table-link"
+                                                           title="Watch score video on YouTube">
+                                                            <img src="svg/Video1.svg" alt="Video" class="table-icon icon-video">
+                                                            <span>Score Video</span>
+                                                        </a>
+
+                                                        <a href="https://www.scoreexchange.com/scores/victorys-desolation-692650.html"
+                                                           target="_blank"
+                                                           rel="noopener"
+                                                           class="table-link"
+                                                           title="View and purchase sheet music on Score Exchange">
+                                                            <img src="svg/C-clef.svg" alt="Score" class="table-icon icon-score">
+                                                            <span>Score Exchange</span>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    <div style="display:flex; align-items:flex-start; gap:0.75rem;">
+                                                        <span class="mvt-badge">4</span>
+                                                        <div>
+                                                            Homecoming Dulicia
+                                                            <span class="subtext">Lively march.</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td style="width: 10%;">2024–26</td>
+                                                <td style="width: 26%;">Concert Band &bull; Grade 2.5</td>
+                                                <td style="width: 12%;">ca. 1m 30s</td>
+                                                <td style="width: 18%;">
+                                                    <a href="index.html?subject=Score%20Request:%20Homecoming%20Dulicia#contact"
+                                                       class="table-link"
+                                                       title="Request score for Homecoming Dulicia">
+                                                        Request Score
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    <div style="display:flex; align-items:flex-start; gap:0.75rem;">
+                                                        <span class="mvt-badge">5</span>
+                                                        <div>
+                                                            Finale
+                                                            <span class="subtext">Symphonic concert finale.</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td style="width: 10%;">2024–26</td>
+                                                <td style="width: 26%;">Concert Band &bull; Grade 3.5</td>
+                                                <td style="width: 12%;">ca. 5m 30s</td>
+                                                <td style="width: 18%;">
+                                                    <a href="index.html?subject=Score%20Request:%20Suite%20Finale#contact"
+                                                       class="table-link"
+                                                       title="Request score for Suite Finale">
+                                                        Request Score
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </details>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. SCENE & OPERA-MUSIKAL -->
+        <section id="cat-stage">
+            <h2>Stage &amp; Dramatic Works</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 34%;">Title / Description</th>
+                            <th style="width: 10%;">Year</th>
+                            <th style="width: 26%;">Cast &amp; Ensemble</th>
+                            <th style="width: 12%;">Duration</th>
+                            <th style="width: 18%;">Materials / Scores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(196, 154, 69, 0.06);">
+                            <td class="title-cell">
+                                Marko and Adriane
+                                <span class="subtext">Opera-musical in 2 acts. Libretto &amp; score by Geir Soler&oslash;d. Complete production edition.</span>
+                            </td>
+                            <td>2022 / Rev. 2023</td>
+                            <td>10 Soloists, Choir (SATB), Chamber Orch (Ob/E.Hn, Vln, Pno) &amp; Dance</td>
+                            <td>ca. 2 timer</td>
+                            <td>
+                                <a href="index.html?subject=Inquiry:%20Marko%20and%20Adriane%20(Full%20Staging)#contact"
+                                   class="table-link"
+                                   title="Inquire about complete production score and orchestral parts">
+                                    Full Score &amp; Materials
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr style="background: rgba(28, 36, 48, 0.4);">
+                            <td class="title-cell" style="padding-left: 1.5rem;">
+                                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                                    <span class="mvt-badge" style="font-size: 0.64rem; font-weight: 600; letter-spacing: 0.3px;">PV</span>
+                                    <div>
+                                        Piano / Vocal Score (Klaveruttog)
+                                        <span class="subtext">Complete piano reduction in 2 volumes.</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Rev. 2023</td>
+                            <td>Voices, SATB &amp; Piano</td>
+                            <td></td>
+                            <td>
+                                <a href="index.html?subject=Order%20Printed%20Scores:%20Marko%20and%20Adriane%20(Piano/Vocal)#contact"
+                                   class="table-link"
+                                   title="Order physical printed 2-volume piano/vocal edition">
+                                    Order Print Edition
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="5" style="padding: 0; border-bottom: none;">
+                                <details class="suite-accordion">
+                                    <summary class="suite-summary">
+                                        <span>Selected Scenes, Arias, Duets &amp; Choral Numbers</span>
+                                        <span class="accordion-icon">&plus;</span>
+                                    </summary>
+                                    <div class="suite-movements-table">
+                                        <table style="width: 100%; border: none; background: transparent;">
+                                            <tr style="background: rgba(15, 20, 26, 0.6);"><td colspan="5" style="font-size:0.75rem; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.6px; padding:0.4rem 1rem;">— Act 1 Highlights —</td></tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 1–9 Åpning (Opening Scene)
+                                                    <span class="subtext">Ensemble &bull; Premiered at Villa Lunde (2022).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Solos, Duets &amp; SATB</td>
+                                                <td style="width: 12%;">ca. 9 min</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Marko%20and%20Adriane%20-%20Opening%20Scene#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 15 Gyllen drøm
+                                                    <span class="subtext">Duet (Adriane &amp; Marko) &bull; Premiered at Villa Lunde (2022).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Soprano &amp; Tenor</td>
+                                                <td style="width: 12%;">ca. 1m 30s</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Gyllen%20dr%C3%B8m#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 18 Jordens elementer
+                                                    <span class="subtext">Dramatic Choral Scene (Jordskredet) &bull; Also declamation/piano version.</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Chorus SATB</td>
+                                                <td style="width: 12%;">ca. 1m 30s</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Jordens%20elementer#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 27 Jeg plukker blomster
+                                                    <span class="subtext">Aria (Adriane) &bull; Premiered at Villa Lunde (2022). Available for Soprano/Mezzo.</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Soprano / Mezzo-Soprano</td>
+                                                <td style="width: 12%;">ca. 2 min</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Jeg%20plukker%20blomster#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 29 Gudenes døtre
+                                                    <span class="subtext">Aria &amp; Chorus (Dronning Ayabe &amp; Choir).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Mezzo-Soprano &amp; SATB</td>
+                                                <td style="width: 12%;">ca. 3 min</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Gudenes%20d%C3%B8tre#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 31 Fly som en fugl
+                                                    <span class="subtext">Duet (Adriane &amp; Loriel) &bull; Premiered at Villa Lunde (2022).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Soprano &amp; Baritone</td>
+                                                <td style="width: 12%;">ca. 4 min</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Fly%20som%20en%20fugl#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 34 Jeg går til striden
+                                                    <span class="subtext">Duet (Adriane &amp; Loriel) &bull; Premiered at Villa Lunde (2022).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Soprano &amp; Baritone</td>
+                                                <td style="width: 12%;">ca. 2m 30s</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Jeg%20g%C3%A5r%20til%20striden#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 39 En ekte mann
+                                                    <span class="subtext">Humoristic Aria (Marko) &bull; Premiered at Villa Lunde (2022).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Tenor / Baritone</td>
+                                                <td style="width: 12%;">ca. 1m 30s</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20En%20ekte%20mann#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 44 Seierens nederlag (Act 1 Finale)
+                                                    <span class="subtext">Dramatic Finale, Ensemble &bull; Premiered at Villa Lunde (2022).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Soloists (Marko, Rami, Angelica) &amp; SATB</td>
+                                                <td style="width: 12%;">ca. 4 min</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Seierens%20nederlag#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr style="background: rgba(15, 20, 26, 0.6);"><td colspan="5" style="font-size:0.75rem; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.6px; padding:0.4rem 1rem;">— Act 2 Highlights —</td></tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 46 Ro min båt
+                                                    <span class="subtext">Aria &amp; Choral Hymn &bull; Premiered at Villa Lunde (2022).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Soprano (Angelica/Child solo) &amp; SATB</td>
+                                                <td style="width: 12%;">ca. 2 min</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Ro%20min%20b%C3%A5t#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 48 Stjernene skinner i natt
+                                                    <span class="subtext">Aria (Zoroaster).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Baritone / Bass</td>
+                                                <td style="width: 12%;">ca. 2 min</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Stjernene%20skinner%20i%20natt#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 54 Orfie besøker Marko
+                                                    <span class="subtext">Scene with Arias (Orfie) (<em>Sverdet har en dobbel egg</em>, <em>Livet er en liten fugl</em>) &bull; Villa Lunde (2022).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Mezzo-Soprano &amp; Tenor</td>
+                                                <td style="width: 12%;">ca. 5 min</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Orfie%20bes%C3%B8ker%20Marko#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 68 Du er min engel (Vinduet)
+                                                    <span class="subtext">Duet &amp; Waltz (Adriane &amp; Marko) &bull; Premiered at Villa Lunde (2022).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Soprano &amp; Tenor</td>
+                                                <td style="width: 12%;">ca. 2 min</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Du%20er%20min%20engel#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 77 Nøkkelen er inni deg
+                                                    <span class="subtext">Duet (Orfie &amp; Rami) &bull; Performed at Villa Lunde 2022 and book launch 2023.</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Mezzo-Soprano &amp; Baritone</td>
+                                                <td style="width: 12%;">ca. 2m 30s</td>
+                                                <td style="width: 18%;">
+                                                    <a href="index.html?subject=Score%20Request:%20N%C3%B8kkelen%20er%20inni%20deg#contact" class="table-link">Request Score</a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
+                                                    No. 84–86 Finale
+                                                    <span class="subtext">Includes <em>Zoroasters tale</em>, <em>Gloriakor II</em>, and <em>Når tiden er forbi</em> &bull; Villa Lunde (2022).</span>
+                                                </td>
+                                                <td style="width: 10%;">2022</td>
+                                                <td style="width: 26%;">Tutti Ensemble &amp; SATB</td>
+                                                <td style="width: 12%;">ca. 6m 30s</td>
+                                                <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Finale%20Marko%20and%20Adriane#contact" class="table-link">Request Score</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </details>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4. KORMUSIKK -->
+        <section id="cat-choir">
+            <h2>Choral Works &amp; Vocal Ensembles</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 34%;">Title / Description</th>
+                            <th style="width: 10%;">Year</th>
+                            <th style="width: 26%;">Voicing</th>
+                            <th style="width: 12%;">Duration</th>
+                            <th style="width: 18%;">Materials / Scores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="title-cell">
+                                Velsigne dette land
+                                <span class="subtext">Sacred/secular choral anthem. Also available as an appendix number in <em>Marko and Adriane</em>.</span>
+                            </td>
+                            <td>2023</td>
+                            <td>Mixed Choir (SATB) &amp; Piano</td>
+                            <td>ca. 4 min</td>
+                            <td>
+                                <a href="https://www.scoreexchange.com/profiles/geir-solerod"
+                                   target="_blank"
+                                   rel="noopener"
+                                   class="table-link"
+                                   title="View SATB choral score on Score Exchange">
+                                    <img src="svg/C-clef.svg" alt="Score" class="table-icon icon-score">
+                                    <span>Score Exchange</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title-cell">
+                                Marko and Adriane – 16 Choral Numbers
+                                <span class="subtext">Includes <em>Jordens elementer</em>, <em>Gudenes d&oslash;tre</em>, <em>Ro min b&aring;t</em>, <em>Englekor</em>, <em>Gloriakor</em>, and <em>Finalekor</em>.</span>
+                            </td>
+                            <td>2022–23</td>
+                            <td>SATB Choir &amp; Piano (opt. Chamber Ens.)</td>
+                            <td>Various</td>
+                            <td>
+                                <a href="index.html?subject=Inquiry:%20Choral%20Scores%20from%20Marko%20and%20Adriane#contact"
+                                   class="table-link"
+                                   title="Request choir score parts from Marko and Adriane">
+                                    Request Parts
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 5. BARNETEATER, LYDBOK & ENMANNSFORESTILLING -->
+        <section id="cat-theatre">
+            <h2>Children's Theatre &amp; Musical Stories</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 34%;">Project / Title</th>
+                            <th style="width: 10%;">Year</th>
+                            <th style="width: 26%;">Format / Context</th>
+                            <th style="width: 12%;">Scope</th>
+                            <th style="width: 18%;">Materials / Info</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="title-cell">
+                                Marmeladeby
+                                <span class="subtext">Children's musical theatre songs written for Teatertruppen Syltet&oslash;y (incl. <em>Finn Fl&oslash;ytas sang</em>, <em>Fru Bringeberte Bolle</em>, <em>Prinsesse Vaskepott</em>).</span>
+                            </td>
+                            <td>2006–12</td>
+                            <td>Children's Theatre and TV</td>
+                            <td>8 Songs</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="title-cell">
+                                Et bes&oslash;k av Trubadur Trasket&aring;
+                                <span class="subtext">Solo musical storytelling performance for children / nursery schools (incl. <em>Trasket&aring;s &Aring;pningssang</em>, <em>God morgen</em>, <em>Den glade vandrer</em>).</span>
+                            </td>
+                            <td>2010–14</td>
+                            <td>One-Man Theatre Show / Storytelling</td>
+                            <td>Full show</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="title-cell">
+                                Trubadur Trasket&aring; hos Hulefolket
+                                <span class="subtext">Audiobook script and stage adaptation with songs (<em>Morgensang</em>, <em>Hoa-hoa-sangen</em>, <em>Badesang</em>, <em>Lille sp&oslash;kelse</em>).</span>
+                            </td>
+                            <td>2012–14</td>
+                            <td>Audiobook Manuscript &amp; Stage Drama</td>
+                            <td>Book &amp; 11 songs</td>
+                            <td>
+                                <a href="index.html?subject=Inquiry:%20Trasketa%20hos%20Hulefolket%20script#contact"
+                                   class="table-link"
+                                   title="Inquire about script and song material">
+                                    Inquire / Script
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 6. VISEPOP & STUDIOARKIV -->
+        <section id="cat-songs">
+            <h2>Songwriting &amp; Studio Releases</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 34%;">Title / Release</th>
+                            <th style="width: 10%;">Year</th>
+                            <th style="width: 26%;">Genre / Format</th>
+                            <th style="width: 12%;">Scope</th>
+                            <th style="width: 18%;">Archive Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="title-cell">
+                                Majas Godnattplate
+                                <span class="subtext">Lullabies and acoustic songs for children and family.</span>
+                            </td>
+                            <td>2005</td>
+                            <td>Acoustic EP / Album</td>
+                            <td>EP</td>
+                            <td>
+                                <a href="https://geirsolerod.bandcamp.com/"
+                                   target="_blank"
+                                   rel="noopener"
+                                   class="table-link"
+                                   title="Listen to Majas Godnattplate on Bandcamp">
+                                    <img src="svg/headset-sharp-svgrepo-com.svg" alt="Listen" class="table-icon icon-audio">
+                                    <span>Bandcamp</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title-cell">
+                                Der livets hjerte sl&aring;r
+                                <span class="subtext">Independent melodic folk-pop / songwriter studio EP.</span>
+                            </td>
+                            <td>2010</td>
+                            <td>Folk-Pop / Studio EP</td>
+                            <td>EP</td>
+                            <td>
+                                <a href="https://geirsolerod.bandcamp.com/"
+                                   target="_blank"
+                                   rel="noopener"
+                                   class="table-link"
+                                   title="Listen to Der livets hjerte slår on Bandcamp">
+                                    <img src="svg/headset-sharp-svgrepo-com.svg" alt="Listen" class="table-icon icon-audio">
+                                    <span>Bandcamp</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title-cell">
+                                Studio Singles &amp; Songwriting Archive
+                                <span class="subtext">14 independent studio singles (incl. <em>Din egen grunn</em>, <em>Sommersang</em>, <em>Et pust i siv</em>, <em>I evighet</em>) and 100+ registered songs.</span>
+                            </td>
+                            <td>2014–18</td>
+                            <td>Folk-Pop / Acoustic Singles</td>
+                            <td>14 Singles</td>
+                            <td>
+                                <a href="https://geirsolerod.bandcamp.com/"
+                                   target="_blank"
+                                   rel="noopener"
+                                   class="table-link"
+                                   title="Explore complete audio archive releases on Bandcamp">
+                                    <img src="svg/headset-sharp-svgrepo-com.svg" alt="Listen" class="table-icon icon-audio">
+                                    <span>Bandcamp Archive</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Tilbakeknapp / CTA i bunn -->
+        <div class="footer-cta">
+            <a href="index.html" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+                <img src="svg/home-svgrepo-com.svg" alt="Home" class="table-icon icon-home">
+                <span>Return to Home</span>
+            </a>
+            <a href="index.html#contact" class="btn btn-primary" style="margin-left: 0.8rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+                <img src="svg/email-svgrepo-com.svg" alt="Contact" class="table-icon icon-email">
+                <span>Score Inquiries</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer id="footer">
+    <div style="margin-bottom: 1.25rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+        <a href="index.html#contact" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Contact &amp; Inquiries</a>
+        <span style="color: var(--border);">&bull;</span>
+        <a href="https://www.scoreexchange.com/profiles/geir-solerod" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Sheet Music &amp; Scores</a>
+        <span style="color: var(--border);">&bull;</span>
+        <a href="https://www.facebook.com/gsun.music" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Facebook</a>
+    </div>
+    <p>&copy; 2026 Geir Soler&oslash;d. All rights reserved.</p>
+</footer>
+
+    <!-- Flytende Opp-knapp -->
+    <a href="#top" id="floating-top-btn" class="floating-top-btn" title="Scroll to top">
+        <span>&uarr; Top</span>
+    </a>
+
+    <!-- Felles skript -->
+    <script src="js/jsmain.js"></script>
+
+    <!-- Sidespesifikt skript for katalogen -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function handleHashAccordion() {
+                const hash = window.location.hash;
+                if (!hash) return;
+
+                const targetSection = document.querySelector(hash);
+                if (targetSection) {
+                    const accordions = targetSection.querySelectorAll('details.suite-accordion');
+                    accordions.forEach(acc => {
+                        acc.open = true;
+                    });
+
+                    setTimeout(() => {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 120);
+                }
+            }
+
+            handleHashAccordion();
+            window.addEventListener('hashchange', handleHashAccordion);
+        });
+    </script>
+</body>
+</html>

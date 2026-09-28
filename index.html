@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geir Soler&oslash;d | Norwegian Composer, Lyricist &amp; Arranger</title>
+    <meta name="description" content="Official website of Norwegian composer and lyricist Geir Soler&oslash;d (NKF, TONO). Symphonic, stage, concert band, choral music, and literary works.">
+    <meta name="author" content="Geir Soler&oslash;d">
+    <link rel="canonical" href="https://geirsolerod.no/">
+    <link rel="icon" type="image/svg+xml" href="my-favicons/favicon.svg">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Geir Soler&oslash;d | Norwegian Composer, Lyricist &amp; Arranger">
+    <meta property="og:description" content="Official portfolio and catalogue: Symphonic, concert band, stage, and choral music. Member of the Norwegian Society of Composers (NKF).">
+    <meta property="og:url" content="https://geirsolerod.no/">
+    <meta property="og:image" content="https://geirsolerod.no/img/profile.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Geir Soler&oslash;d | Norwegian Composer, Lyricist &amp; Arranger">
+    <meta name="twitter:description" content="Official portfolio and catalogue: Symphonic, concert band, stage, and choral music.">
+    <meta name="twitter:image" content="https://geirsolerod.no/img/profile.jpg">
+
+    <!-- Schema.org Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Geir Soler\u00f8d",
+        "jobTitle": "Composer, Lyricist & Arranger",
+        "nationality": "Norwegian",
+        "url": "https://geirsolerod.no",
+        "image": "https://geirsolerod.no/img/profile.jpg",
+        "sameAs": [
+            "https://komponist.no/",
+            "https://www.facebook.com/gsun.music",
+            "https://geirsolerod.bandcamp.com/",
+            "https://www.scoreexchange.com/profiles/geir-solerod"
+        ]
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Felles CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Sidespesifikk CSS for Hovedsiden -->
+    <style>
+        h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            color: var(--text-bright);
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        /* Svevende kapsel-meny (Desktop) */
+        .main-nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 1rem;
+            z-index: 500;
+            max-width: 580px;
+            margin: 1.4rem auto 1rem;
+            background: rgba(15, 20, 26, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 0.55rem 1.4rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: visible;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: static;
+        }
+
+        .nav-container a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-container a:hover {
+            color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 4.5rem;
+        }
+
+        section,
+        [id^="work-"],
+        .work-card,
+        h3 {
+            scroll-margin-top: 8.5rem;
+        }
+
+        h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.85rem;
+            color: var(--text-bright);
+            margin-bottom: 1.8rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.6rem;
+            letter-spacing: 0.8px;
+            font-weight: 600;
+        }
+
+        #works h2 {
+            border-bottom: none !important;
+            padding-bottom: 0 !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        #about h2 {
+            margin-bottom: 1.2rem;
+        }
+
+        h3 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.35rem;
+            color: var(--accent);
+            margin: 2rem 0 1rem;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* Bio Layout */
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2.2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .bio-image-wrapper {
+            width: 100%;
+            height: 100%;
+            min-height: 380px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+            display: block;
+        }
+
+        .bio-content {
+            padding: 2.2rem 2.2rem 2.2rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.9rem;
+        }
+
+        .bio-content a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .bio-content a:hover {
+            color: var(--accent-hover);
+        }
+
+        .bio-content a.btn {
+            text-decoration: none;
+        }
+
+        .bio-content a.btn-primary {
+            color: #0c1015 !important;
+        }
+
+        .bio-content a.btn-secondary {
+            color: var(--text-bright) !important;
+        }
+
+        /* Bio Highlights */
+        .bio-highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 1.2rem;
+        }
+
+        .bio-highlight-card {
+            background: var(--bg);
+            padding: 1.2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .bio-highlight-card ul {
+            list-style-type: none;
+            padding-left: 0;
+            line-height: 1.7;
+            font-size: 0.88rem;
+        }
+
+        .highlight-title {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        /* Work Cards */
+        .work-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .work-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.4px;
+        }
+
+        .work-meta {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 1.1rem;
+            font-weight: 500;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 1.3rem 0;
+            background: #000;
+            border: 1px solid var(--border);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        }
+
+        .stage-img-container {
+            width: 100%;
+            height: 360px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 1.1rem 0 1.4rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+        }
+
+        .stage-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 45% 25%;
+            display: block;
+        }
+
+        .stage-caption {
+            font-size: 0.86rem;
+            color: #94a3b8;
+            font-style: italic;
+            margin: -0.9rem 0 1.2rem;
+            line-height: 1.45;
+        }
+
+        .studio-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-bottom: 4.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .studio-img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 53%;
+            display: block;
+            filter: brightness(0.9);
+        }
+
+        .studio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2.2rem 2.2rem 1.8rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(12, 16, 21, 0.95) 75%);
+            color: var(--text-bright);
+            font-family: 'Bodoni Moda', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+        }
+
+        details.work-details {
+            margin: 1rem 0 0.5rem;
+        }
+
+        details.work-details summary {
+            cursor: pointer;
+            color: var(--accent);
+            font-size: 0.92rem;
+            font-weight: 500;
+            user-select: none;
+            padding: 0.35rem 0;
+            transition: color 0.2s;
+        }
+
+        details.work-details summary:hover {
+            color: var(--accent-hover);
+        }
+
+        details.work-details .details-body {
+            padding-top: 0.8rem;
+            border-top: 1px dashed var(--border);
+            margin-top: 0.5rem;
+        }
+
+        /* Formular */
+        form {
+            display: grid;
+            gap: 1.1rem;
+            background: var(--card-bg);
+            padding: 2.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-bright);
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Tablet (iPad 820px) */
+        @media (max-width: 850px) {
+            header {
+                padding: 1.8rem 1rem 1rem !important;
+            }
+
+            .main-nav {
+                margin: 0 auto 0.6rem !important;
+            }
+
+            .container {
+                padding: 0.6rem 1rem 3rem !important;
+            }
+
+            section {
+                margin-bottom: 2.5rem !important;
+                scroll-margin-top: 6.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem !important;
+            }
+
+            .bio-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .bio-image-wrapper {
+                width: min(340px, 80%);
+                height: 300px;
+                min-height: 0;
+                margin: 1rem auto 0;
+                border-radius: 10px;
+                border: 1px solid var(--border);
+            }
+
+            .bio-content {
+                padding: 1.4rem 1.8rem 1.8rem;
+                text-align: left;
+            }
+
+            .btn-group {
+                justify-content: flex-start;
+            }
+
+            .stage-img-container {
+                height: 280px;
+            }
+
+            .studio-img {
+                height: 420px;
+                object-position: 40% 55%;
+            }
+        }
+
+        /* Mobil (Under 768px) */
+        @media (max-width: 768px) {
+            .main-nav {
+                top: 0;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                border-left: none !important;
+                border-right: none !important;
+                border-top: none !important;
+                border-bottom: 1px solid var(--border) !important;
+                padding: 0.65rem 1rem !important;
+                margin: 0 0 0.5rem 0 !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            }
+
+            .nav-container {
+                justify-content: space-between;
+                gap: 0;
+            }
+
+            .container {
+                padding: 0.4rem 0.8rem 3rem !important;
+            }
+
+            section,
+            [id^="work-"],
+            .work-card,
+            h3 {
+                scroll-margin-top: 6.5rem;
+            }
+
+            .bio-highlights-grid {
+                grid-template-columns: 1fr !important;
+                gap: 0.9rem;
+            }
+        }
+
+        /* Små mobilskjermer (Under 500px) */
+        @media (max-width: 500px) {
+            header {
+                padding: 2.2rem 1rem 1.4rem !important;
+            }
+
+            .container {
+                padding: 1.2rem 0.8rem 3rem !important;
+            }
+
+            section {
+                margin-bottom: 2.8rem;
+            }
+
+            h2 {
+                font-size: 1.45rem;
+                margin-bottom: 1.2rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+                margin: 1.4rem 0 0.6rem;
+            }
+
+            .work-card, form {
+                padding: 1.25rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .bio-grid {
+                gap: 0.5rem;
+            }
+
+            .bio-image-wrapper {
+                width: 220px;
+                height: 240px;
+                min-height: 0;
+                margin: 1rem auto 0.2rem;
+                border-radius: 8px;
+                overflow: hidden;
+                border: 1px solid var(--border);
+            }
+
+            .bio-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center 14%;
+                transform: scale(1.4);
+                display: block;
+            }
+
+            .bio-content {
+                padding: 0 1.2rem 1.5rem;
+            }
+
+            .stage-img-container {
+                height: 180px;
+                margin: 0.7rem 0 1rem;
+            }
+
+            .studio-card {
+                margin-bottom: 2.8rem;
+                height: 250px;
+            }
+
+            .studio-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 48% 45% !important;
+                transform: scale(1.28) !important;
+                transform-origin: 40% 70%;
+                display: block;
+            }
+
+            .studio-overlay {
+                padding: 1.2rem 1rem 0.8rem;
+                font-size: 0.88rem;
+            }
+
+            .btn-group {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.6rem;
+            }
+
+            .btn {
+                width: auto !important;
+                padding: 0.55rem 1rem !important;
+                font-size: 0.84rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="top">
+        <h1>Geir Soler&oslash;d</h1>
+        <div class="subtitle">Composer &bull; Lyricist &bull; Arranger</div>
+    </header>
+
+    <!-- Global Navigation -->
+    <nav class="main-nav" id="main-nav">
+        <div class="nav-container">
+            <a href="index.html#top">Home</a>
+            <a href="#works">Works</a>
+            <a href="news.html">News</a>
+            <a href="#biography">Bio</a>
+            <a href="#contact">Contact</a>
+
+            <!-- Global Hamburgermeny -->
+            <div class="menu-dropdown-wrapper">
+                <button id="menu-btn" class="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
+                <div id="dropdown-menu" class="dropdown-menu">
+                    <div class="dropdown-header">Pages</div>
+                    <a href="index.html" class="dropdown-item active-page">
+                        <img src="svg/home-svgrepo-com.svg" alt="Home" class="table-icon icon-home">
+                        <span>Home</span>
+                    </a>
+                    <a href="news.html" class="dropdown-item">
+                        <img src="svg/chat-bubble-sign-svgrepo-com.svg" alt="News" class="table-icon icon-news">
+                        <span>News &amp; Updates</span>
+                    </a>
+                    <a href="catalogue.html" class="dropdown-item">
+                        <img src="svg/bulleted-list-catalogue-svgrepo-com.svg" alt="Catalogue" class="table-icon icon-cat">
+                        <span>Complete Catalogue</span>
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-header">Sections on Home</div>
+                    <a href="#about" class="dropdown-item">About</a>
+                    <a href="#news" class="dropdown-item">Latest News</a>
+                    <a href="#works" class="dropdown-item">Selected Works</a>
+
+                    <!-- Underpunkter med innrykk -->
+                    <div class="dropdown-sub-items">
+                        <a href="#work-concert-band" class="dropdown-item dropdown-sub-item">Concert Band</a>
+                        <a href="#work-symphony-1" class="dropdown-item dropdown-sub-item">Orchestra</a>
+                        <a href="#work-marko-adriane" class="dropdown-item dropdown-sub-item">Stage Music</a>
+                        <a href="#work-choral-vocal" class="dropdown-item dropdown-sub-item">Choral Music</a>
+                        <a href="#work-literary-writing" class="dropdown-item dropdown-sub-item">Lyrics &amp; Texts</a>
+                    </div>
+
+                    <a href="#biography" class="dropdown-item">Biography &amp; CV</a>
+                    <a href="#contact" class="dropdown-item">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- Top Bio (Executive Summary) -->
+        <section id="about">
+            <h2>About</h2>
+            <div class="bio-grid">
+                <div class="bio-image-wrapper">
+                    <img src="img/profile.jpg" alt="Geir Soler&oslash;d" class="bio-image">
+                </div>
+                <div class="bio-content">
+                    <p>Geir Soler&oslash;d is a Norwegian composer, lyricist and arranger.</p>
+                    <p>Soler&oslash;d combines melodic clarity and tonal harmony with classical counterpoint, dramatic narrative and colorful orchestration. His music emphasizes strong thematic flow, acoustic warmth and practical playability for performing ensembles.</p>
+                    <p>A member of the <a href="https://komponist.no/" target="_blank" rel="noopener">Norwegian Society of Composers</a> (NKF).</p>
+                    <div class="btn-group">
+                        <a href="#works" class="btn btn-primary">Selected Works</a>
+                        <a href="#biography" class="btn btn-secondary">Full Bio &amp; CV</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News -->
+        <section id="news" class="latest-news-section">
+            <h2>Latest News</h2>
+
+            <div id="latest-news-grid" class="latest-news-grid">
+                <!-- Sakene tegnes inn automatisk via JavaScript -->
+            </div>
+
+            <div class="news-more-wrap" style="display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap;">
+                <a href="news.html" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <img src="svg/chat-bubble-sign-svgrepo-com.svg" alt="News" class="table-icon icon-news">
+                    <span>View All News</span>
+                </a>
+            </div>
+        </section>
+
+        <script src="js/news-loader.js"></script>
+        <script>
+        async function renderLatestNews() {
+            const items = await fetchNews();
+            const container = document.getElementById('latest-news-grid');
+            if (!container) return;
+
+            const latest = items.slice(0, 2);
+
+            container.innerHTML = latest.map(item => {
+                let rawThumb = item.thumb || item.image;
+                let thumbUrl = '';
+
+                if (rawThumb) {
+                    thumbUrl = rawThumb.startsWith('http')
+                        ? rawThumb
+                        : `https://raw.githubusercontent.com/geirsoler/website-news/main${rawThumb.startsWith('/') ? '' : '/'}${rawThumb}`;
+                }
+
+                // Hent ut årstall for statisk URL
+                const year = (item.date && item.date.match(/^\d{4}/)) ? item.date.slice(0, 4) : '2026';
+                const articleUrl = `/news/${year}/${encodeURIComponent(item.id)}.html`;
+
+                const thumbHtml = thumbUrl ? `
+                    <a href="${articleUrl}" class="news-card-thumb-link">
+                        <img src="${thumbUrl}" alt="${item.title}" class="news-card-thumb-img">
+                    </a>
+                ` : '';
+
+                return `
+                    <article class="news-card-compact ${thumbUrl ? 'has-thumb' : 'no-thumb'}">
+                        <div class="news-card-inner">
+                            ${thumbHtml}
+                            <div class="news-card-content">
+                                <div class="news-meta-row">
+                                    <span class="news-tag">${item.category || 'Update'}</span>
+                                    <span class="news-date">${item.date || ''}</span>
+                                </div>
+                                <h3><a href="${articleUrl}">${item.title}</a></h3>
+                                <p>${item.teaser || ''}</p>
+                                <div>
+                                    <a href="${articleUrl}" class="read-more">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        renderLatestNews();
+        </script>ript>
+        async function renderLatestNews() {
+            const items = await fetchNews();
+            const container = document.getElementById('latest-news-grid');
+            if (!container) return;
+
+            const latest = items.slice(0, 2);
+
+            container.innerHTML = latest.map(item => {
+                let rawThumb = item.thumb || item.image;
+                let thumbUrl = '';
+
+                if (rawThumb) {
+                    thumbUrl = rawThumb.startsWith('http')
+                        ? rawThumb
+                        : `https://raw.githubusercontent.com/geirsoler/website-news/main${rawThumb.startsWith('/') ? '' : '/'}${rawThumb}`;
+                }
+
+                const thumbHtml = thumbUrl ? `
+                    <a href="article.html?id=${encodeURIComponent(item.id)}" class="news-card-thumb-link">
+                        <img src="${thumbUrl}" alt="${item.title}" class="news-card-thumb-img">
+                    </a>
+                ` : '';
+
+                return `
+                    <article class="news-card-compact ${thumbUrl ? 'has-thumb' : 'no-thumb'}">
+                        <div class="news-card-inner">
+                            ${thumbHtml}
+                            <div class="news-card-content">
+                                <div class="news-meta-row">
+                                    <span class="news-tag">${item.category || 'Update'}</span>
+                                    <span class="news-date">${item.date || ''}</span>
+                                </div>
+                                <h3><a href="article.html?id=${encodeURIComponent(item.id)}">${item.title}</a></h3>
+                                <p>${item.teaser || ''}</p>
+<div>
+    <a href="article.html?id=${encodeURIComponent(item.id)}" class="read-more">Read more</a>
+</div>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        renderLatestNews();
+        </script>
+
+        <!-- Selected Works / Catalogue -->
+        <section id="works">
+            <h2 style="border-bottom: none !important; margin-bottom: 0.55rem !important; padding-bottom: 0 !important;">Selected Works</h2>
+
+            <!-- In-page Filterrad -->
+            <div class="inpage-nav-row">
+                <a href="#work-concert-band" class="inpage-nav-btn" title="Jump to Concert Band works">Band</a>
+                <a href="#work-symphony-1" class="inpage-nav-btn" title="Jump to Symphonic &amp; Orchestral works">Orchestra</a>
+                <a href="#work-marko-adriane" class="inpage-nav-btn" title="Jump to Stage &amp; Dramatic works">Stage</a>
+                <a href="#work-choral-vocal" class="inpage-nav-btn" title="Jump to Choral &amp; Vocal works">Choir</a>
+                <a href="#work-literary-writing" class="inpage-nav-btn" title="Jump to Literary writing &amp; lyrics">Texts</a>
+                <a href="catalogue.html" class="inpage-nav-btn" title="View complete catalogue of works">
+                    <img src="svg/bulleted-list-catalogue-svgrepo-com.svg" alt="" class="table-icon icon-cat">
+                    <span>Catalogue</span>
+                </a>
+            </div>
+
+            <!-- 1. Concert Band -->
+            <div id="work-concert-band">
+                <h3>Concert Band &amp; Wind Ensembles</h3>
+                <div class="work-card">
+                    <div class="work-title">Suite for Concert Band</div>
+                    <div class="work-meta">5 Concert Pieces from <em>Marko and Adriane</em> &bull; Grade 2.5&ndash;3.5 (Medium)</div>
+                    <p>A melodic and colorful five-movement concert suite written for Ulefoss Musikkorps / Concert Band, based on themes from the opera-musical <em>Marko and Adriane</em>. Two individual movements (<em>Seierens Nederlag</em> and <em>Market in Lydia</em>) have received early premiere performances.</p>
+
+                    <p style="margin-top: 1rem; font-weight: 500; color: var(--text-bright);">Featured Movement: Part 2 &ndash; Market in Lydia (ca. 2:45)</p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube-nocookie.com/embed/XBfpxgsNHYQ" title="Market in Lydia - ScoreVideo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p style="font-size: 0.88rem; color: #94a3b8; font-style: italic; margin: -0.8rem 0 1.2rem; line-height: 1.4;">
+                        Complete score-video with audio simulation. Adriane arrives on market day in Lydia amidst bustling stalls and a royal procession, portrayed through lively rhythms, playful woodwinds, and a brass chorale finale.
+                    </p>
+
+                    <details class="work-details">
+                        <summary>Performance Formats &amp; Options...</summary>
+                        <div class="details-body">
+                            <p style="font-size: 0.92rem; color: var(--text);">
+                                <strong>Flexible Performance Formats:</strong> Playable as standalone pieces, a complete five-movement suite, with narrator, or as stage music &mdash; featuring extensive cross-cueing for flexible instrumentation and smaller ensembles.
+                            </p>
+                        </div>
+                    </details>
+
+                    <div class="btn-group">
+                        <a href="https://www.scoreexchange.com/scores/market-in-lydia-692166.html" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+                            <img src="svg/C-clef.svg" alt="Score" class="table-icon icon-score">
+                            <span>View &amp; Purchase Score (Score Exchange)</span>
+                        </a>
+                        <a href="catalogue.html#cat-band" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+                            <img src="svg/bulleted-list-catalogue-svgrepo-com.svg" alt="Catalogue" class="table-icon icon-cat">
+                            <span>Suite Movements in Catalogue</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Symphonic / Major Works -->
+            <div id="work-symphony-1">
+                <h3>Symphonic &amp; Orchestral Works</h3>
+                <div class="work-card">
+                    <div class="work-title">Symphony No. 1</div>
+                    <div class="work-meta">Full Symphony Orchestra &bull; Three Movements &bull; Duration: ca. 35 min</div>
+                    <p>A substantial orchestral work structured across three expansive movements. Rather than adhering strictly to traditional symphonic forms, the piece unfolds organically&mdash;anchored by distinct core themes interwoven with freer episodic ideas. Lyrical melodic lines and rich harmonic warmth are juxtaposed with moments of rhythmic propulsion, dramatic weight and powerful momentum.</p>
+
+                    <p style="margin-top: 1.2rem; font-weight: 500; color: var(--text-bright);">Work Preview &amp; Themes (Audio Teaser):</p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube-nocookie.com/embed/rx9EgYF1rWI" title="Symphony No. 1 Teaser" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p style="font-size: 0.88rem; color: #94a3b8; font-style: italic; margin: -0.8rem 0 1.2rem; line-height: 1.4;">
+                        A short introduction and thematic excerpts across all three movements (audio simulation via NotePerformer).
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="index.html?subject=Score%20Request:%20Symphony%20No.%201#contact" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+                            <img src="svg/email-svgrepo-com.svg" alt="Contact" class="table-icon icon-email">
+                            <span>Request Perusal Score</span>
+                        </a>
+                        <a href="catalogue.html#cat-orchestra" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+                            <img src="svg/bulleted-list-catalogue-svgrepo-com.svg" alt="Catalogue" class="table-icon icon-cat">
+                            <span>View Orchestral Catalogue</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Stage & Opera-Musical -->
+            <div id="work-marko-adriane">
+                <h3>Stage &amp; Dramatic Works</h3>
+                <div class="work-card">
+                    <div class="work-title">Marko and Adriane</div>
+                    <div class="work-meta">Opera-Musical &bull; 10 Soloists, Choir, Chamber Orchestra &amp; Dance Ensemble</div>
+
+                    <div class="stage-img-container">
+                        <img src="img/M&amp;A_Villa Lunde2022.jpg" alt="Marko and Adriane premiere at Villa Lunde" class="stage-img">
+                    </div>
+                    <p class="stage-caption">From the 2022 premiere at Villa Lunde, featuring Gunnar A. Nieland (Loriel), Stina S. Levvel (Adriane), and Magnus D. Kjeldal (Marko).</p>
+
+                    <p>A full-scale dramatic stage work fusing lyrical vocal storytelling, choral grandeur and colorful chamber orchestra orchestration. Complete concept, libretto and score composed by Geir Soler&oslash;d. Excerpts received their premiere at Villa Lunde in 2022 under the direction of Jakob Zethner. The rich thematic material also serves as the foundation for the <em>Suite for Concert Band</em>.</p>
+
+                    <details class="work-details">
+                        <summary>Published Scores, Materials &amp; Archival Video...</summary>
+                        <div class="details-body">
+                            <p style="color: var(--text-bright); font-weight: 500; font-size: 0.95rem;">Published Scores (2023):</p>
+                            <ul style="margin: 0.3rem 0 0.8rem 1.5rem; line-height: 1.7; color: var(--text); font-size: 0.92rem;">
+                                <li><strong>Full Score</strong> (Chamber Orchestra, 2 volumes)</li>
+                                <li><strong>Piano / Vocal Reduction</strong> (2 volumes)</li>
+                            </ul>
+                            <p style="font-size: 0.88rem; color: #94a3b8; margin-bottom: 0.6rem;">Printed editions can be ordered directly from the composer or via the Villa Lunde shop.</p>
+                            <p style="font-size: 0.88rem; color: #94a3b8;">
+                                <em>Archival recording (22 min video excerpts) is available upon request:</em>
+                                <a href="index.html?subject=Archival%20Video%20Link%20Request:%20Marko%20and%20Adriane#contact" style="color: var(--accent); text-decoration: underline; margin-left: 0.3rem;">Request Video Link</a>
+                            </p>
+                        </div>
+                    </details>
+
+                    <div class="btn-group">
+                        <a href="index.html?subject=Order%20Scores%20/%20Inquiry:%20Marko%20and%20Adriane#contact" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+                            <img src="svg/email-svgrepo-com.svg" alt="Contact" class="table-icon icon-email">
+                            <span>Order Scores / Staging Inquiry</span>
+                        </a>
+                        <a href="catalogue.html#cat-stage" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+                            <img src="svg/bulleted-list-catalogue-svgrepo-com.svg" alt="Catalogue" class="table-icon icon-cat">
+                            <span>Browse All Stage Numbers &amp; Scores</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Choral & Vocal -->
+            <div id="work-choral-vocal">
+                <h3>Choral &amp; Vocal Music</h3>
+                <div class="work-card">
+                    <div class="work-title">Choral Works, Arias &amp; Vocal Music</div>
+                    <div class="work-meta">Mixed Choir (SATB) &bull; Solo Voice &bull; A Cappella &amp; Accompanied</div>
+                    <p>Expressive sacred and secular choral pieces emphasizing natural vocal phrasing, rich voice leading and evocative textual setting (including <em>Velsigne dette land</em>), alongside concert arias and duets drawn from dramatic stage works. Explore available scores directly in the catalog.</p>
+                    <div class="btn-group">
+                        <a href="https://www.scoreexchange.com/profiles/geir-solerod" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+                            <img src="svg/C-clef.svg" alt="Score" class="table-icon icon-score">
+                            <span>Browse Scores on Score Exchange</span>
+                        </a>
+                        <a href="catalogue.html#cat-choir" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+                            <img src="svg/bulleted-list-catalogue-svgrepo-com.svg" alt="Catalogue" class="table-icon icon-cat">
+                            <span>Explore Choral Works in Catalogue</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Libretti, Lyrics & Literary Writing -->
+            <div id="work-literary-writing">
+                <h3>Libretti, Lyrics &amp; Texts</h3>
+                <div class="work-card">
+                    <div class="work-title">Stage Texts, Lyrics &amp; Literary Works</div>
+                    <div class="work-meta">Musical Theatre &bull; Vocal Texts &bull; Fiction &amp; Poetry</div>
+                    <p style="margin-bottom: 1.1rem;">
+                        Alongside musical composition, Soler&oslash;d maintains an active writing practice focused on dramatic storytelling, libretti, and vocal phrasing.
+                    </p>
+
+                    <ul style="margin: 0 0 1.4rem 1.3rem; line-height: 1.65; color: var(--text); font-size: 0.92rem;">
+                        <li><strong>Stage &amp; Libretti:</strong> Libretto for <em>Marko and Adriane</em>, songs for <em>Marmeladeby</em>, and scripts for children's theatre.</li>
+                        <li><strong>Vocal Texts:</strong> Over 100 registered lyrics, sacred anthems, and concert texts.</li>
+                        <li style="display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.25rem;">
+                            <strong>Fiction:</strong> Published poetry collections and youth prose, including the short story
+                            <a href="https://geirsoler.wordpress.com/2026/05/02/stien-til-innsjoen/"
+                               target="_blank"
+                               rel="noopener"
+                               class="table-link"
+                               title="Read short story 'Stien til innsjøen' (in Norwegian)">
+                                <img src="svg/text1.svg" alt="Text" class="table-icon icon-text">
+                                <em>Stien til innsj&oslash;en</em>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CTA Modul -->
+            <div style="text-align: center; margin-top: 3.5rem; margin-bottom: 2rem; padding: 2.2rem 1.5rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
+                <h3 style="font-family: 'Bodoni Moda', serif; color: var(--text-bright); margin: 0 0 0.5rem; font-size: 1.4rem;">Complete Catalogue of Works</h3>
+                <p style="color: #94a3b8; font-size: 0.92rem; max-width: 560px; margin: 0 auto 1.4rem; line-height: 1.55;">
+                    Detailed movements, instrumentation, perusal score requests, vocal reductions, audio previews, and archive releases.
+                </p>
+                <a href="catalogue.html" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; width: auto; max-width: 280px; margin: 0 auto; padding: 0.65rem 1.6rem;">
+                    <img src="svg/bulleted-list-catalogue-svgrepo-com.svg" alt="Catalogue" class="table-icon icon-cat">
+                    <span>Complete Catalogue</span>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Studio / Atmosphere Banner -->
+        <div class="studio-card">
+            <img src="img/piano.jpg" alt="Geir Soler&oslash;d composing at the piano" class="studio-img">
+            <div class="studio-overlay">
+                "Music shaped by emotional honesty, clarity of line and acoustic color."
+            </div>
+        </div>
+
+        <!-- In-Depth Biography & Background -->
+        <section id="biography">
+            <h2>Biography &amp; Background</h2>
+
+            <div class="work-card" style="margin-bottom: 2rem;">
+                <h3 style="margin-top: 0;">Artistic Background &amp; Profile</h3>
+                <p style="margin-bottom: 1rem;">
+                    Geir Soler&oslash;d is a Norwegian composer and arranger whose work centers on classical compositional craftsmanship, organic voice leading, accessibility and musical integrity.
+                </p>
+
+                <p style="margin-bottom: 1rem;">
+                    Originally from Toten, later based in the Bergen area for many years and now living in Nome, Telemark, his musical path began in songwriting, melodic folk-pop and children&rsquo;s musical theatre as a singer, multi-instrumentalist and independent producer. Practical experience performing in opera choruses, concert bands (clarinet) and stage productions provides a genuine, firsthand understanding of acoustic balance and ensemble writing.
+                </p>
+
+                <p style="margin-bottom: 1.2rem; font-size: 0.94rem;">
+                    Since 2017, combining dedicated studies in music theory with practical composition, Soler&oslash;d has produced major works for symphony orchestra, stage, concert band and choir. His music prioritizes an organic flow rooted in clear thematic architecture, shaped to ensure that every voice feels rewarding to play and accessible to both performers and audience.
+                </p>
+
+                <div class="bio-highlights-grid">
+                    <div class="bio-highlight-card">
+                        <strong class="highlight-title">Affiliations &amp; Practice:</strong>
+                        <ul>
+                            <li>&bull; Norwegian Society of Composers (NKF), TONO</li>
+                            <li>&bull; Clarinetist, choral tenor, assistant conductor</li>
+                            <li>&bull; Independent music producer &amp; sound engineer</li>
+                        </ul>
+                    </div>
+                    <div class="bio-highlight-card">
+                        <strong class="highlight-title">Key Milestones:</strong>
+                        <ul>
+                            <li>&bull; <strong>2026:</strong> <em>Symphony No. 1</em></li>
+                            <li>&bull; <strong>2024&ndash;2026:</strong> <em>Suite for Concert Band</em></li>
+                            <li>&bull; <strong>2022:</strong> <em>Marko &amp; Adriane</em></li>
+                            <li>&bull; <strong>Catalogue:</strong> 120+ songs &amp; choral works</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earlier Studio & Songwriting Releases / Bandcamp -->
+            <div class="work-card" id="work-bandcamp-archive">
+                <div class="work-title">Earlier Songwriting &amp; Studio Releases</div>
+                <div class="work-meta">Folk-Pop &bull; Acoustic Songs &bull; Studio Productions</div>
+                <p>Prior to focusing exclusively on classical composition, Soler&oslash;d wrote, produced and released independent acoustic folk-pop and songs. A selection of these earlier studio productions and recordings is archived on Bandcamp.</p>
+                <div class="btn-group">
+                    <a href="https://geirsolerod.bandcamp.com/" target="_blank" rel="noopener" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;" title="Listen to earlier songwriting archive on Bandcamp">
+                        <img src="svg/headset-sharp-svgrepo-com.svg" alt="Listen" class="table-icon icon-audio" style="transform: translateY(0);">
+                        <span>Visit Bandcamp Archive</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact">
+            <h2>Contact &amp; Inquiries</h2>
+            <form name="contact" method="POST" data-netlify="true" action="/thanks.html">
+                <input type="hidden" name="form-name" value="contact" />
+                <div>
+                    <label for="name" style="display:block; margin-bottom:0.4rem; font-weight:500;">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="First and last name">
+                </div>
+                <div>
+                    <label for="organization" style="display:block; margin-bottom:0.4rem; font-weight:500;">Role / Ensemble / Organization <span style="font-weight:400; color:#94a3b8; font-size:0.88rem;">(optional)</span></label>
+                    <input type="text" id="organization" name="organization" placeholder="e.g. Conductor, artistic director, ensemble, publisher">
+                </div>
+                <div>
+                    <label for="email" style="display:block; margin-bottom:0.4rem; font-weight:500;">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+                <div>
+                    <label for="subject" style="display:block; margin-bottom:0.4rem; font-weight:500;">Subject</label>
+                    <input type="text" id="subject" name="subject" required placeholder="e.g. Score perusal, performance inquiry, commission">
+                </div>
+                <div>
+                    <label for="message" style="display:block; margin-bottom:0.4rem; font-weight:500;">Message</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="cursor:pointer; border:none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <img src="svg/email-svgrepo-com.svg" alt="Send" class="table-icon icon-email">
+                    <span>Send Message</span>
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer id="footer">
+    <div style="margin-bottom: 1.25rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+        <a href="index.html#contact" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Contact &amp; Inquiries</a>
+        <span style="color: var(--border);">&bull;</span>
+        <a href="https://www.scoreexchange.com/profiles/geir-solerod" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Sheet Music &amp; Scores</a>
+        <span style="color: var(--border);">&bull;</span>
+        <a href="https://www.facebook.com/gsun.music" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Facebook</a>
+    </div>
+    <p>&copy; 2026 Geir Soler&oslash;d. All rights reserved.</p>
+</footer>
+
+    <!-- Flytende Opp-knapp -->
+    <a href="#top" id="floating-top-btn" class="floating-top-btn" title="Scroll to top">
+        <span>&uarr; Top</span>
+    </a>
+
+    <!-- Felles skript -->
+    <script src="js/jsmain.js"></script>
+</body>
+</html>

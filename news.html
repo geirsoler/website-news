@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates | Geir Soler&oslash;d</title>
+    <meta name="description" content="News, score releases, and project updates from composer Geir Soler�d.">
+    <link rel="canonical" href="https://geirsolerod.no/news.html">
+    <link rel="icon" type="image/svg+xml" href="my-favicons/favicon.svg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Felles CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        /* Svevende kapsel-meny (Desktop) */
+        .main-nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+            max-width: 580px;
+            margin: 1.4rem auto 1rem;
+            background: rgba(15, 20, 26, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 0.55rem 1.4rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: visible;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: static;
+        }
+
+        .nav-container a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-container a:hover {
+            color: var(--accent);
+        }
+
+        .nav-container a.active-link {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* News archive wrapper */
+        .news-archive-wrapper {
+            max-width: 860px;
+            margin: 2.5rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .news-archive-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.2rem;
+        }
+
+        .news-archive-header h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(2rem, 4vw, 2.6rem);
+            color: var(--text-bright);
+            letter-spacing: 0.8px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-archive-header p {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .news-feed-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .news-feed-entry {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            transition: border-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .news-feed-entry:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .news-feed-entry h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.55rem;
+            line-height: 1.3;
+            margin: 0 0 0.85rem 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .news-feed-entry h2 a {
+            color: var(--text-bright);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .news-feed-entry h2 a:hover {
+            color: var(--accent);
+        }
+
+        .news-feed-entry .teaser-text {
+            color: var(--text);
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 1.6rem;
+        }
+
+@media (max-width: 850px) {
+            .main-nav {
+                margin: 0 auto 0.6rem !important;
+            }
+
+            .news-archive-wrapper {
+                margin-top: 1.8rem !important; /* Økt fra 1rem for å gi boksen litt luft */
+            }
+
+            .news-archive-header {
+                margin-bottom: 1.8rem !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-nav {
+                top: 0;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                border-left: none !important;
+                border-right: none !important;
+                border-top: none !important;
+                border-bottom: 1px solid var(--border) !important;
+                padding: 0.65rem 1rem !important;
+                margin: 0 0 0.5rem 0 !important;
+            }
+
+            .news-archive-wrapper {
+                padding: 0 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .news-feed-entry {
+                padding: 1.4rem;
+            }
+        }
+        /* Nyhetsoversikt med bilde (news.html) */
+.news-feed-inner {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.news-feed-thumb-link {
+    flex-shrink: 0;
+    display: block;
+}
+
+.news-feed-thumb-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    display: block;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.news-feed-entry:hover .news-feed-thumb-img {
+    border-color: var(--accent);
+    transform: scale(1.02);
+}
+
+.news-feed-content {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 600px) {
+    .news-feed-inner {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    .news-feed-thumb-img {
+        width: 100%;
+        height: 180px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <header id="top">
+        <h1>Geir Soler&oslash;d</h1>
+        <div class="subtitle">Composer &bull; Lyricist &bull; Arranger</div>
+    </header>
+
+    <!-- Global Navigation -->
+    <nav class="main-nav" id="main-nav">
+        <div class="nav-container">
+            <a href="index.html#top">Home</a>
+            <a href="catalogue.html">Works</a>
+            <a href="index.html#biography">Bio</a>
+            <a href="news.html" class="active-link">News</a>
+            <a href="index.html#contact">Contact</a>
+
+            <!-- Global Hamburgermeny -->
+            <div class="menu-dropdown-wrapper">
+                <button id="menu-btn" class="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
+                <div id="dropdown-menu" class="dropdown-menu">
+                    <div class="dropdown-header">Pages</div>
+                    <a href="index.html" class="dropdown-item">
+                        <img src="svg/home-svgrepo-com.svg" alt="Home" class="table-icon icon-home">
+                        <span>Home</span>
+                    </a>
+                    <a href="catalogue.html" class="dropdown-item">
+                        <img src="svg/bulleted-list-catalogue-svgrepo-com.svg" alt="Catalogue" class="table-icon icon-cat">
+                        <span>Complete Catalogue</span>
+                    </a>
+                    <a href="news.html" class="dropdown-item">
+    <img src="svg/chat-bubble-sign-svgrepo-com.svg" alt="News" class="table-icon icon-news">
+    <span>News & Updates</span>
+</a>
+
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-header">Sections on Home</div>
+                    <a href="index.html#about" class="dropdown-item">About</a>
+                    <a href="index.html#news" class="dropdown-item">Latest News</a>
+                    <a href="index.html#works" class="dropdown-item">Selected Works</a>
+                    <a href="index.html#biography" class="dropdown-item">Biography &amp; CV</a>
+                    <a href="index.html#contact" class="dropdown-item">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Main Content -->
+        <main class="news-archive-wrapper">
+            <header class="news-archive-header">
+                <h1>News &amp; Updates</h1>
+                <p>Score releases, upcoming concerts, and project milestones.</p>
+            </header>
+
+            <div id="all-news-list" class="news-feed-list">
+                <div style="color: #94a3b8; text-align: center; padding: 3rem 0;">Loading news updates...</div>
+            </div>
+
+            <!-- Beholder for Paginering / Sidetall -->
+            <nav id="news-pagination" class="news-pagination-nav" aria-label="News pagination"></nav>
+
+            <!-- Facebook Context & Follow Card -->
+            <div class="news-social-card">
+                <div class="news-social-info">
+                    <h3>Informal Updates &amp; Daily Glimpses</h3>
+                    <p>For short-term notices, ongoing rehearsal snapshots, and community announcements, follow along on Facebook.</p>
+                </div>
+                <a href="https://www.facebook.com/gsun.music" target="_blank" rel="noopener" class="btn btn-secondary news-social-btn">
+                    <img src="svg/facebook-boxed-svgrepo-com.svg" alt="Facebook" class="table-icon icon-fb">
+                    <span>Follow on Facebook</span>
+                </a>
+            </div>
+        </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+    <div style="margin-bottom: 1.25rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+        <a href="index.html#contact" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Contact &amp; Inquiries</a>
+        <span style="color: var(--border);">&bull;</span>
+        <a href="https://www.scoreexchange.com/profiles/geir-solerod" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Sheet Music &amp; Scores</a>
+        <span style="color: var(--border);">&bull;</span>
+        <a href="https://www.facebook.com/gsun.music" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Facebook</a>
+    </div>
+    <p>&copy; 2026 Geir Soler&oslash;d. All rights reserved.</p>
+</footer>
+
+    <!-- Flytende Opp-knapp -->
+    <a href="#top" id="floating-top-btn" class="floating-top-btn" title="Scroll to top">
+        <span>&uarr; Top</span>
+    </a>
+
+    <!-- Felles skript -->
+    <script src="js/jsmain.js"></script>
+    <script src="js/news-loader.js"></script>
+    <script>
+async function renderAllNews() {
+    const items = await fetchNews();
+    const container = document.getElementById('all-news-list');
+    if (!container) return;
+
+    if (!items || items.length === 0) {
+        container.innerHTML = '<p style="color: #94a3b8; text-align: center;">No news updates found.</p>';
+        return;
+    }
+
+    container.innerHTML = items.map(item => {
+        // Bruker 'thumb' først, faller tilbake på 'image'
+        let rawThumb = item.thumb || item.image;
+        let thumbUrl = '';
+
+        if (rawThumb) {
+            thumbUrl = rawThumb.startsWith('http')
+                ? rawThumb
+                : `https://raw.githubusercontent.com/geirsoler/website-news/main${rawThumb.startsWith('/') ? '' : '/'}${rawThumb}`;
+        }
+
+        // Hent ut årstall for statisk URL
+        const year = (item.date && item.date.match(/^\d{4}/)) ? item.date.slice(0, 4) : '2026';
+        const articleUrl = `/news/${year}/${encodeURIComponent(item.id)}.html`;
+
+        const thumbHtml = thumbUrl ? `
+            <a href="${articleUrl}" class="news-feed-thumb-link">
+                <img src="${thumbUrl}" alt="${item.title}" class="news-feed-thumb-img">
+            </a>
+        ` : '';
+
+        return `
+            <article class="news-feed-entry">
+                <div class="news-feed-inner">
+                    ${thumbHtml}
+                    <div class="news-feed-content">
+                        <div class="news-meta-row">
+                            <span class="news-tag">${item.category || 'Update'}</span>
+                            <span class="news-date">${item.date || ''}</span>
+                        </div>
+                        <h2><a href="${articleUrl}">${item.title}</a></h2>
+                        <p class="teaser-text">${item.teaser || ''}</p>
+                        <div>
+                            <a href="${articleUrl}" class="btn btn-secondary">
+                                Read full article &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        `;
+    }).join('');
+}
+
+renderAllNews();
+    </script>
+</body>
+</html>

@@ -1,0 +1,914 @@
+/* ===================================================
+   1. Globale variabler & Reset
+   =================================================== */
+:root {
+    --bg: #0c1015;
+    --card-bg: #141a22;
+    --card-bg-light: #1c2430;
+    --border: #283342;
+    --text: #c5d1de;
+    --text-bright: #f0f6fc;
+    --accent: #c49a45;
+    --accent-hover: #dbb057;
+    --btn-bg: #1f2733;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: clip;
+}
+
+/* ===================================================
+   2. Felles Header, Footer & Container
+   =================================================== */
+header {
+    padding: 2rem 1.5rem 1.2rem;
+    text-align: center;
+    background: linear-gradient(180deg, #141a22 0%, #0c1015 100%);
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    color: var(--text-bright);
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.subtitle {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem 4rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* ===================================================
+   3. Felles Knapper (.btn)
+   =================================================== */
+.btn-group {
+    display: flex;
+    gap: 0.9rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1.3rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    width: auto;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #0c1015;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+}
+
+.btn-secondary {
+    background: var(--btn-bg);
+    color: var(--text-bright);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent);
+}
+
+/* ===================================================
+   4. Felles Tabellenker (.table-link)
+   =================================================== */
+.table-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.table-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* ===================================================
+   5. Felles Ikoner & Tilpasninger
+   =================================================== */
+.table-icon {
+    display: inline-block;
+    flex-shrink: 0;
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+/* Video: Video1.svg */
+.icon-video {
+    width: auto;
+    height: 22px;
+    transform: translateY(1px);
+    filter: invert(72%) sepia(35%) saturate(800%) hue-rotate(5deg) brightness(95%) contrast(90%);
+}
+
+.table-link:hover .icon-video {
+    filter: invert(82%) sepia(50%) saturate(1000%) hue-rotate(5deg) brightness(110%);
+    transform: translateY(1px) scale(1.06);
+}
+
+/* Noter: C-clef.svg */
+.icon-score {
+    width: 14px;
+    height: 17px;
+    transform: translateY(3px);
+    filter: invert(70%) sepia(10%) saturate(400%) hue-rotate(180deg) brightness(90%) contrast(88%);
+}
+
+.table-link:hover .icon-score {
+    filter: invert(95%) sepia(10%) saturate(200%) brightness(110%);
+    transform: translateY(3px) scale(1.06);
+}
+
+.btn .icon-score {
+    width: 13px;
+    height: 16px;
+    transform: translateY(0);
+}
+
+.btn-primary .icon-score {
+    filter: brightness(0);
+}
+
+/* Tekst / Manuskript: text1.svg */
+.icon-text {
+    width: 14px;
+    height: 16px;
+    transform: translateY(2px);
+    filter: invert(70%) sepia(10%) saturate(400%) hue-rotate(180deg) brightness(90%) contrast(88%);
+}
+
+.table-link:hover .icon-text {
+    filter: invert(95%) sepia(10%) saturate(200%) brightness(110%);
+    transform: translateY(2px) scale(1.06);
+}
+
+/* Lyd / Bandcamp: headset-sharp-svgrepo-com.svg */
+.icon-audio {
+    width: 15px;
+    height: 15px;
+    transform: translateY(2px);
+    filter: invert(70%) sepia(10%) saturate(400%) hue-rotate(180deg) brightness(90%) contrast(88%);
+}
+
+.table-link:hover .icon-audio,
+.btn-secondary:hover .icon-audio {
+    filter: invert(95%) sepia(10%) saturate(200%) brightness(110%);
+    transform: translateY(2px) scale(1.06);
+}
+
+/* Katalogliste: bulleted-list-catalogue-svgrepo-com.svg */
+.icon-cat {
+    width: 13px;
+    height: 13px;
+    transform: translateY(0);
+    filter: invert(70%) sepia(10%) saturate(400%) hue-rotate(180deg) brightness(90%) contrast(88%);
+    transition: filter 0.2s ease;
+}
+
+.table-link:hover .icon-cat,
+.btn-secondary:hover .icon-cat {
+    filter: invert(95%) sepia(10%) saturate(200%) brightness(110%);
+    transform: translateY(0) scale(1.06);
+}
+
+.btn-primary .icon-cat {
+    width: 16px;
+    height: 16px;
+    transform: translateY(1px);
+    filter: brightness(0);
+}
+
+/* Nyhetsikon: chat-bubble-sign-svgrepo-com.svg */
+.icon-news {
+    width: 13px;
+    height: 13px;
+    transform: translateY(0);
+    filter: invert(70%) sepia(10%) saturate(400%) hue-rotate(180deg) brightness(90%) contrast(88%);
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.table-link:hover .icon-news,
+.dropdown-item:hover .icon-news {
+    filter: invert(95%) sepia(10%) saturate(200%) brightness(110%);
+    transform: translateY(0) scale(1.06);
+}
+
+/* E-post / Skjema: email-svgrepo-com.svg */
+.icon-email {
+    width: 18px;
+    height: auto;
+    transform: translateY(1px);
+    filter: invert(70%) sepia(10%) saturate(400%) hue-rotate(180deg) brightness(90%) contrast(88%);
+}
+
+.table-link:hover .icon-email,
+.btn-secondary:hover .icon-email {
+    filter: invert(95%) sepia(10%) saturate(200%) brightness(110%);
+    transform: translateY(1px) scale(1.06);
+}
+
+.btn-primary .icon-email {
+    width: 18px;
+    height: auto;
+    filter: brightness(0);
+}
+
+/* Home-ikon: home-svgrepo-com.svg */
+.icon-home {
+    width: 14px;
+    height: 14px;
+    transform: translateY(0);
+    filter: invert(70%) sepia(10%) saturate(400%) hue-rotate(180deg) brightness(90%) contrast(88%);
+}
+
+.table-link:hover .icon-home,
+.btn-secondary:hover .icon-home,
+.nav-global a:hover .icon-home {
+    filter: invert(95%) sepia(10%) saturate(200%) brightness(110%);
+    transform: translateY(0) scale(1.06);
+}
+
+/* Facebook-ikon: facebook-boxed-svgrepo-com.svg */
+.icon-fb {
+    width: 17px;
+    height: 17px;
+    filter: invert(18%) sepia(45%) saturate(1200%) hue-rotate(185deg) brightness(88%) contrast(98%) !important;
+    transform: translateY(0px);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.table-link:hover .icon-fb,
+footer a:hover .icon-fb,
+.btn:hover .icon-fb {
+    filter: invert(45%) sepia(95%) saturate(2500%) hue-rotate(205deg) brightness(110%) contrast(100%) !important;
+    transform: translateY(0px) scale(1.08);
+}
+
+/* ===================================================
+   6. In-page Kategori-filter (Tab-rad / Panel)
+   =================================================== */
+.inpage-nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0.6rem 0 1.8rem 0;
+    padding: 0.45rem 0.8rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.inpage-nav-btn {
+    flex: 1 1 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.3rem;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    color: #94a3b8 !important;
+    text-decoration: none !important;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+    white-space: nowrap;
+    position: relative;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.inpage-nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background-color: var(--accent);
+    opacity: 0;
+    transform: scaleX(0.3);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+#works .inpage-nav-row + div h3 {
+    margin-top: 1.1rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .inpage-nav-btn:hover {
+        color: var(--accent) !important;
+        background-color: rgba(196, 154, 69, 0.08);
+    }
+
+    .inpage-nav-btn:hover::after {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    .inpage-nav-btn:hover .icon-cat {
+        filter: invert(82%) sepia(50%) saturate(1000%) hue-rotate(5deg) brightness(110%);
+    }
+}
+
+.inpage-nav-btn:active {
+    color: var(--accent) !important;
+    background-color: rgba(196, 154, 69, 0.16);
+    transform: scale(0.97);
+}
+
+.inpage-nav-btn:active::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.inpage-nav-btn:active .icon-cat {
+    filter: invert(82%) sepia(50%) saturate(1000%) hue-rotate(5deg) brightness(110%);
+}
+
+/* ===================================================
+   7. Flytende Sentrert «Top»-knapp
+   =================================================== */
+.floating-top-btn {
+    position: fixed;
+    bottom: 1.6rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(70px);
+    z-index: 95;
+    background: rgba(15, 20, 26, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    color: var(--accent) !important;
+    text-decoration: none;
+    font-size: 0.80rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    padding: 0.45rem 1.1rem;
+    border-radius: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.floating-top-btn.is-visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.floating-top-btn:hover {
+    background: #1c2430;
+    border-color: var(--accent);
+    color: var(--accent-hover) !important;
+}
+
+/* ===================================================
+   8. Global Hamburgermeny & Dropdown
+   =================================================== */
+.menu-dropdown-wrapper {
+    position: static;
+    display: flex;
+    align-items: center;
+}
+
+.menu-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 0.35rem 0.45rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.menu-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.menu-btn .bar {
+    display: block;
+    width: 17px;
+    height: 2px;
+    background-color: var(--text);
+    border-radius: 2px;
+    transition: all 0.22s ease;
+}
+
+.menu-btn:hover .bar {
+    background-color: var(--accent);
+}
+
+.menu-btn.is-active .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+    background-color: var(--accent);
+}
+.menu-btn.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-btn.is-active .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+    background-color: var(--accent);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 240px;
+    background: #0f141a !important;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85);
+    padding: 0.5rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.2rem;
+    z-index: 120;
+}
+
+.dropdown-menu.is-visible {
+    display: flex;
+    animation: menuFadeIn 0.2s ease forwards;
+}
+
+@keyframes menuFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-header {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #64748b;
+    padding: 0.4rem 0.6rem 0.2rem;
+    font-weight: 600;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0.45rem 0;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 0.65rem;
+    color: var(--text-bright) !important;
+    text-decoration: none;
+    font-size: 0.82rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(196, 154, 69, 0.12);
+    color: var(--accent) !important;
+}
+
+.dropdown-item.active-page {
+    color: var(--accent) !important;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.dropdown-sub-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-left: 0.6rem;
+    padding-left: 0.5rem;
+    border-left: 1px solid rgba(196, 154, 69, 0.25);
+    margin-bottom: 0.3rem;
+}
+
+.dropdown-sub-item {
+    font-size: 0.76rem !important;
+    padding: 0.35rem 0.55rem !important;
+    color: #94a3b8 !important;
+}
+
+.dropdown-sub-item:hover {
+    color: var(--accent) !important;
+}
+
+body.menu-open .nav-local,
+body.menu-open #works-sub-nav {
+    display: none !important;
+}
+
+body.menu-open .nav-global {
+    border-bottom: none !important;
+}
+
+/* ===================================================
+   9. Tablet & iPad (under 850px)
+   =================================================== */
+@media (max-width: 850px) {
+    .inpage-nav-row {
+        margin: 0 0 1rem 0 !important;
+        padding-bottom: 0.35rem !important;
+    }
+}
+
+/* ===================================================
+   10. Mobil-tilpasninger (under 768px)
+   =================================================== */
+@media (max-width: 768px) {
+    body.menu-open .nav-global a:not(.dropdown-item),
+    body.menu-open .nav-container > a {
+        display: none !important;
+    }
+
+    body.menu-open .menu-dropdown-wrapper {
+        margin-left: auto;
+    }
+
+    .dropdown-menu {
+        left: 0.75rem;
+        right: 0.75rem;
+        width: auto !important;
+        top: calc(100% + 6px);
+    }
+
+    .inpage-nav-row {
+        margin: 0 0 1.2rem 0 !important;
+        gap: 0.1rem;
+    }
+
+    .inpage-nav-btn {
+        font-size: 0.69rem;
+        padding: 0.45rem 0.15rem;
+        letter-spacing: 0;
+    }
+
+    .inpage-nav-btn .icon-cat {
+        width: 11px;
+        height: 11px;
+    }
+}
+
+/* ===================================================
+   11. News System Styles (index, news, article)
+   =================================================== */
+.news-tag {
+    display: inline-block;
+    background: rgba(201, 168, 106, 0.12);
+    color: var(--accent);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.news-date {
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.news-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Siste nytt på forsiden (index.html) */
+.latest-news-section {
+    padding: 0;
+    max-width: 1020px;
+    margin: 0 auto 4.5rem auto;
+}
+
+.latest-news-section h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.85rem;
+    color: var(--text-bright);
+    margin-bottom: 1.8rem;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.latest-news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.8rem;
+}
+
+.news-card-compact {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.news-card-compact:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.news-card-compact h3 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem 0;
+}
+
+.news-card-compact h3 a {
+    color: var(--text-bright);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.news-card-compact h3 a:hover {
+    color: var(--accent);
+}
+
+.news-card-compact p {
+    color: var(--text);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0 0 1.25rem 0;
+    flex-grow: 1;
+}
+
+.news-card-compact .read-more {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.news-card-compact .read-more:hover {
+    color: var(--accent-hover);
+    gap: 0.55rem;
+}
+
+.news-more-wrap {
+    text-align: center;
+}
+
+/* Nyhetsarkiv (news.html) */
+.news-archive-wrapper {
+    max-width: 860px;
+    margin: 2.5rem auto 5rem auto;
+    padding: 0 1.5rem;
+}
+
+.news-archive-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.2rem;
+}
+
+.news-archive-header h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    color: var(--text-bright);
+    letter-spacing: 0.8px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.news-archive-header p {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.news-feed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.news-feed-entry {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.news-feed-entry:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.news-feed-entry h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.55rem;
+    line-height: 1.3;
+    margin: 0 0 0.85rem 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.news-feed-entry h2 a {
+    color: var(--text-bright);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.news-feed-entry h2 a:hover {
+    color: var(--accent);
+}
+
+.news-feed-entry .teaser-text {
+    color: var(--text);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-bottom: 1.6rem;
+}
+.table-link:hover .icon-news,
+.dropdown-item:hover .icon-news,
+.btn-secondary:hover .icon-news {
+    filter: invert(95%) sepia(10%) saturate(200%) brightness(110%);
+    transform: translateY(0) scale(1.06);
+}
+/* Fleksibelt nyhetskort med thumbnail */
+.news-card-inner {
+    display: flex;
+    gap: 1.4rem;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.news-card-thumb-link {
+    flex-shrink: 0;
+    display: block;
+}
+
+.news-card-thumb-img {
+    width: 95px;
+    height: 95px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    display: block;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.news-card-compact:hover .news-card-thumb-img {
+    border-color: var(--accent);
+    transform: scale(1.02);
+}
+
+.news-card-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mobil-tilpasning for kort med bilde */
+@media (max-width: 480px) {
+    .news-card-inner {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .news-card-thumb-img {
+        width: 100%;
+        height: 140px;
+    }
+}
+/* Facebook-kort i bunnen av news.html */
+.news-social-card {
+    margin-top: 3.5rem;
+    padding: 2rem 2.2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.8rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.news-social-info h3 {
+    font-family: 'Bodoni Moda', serif;
+    color: var(--text-bright);
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.3px;
+    font-weight: 600;
+}
+
+.news-social-info p {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.news-social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+    .news-social-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.6rem;
+        gap: 1.3rem;
+    }
+
+    .news-social-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+.news-card-compact .read-more {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.news-card-compact .read-more:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
