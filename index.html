@@ -663,7 +663,7 @@
             </div>
         </section>
 
-        <script src="js/news-loader.js"></script>
+<script src="js/news-loader.js"></script>
         <script>
         async function renderLatestNews() {
             const items = await fetchNews();
@@ -714,53 +714,9 @@
         }
 
         renderLatestNews();
-        </script>ript>
-        async function renderLatestNews() {
-            const items = await fetchNews();
-            const container = document.getElementById('latest-news-grid');
-            if (!container) return;
-
-            const latest = items.slice(0, 2);
-
-            container.innerHTML = latest.map(item => {
-                let rawThumb = item.thumb || item.image;
-                let thumbUrl = '';
-
-                if (rawThumb) {
-                    thumbUrl = rawThumb.startsWith('http')
-                        ? rawThumb
-                        : `https://raw.githubusercontent.com/geirsoler/website-news/main${rawThumb.startsWith('/') ? '' : '/'}${rawThumb}`;
-                }
-
-                const thumbHtml = thumbUrl ? `
-                    <a href="article.html?id=${encodeURIComponent(item.id)}" class="news-card-thumb-link">
-                        <img src="${thumbUrl}" alt="${item.title}" class="news-card-thumb-img">
-                    </a>
-                ` : '';
-
-                return `
-                    <article class="news-card-compact ${thumbUrl ? 'has-thumb' : 'no-thumb'}">
-                        <div class="news-card-inner">
-                            ${thumbHtml}
-                            <div class="news-card-content">
-                                <div class="news-meta-row">
-                                    <span class="news-tag">${item.category || 'Update'}</span>
-                                    <span class="news-date">${item.date || ''}</span>
-                                </div>
-                                <h3><a href="article.html?id=${encodeURIComponent(item.id)}">${item.title}</a></h3>
-                                <p>${item.teaser || ''}</p>
-<div>
-    <a href="article.html?id=${encodeURIComponent(item.id)}" class="read-more">Read more</a>
-</div>
-                            </div>
-                        </div>
-                    </article>
-                `;
-            }).join('');
-        }
-
-        renderLatestNews();
         </script>
+
+        <!-- Selected Works / Catalogue -->
 
         <!-- Selected Works / Catalogue -->
         <section id="works">
