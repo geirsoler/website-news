@@ -90,30 +90,30 @@ function buildArticleHtml(item, year, index, allItems) {
 
     const displayDate = item.displayDate || item.date || '';
 
-    // Beregn forrige (nyere) og neste (eldre) sak
+// Beregn forrige (nyere) og neste (eldre) sak
     const prevItem = (allItems && index > 0) ? allItems[index - 1] : null;
     const nextItem = (allItems && index < allItems.length - 1) ? allItems[index + 1] : null;
 
     let prevBtnHtml = '';
     if (prevItem) {
         const prevYear = (prevItem.date && prevItem.date.match(/^\d{4}/)) ? prevItem.date.slice(0, 4) : '2026';
-        prevBtnHtml = `<a href="/news/${prevYear}/${prevItem.id}.html" class="news-nav-btn news-nav-prev" title="${prevItem.title.replace(/"/g, '&quot;')}">&larr; Newer</a>`;
+        prevBtnHtml = `<a href="/news/${prevYear}/${prevItem.id}.html" class="news-nav-btn news-nav-prev" title="${prevItem.title.replace(/"/g, '&quot;')}">&lt; Prev</a>`;
     } else {
-        prevBtnHtml = `<span class="news-nav-btn disabled" style="opacity: 0.3; cursor: default;">&larr; Newer</span>`;
+        prevBtnHtml = `<span class="news-nav-btn disabled" style="opacity: 0.3; cursor: default;">&lt; Prev</span>`;
     }
 
     let nextBtnHtml = '';
     if (nextItem) {
         const nextYear = (nextItem.date && nextItem.date.match(/^\d{4}/)) ? nextItem.date.slice(0, 4) : '2026';
-        nextBtnHtml = `<a href="/news/${nextYear}/${nextItem.id}.html" class="news-nav-btn news-nav-next" title="${nextItem.title.replace(/"/g, '&quot;')}">Older &rarr;</a>`;
+        nextBtnHtml = `<a href="/news/${nextYear}/${nextItem.id}.html" class="news-nav-btn news-nav-next" title="${nextItem.title.replace(/"/g, '&quot;')}">Next &gt;</a>`;
     } else {
-        nextBtnHtml = `<span class="news-nav-btn disabled" style="opacity: 0.3; cursor: default;">Older &rarr;</span>`;
+        nextBtnHtml = `<span class="news-nav-btn disabled" style="opacity: 0.3; cursor: default;">Next &gt;</span>`;
     }
 
     const navBarHtml = `
     <nav class="news-nav-bar" aria-label="News navigation">
         ${prevBtnHtml}
-        <a href="../../news.html" class="news-nav-all">All News</a>
+        <a href="../../news.html" class="news-nav-btn news-nav-all">All News</a>
         ${nextBtnHtml}
     </nav>`;
 
