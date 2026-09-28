@@ -34,9 +34,9 @@ function getLinkIcon(link) {
     return '';
 }
 
-function buildArticleHtml(item, year) {
+function buildArticleHtml(item, year, index, allItems) {
     const articleUrl = `${SITE_URL}/news/${year}/${item.id}.html`;
-    
+
     let ogImageUrl = `${SITE_URL}/images/Geir Solerød profilbilde 1_1.jpg`;
     let pageImageHtml = '';
 
@@ -89,6 +89,33 @@ function buildArticleHtml(item, year) {
     ` : '';
 
     const displayDate = item.displayDate || item.date || '';
+
+    // Beregn forrige (nyere) og neste (eldre) sak
+    const prevItem = (allItems && index > 0) ? allItems[index - 1] : null;
+    const nextItem = (allItems && index < allItems.length - 1) ? allItems[index + 1] : null;
+
+    let prevBtnHtml = '';
+    if (prevItem) {
+        const prevYear = (prevItem.date && prevItem.date.match(/^\d{4}/)) ? prevItem.date.slice(0, 4) : '2026';
+        prevBtnHtml = `<a href="/news/${prevYear}/${prevItem.id}.html" class="news-nav-btn news-nav-prev" title="${prevItem.title.replace(/"/g, '&quot;')}">&larr; Newer</a>`;
+    } else {
+        prevBtnHtml = `<span class="news-nav-btn disabled" style="opacity: 0.3; cursor: default;">&larr; Newer</span>`;
+    }
+
+    let nextBtnHtml = '';
+    if (nextItem) {
+        const nextYear = (nextItem.date && nextItem.date.match(/^\d{4}/)) ? nextItem.date.slice(0, 4) : '2026';
+        nextBtnHtml = `<a href="/news/${nextYear}/${nextItem.id}.html" class="news-nav-btn news-nav-next" title="${nextItem.title.replace(/"/g, '&quot;')}">Older &rarr;</a>`;
+    } else {
+        nextBtnHtml = `<span class="news-nav-btn disabled" style="opacity: 0.3; cursor: default;">Older &rarr;</span>`;
+    }
+
+    const navBarHtml = `
+    <nav class="news-nav-bar" aria-label="News navigation">
+        ${prevBtnHtml}
+        <a href="../../news.html" class="news-nav-all">All News</a>
+        ${nextBtnHtml}
+    </nav>`;
 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -172,28 +199,48 @@ function buildArticleHtml(item, year) {
 
         .article-wrapper {
             max-width: 860px;
-            margin: 2rem auto 5rem auto;
+            margin: 1.5rem auto 5rem auto;
             padding: 0 1.5rem;
         }
 
-        .back-nav {
-            margin-bottom: 2rem;
+        /* Navigasjonslinje: Forrige / Alle nyheter / Neste */
+        .news-nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 0 0.2rem;
         }
 
-        .back-link {
+        .news-nav-btn {
             color: var(--accent);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
             transition: color 0.2s ease;
         }
 
-        .back-link:hover {
+        .news-nav-btn:hover {
             color: var(--accent-hover);
             text-decoration: underline;
+        }
+
+        .news-nav-all {
+            color: var(--text-bright);
+            background: var(--card-bg, rgba(255, 255, 255, 0.05));
+            border: 1px solid var(--border);
+            padding: 0.4rem 1.1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .news-nav-all:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+            text-decoration: none;
         }
 
         .single-article-card {
@@ -300,18 +347,14 @@ function buildArticleHtml(item, year) {
         }
 
         @media (max-width: 850px) {
-    .main-nav {
-        margin: 0 auto 0.6rem !important;
-    }
+            .main-nav {
+                margin: 0 auto 0.6rem !important;
+            }
 
-    .article-wrapper {
-        margin-top: 1rem !important;
-    }
-
-    .back-nav {
-        margin-bottom: 1rem !important;
-    }
-}
+            .article-wrapper {
+                margin-top: 1rem !important;
+            }
+        }
 
         @media (max-width: 768px) {
             .main-nav {
@@ -397,22 +440,8 @@ function buildArticleHtml(item, year) {
     </nav>
 
     <main class="article-wrapper">
-<nav class="news-nav-bar" aria-label="News navigation">
-    <!-- Forrige sak (skjules eller deaktiveres hvis det er første sak) -->
-    <a href="/news/2026/forrige-sak.html" class="news-nav-btn news-nav-prev">
-        &larr; Prev.
-    </a>
+        ${navBarHtml}
 
-    <!-- Tilbake til oversikt -->
-    <a href="/news.html" class="news-nav-btn news-nav-all">
-        All News
-    </a>
-
-    <!-- Neste sak (skjules eller deaktiveres hvis det er siste sak) -->
-    <a href="/news/2026/neste-sak.html" class="news-nav-btn news-nav-next">
-        Next &rarr;
-    </a>
-</nav>
         <article class="single-article-card">
             <header>
                 <div class="article-meta">
@@ -432,6 +461,10 @@ function buildArticleHtml(item, year) {
 
             ${linksHtml}
         </article>
+
+        <div style="margin-top: 2rem;">
+            ${navBarHtml}
+        </div>
     </main>
 
     <footer id="footer">
@@ -466,7 +499,7 @@ function runBuild() {
 
     console.log(`Bygger ${newsItems.length} artikler...`);
 
-    newsItems.forEach(item => {
+    newsItems.forEach((item, index) => {
         let year = '2026';
         if (item.date && item.date.match(/^\d{4}/)) {
             year = item.date.slice(0, 4);
@@ -478,7 +511,7 @@ function runBuild() {
         }
 
         const filePath = path.join(targetDir, `${item.id}.html`);
-        const html = buildArticleHtml(item, year);
+        const html = buildArticleHtml(item, year, index, newsItems);
 
         fs.writeFileSync(filePath, html, 'utf8');
         console.log(`✓ Generert: news/${year}/${item.id}.html`);
