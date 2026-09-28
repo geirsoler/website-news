@@ -73,9 +73,9 @@ function buildArticleHtml(item, year, index, allItems) {
         </div>
     ` : '';
 
-const linksHtml = (item.links && item.links.length) ? `
+    const linksHtml = (item.links && item.links.length) ? `
         <div class="article-resources">
-            <span class="resources-label">Score & Catalogue Links:</span>
+            <span class="resources-label">Score & Catalogue Links</span>
             <div class="article-links">
                 ${item.links.map(l => {
                     const cleanLabel = l.label.replace(/&rarr;|→/g, '').trim();
@@ -93,7 +93,7 @@ const linksHtml = (item.links && item.links.length) ? `
 
     const displayDate = item.displayDate || item.date || '';
 
-// Beregn forrige (nyere) og neste (eldre) sak
+    // Beregn forrige (nyere) og neste (eldre) sak
     const prevItem = (allItems && index > 0) ? allItems[index - 1] : null;
     const nextItem = (allItems && index < allItems.length - 1) ? allItems[index + 1] : null;
 
@@ -113,7 +113,7 @@ const linksHtml = (item.links && item.links.length) ? `
         nextBtnHtml = `<span class="news-nav-btn disabled" style="opacity: 0.3; cursor: default;">Next &gt;</span>`;
     }
 
-const navBarHtml = `
+    const navBarHtml = `
     <nav class="news-nav-bar" aria-label="News navigation">
         ${prevBtnHtml}
         <a href="../../news.html" class="news-nav-btn">All News</a>
@@ -206,8 +206,8 @@ const navBarHtml = `
             padding: 0 1.5rem;
         }
 
-        /* Navigasjonslinje: Forrige / Alle nyheter / Neste */
-.news-nav-bar {
+        /* Navigasjonslinje: < Prev    All News     Next > */
+        .news-nav-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -304,34 +304,40 @@ const navBarHtml = `
             font-size: 1.02rem;
             line-height: 1.75;
             color: var(--text);
-            margin: 2rem 0;
+            margin: 2rem 0 0 0;
         }
 
         .article-body p {
             margin-bottom: 1.4rem;
         }
 
+        /* Ressursseksjon - Alternativ A: Ren redaksjonell stil */
+        .article-resources {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            background: transparent;
+        }
+
+        .resources-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #94a3b8;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+        }
+
         .article-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2.5rem;
-            padding-top: 1.8rem;
-            border-top: 1px solid var(--border);
+            gap: 0.8rem;
         }
 
-        .btn-primary .icon-score {
-            width: 14px;
-            height: 17px;
-            transform: translateY(1px);
-            filter: brightness(0) !important;
-        }
-
-        .btn-primary .icon-cat {
-            width: 14px;
-            height: 14px;
-            transform: translateY(0);
-            filter: brightness(0) !important;
+        .article-btn {
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
         }
 
         @media (max-width: 850px) {
@@ -365,34 +371,6 @@ const navBarHtml = `
             .single-article-card {
                 padding: 1.5rem;
             }
-        }
-        .article-resources {
-            margin-top: 2rem;
-            padding: 1.2rem 1.4rem;
-            background: rgba(12, 16, 21, 0.6);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-
-        .resources-label {
-            display: block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        .article-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .article-btn {
-            font-size: 0.85rem;
-            padding: 0.5rem 1rem;
         }
     </style>
 </head>
