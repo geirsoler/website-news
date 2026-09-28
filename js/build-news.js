@@ -116,7 +116,7 @@ const navBarHtml = `
         <a href="../../news.html" class="news-nav-btn">All News</a>
         ${nextBtnHtml}
     </nav>`;
-    
+
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -204,7 +204,7 @@ const navBarHtml = `
         }
 
         /* Navigasjonslinje: Forrige / Alle nyheter / Neste */
-        .news-nav-bar {
+.news-nav-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -213,7 +213,10 @@ const navBarHtml = `
         }
 
         .news-nav-btn {
-            color: var(--accent);
+            color: var(--accent) !important;
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -221,26 +224,8 @@ const navBarHtml = `
         }
 
         .news-nav-btn:hover {
-            color: var(--accent-hover);
+            color: var(--accent-hover) !important;
             text-decoration: underline;
-        }
-
-        .news-nav-all {
-            color: var(--text-bright);
-            background: var(--card-bg, rgba(255, 255, 255, 0.05));
-            border: 1px solid var(--border);
-            padding: 0.4rem 1.1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: background 0.2s ease, border-color 0.2s ease;
-        }
-
-        .news-nav-all:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--accent);
-            text-decoration: none;
         }
 
         .single-article-card {

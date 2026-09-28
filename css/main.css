@@ -937,17 +937,4 @@ body.menu-open .nav-global {
             color: var(--accent-hover) !important;
             text-decoration: underline;
         }
-        
-.news-nav-all {
-    color: var(--text-bright);
-    background: var(--card-bg, rgba(255, 255, 255, 0.05));
-    border: 1px solid var(--border);
-    padding: 0.4rem 1rem;
-    border-radius: 6px;
-    font-size: 0.85rem;
-}
 
-.news-nav-all:hover {
-    background: rgba(255, 255, 255, 0.1);
-    text-decoration: none;
-}
