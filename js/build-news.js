@@ -73,18 +73,21 @@ function buildArticleHtml(item, year, index, allItems) {
         </div>
     ` : '';
 
-    const linksHtml = (item.links && item.links.length) ? `
-        <div class="article-links">
-            ${item.links.map(l => {
-                const cleanLabel = l.label.replace(/&rarr;|→/g, '').trim();
-                const icon = getLinkIcon(l);
-                return `
-                    <a href="${l.url}" class="btn btn-primary" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                        ${icon}
-                        <span>${cleanLabel}</span>
-                    </a>
-                `;
-            }).join('')}
+const linksHtml = (item.links && item.links.length) ? `
+        <div class="article-resources">
+            <span class="resources-label">Score & Catalogue Links:</span>
+            <div class="article-links">
+                ${item.links.map(l => {
+                    const cleanLabel = l.label.replace(/&rarr;|→/g, '').trim();
+                    const icon = getLinkIcon(l);
+                    return `
+                        <a href="${l.url}" class="btn btn-secondary article-btn" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                            ${icon}
+                            <span>${cleanLabel}</span>
+                        </a>
+                    `;
+                }).join('')}
+            </div>
         </div>
     ` : '';
 
@@ -362,6 +365,34 @@ const navBarHtml = `
             .single-article-card {
                 padding: 1.5rem;
             }
+        }
+        .article-resources {
+            margin-top: 2rem;
+            padding: 1.2rem 1.4rem;
+            background: rgba(12, 16, 21, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .resources-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .article-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .article-btn {
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
         }
     </style>
 </head>
