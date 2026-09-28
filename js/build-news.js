@@ -111,7 +111,7 @@ function buildArticleHtml(item, year, index, allItems) {
     }
 
     const navBarHtml = `
-    <nav class="news-nav-bar" aria-label="News navigation">
+    <nav class="news-nav-btn" aria-label="News navigation">
         ${prevBtnHtml}
         <a href="../../news.html" class="news-nav-btn news-nav-all">All News</a>
         ${nextBtnHtml}
