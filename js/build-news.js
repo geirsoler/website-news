@@ -12,12 +12,23 @@ function extractYouTubeId(urlOrId) {
 
 function formatBody(bodyText) {
     if (!bodyText) return '';
+
+    // Hvis teksten allerede har fulle avsnitts- eller div-tagger, parse markdown-lenker direkte
     if (bodyText.includes('<p>') || bodyText.includes('<div>')) {
-        return bodyText;
+        return bodyText.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" class="table-link" target="_blank" rel="noopener">$1</a>');
     }
+
     return bodyText
         .split(/\n\s*\n/)
-        .map(p => `<p>${p.trim().replace(/\n/g, '<br>')}</p>`)
+        .map(p => {
+            let formatted = p.trim().replace(/\n/g, '<br>');
+            // Gjør [Tekst](https://...) om til klikkbare lenker med gyllen aksentfarge
+            formatted = formatted.replace(
+                /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+                '<a href="$2" class="table-link" target="_blank" rel="noopener">$1</a>'
+            );
+            return `<p>${formatted}</p>`;
+        })
         .join('\n');
 }
 
