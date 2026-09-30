@@ -13,25 +13,53 @@ function extractYouTubeId(urlOrId) {
 function formatBody(bodyText) {
     if (!bodyText) return '';
 
-    // Hvis teksten allerede har fulle avsnitts- eller div-tagger, parse markdown-lenker direkte
-    if (bodyText.includes('<p>') || bodyText.includes('<div>')) {
-        return bodyText.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" class="table-link" target="_blank" rel="noopener">$1</a>');
+    function parseMarkdown(str) {
+        return str
+            // Bilder: ![alt](url)
+            .replace(/!\[([^\]]*)\]\((https?:\/\/[^\s)]+|\/[^\s)]+)\)/g, '<img src="$2" alt="$1" class="article-body-img">')
+            // Lenker: [tekst](url)
+            .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]+)\)/g, '<a href="$2" class="table-link" target="_blank" rel="noopener">$1</a>')
+            // Fet skrift: **tekst**
+            .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+            // Kursiv: *tekst* eller _tekst_
+            .replace(/(^|[^*])\*([^*]+)\*([^*]|$)/g, '$1<em>$2</em>$3')
+            .replace(/(^|[^_])_([^_]+)_([^_]|$)/g, '$1<em>$2</em>$3')
+            // Gjennomstreking: ~~tekst~~
+            .replace(/~~([^~]+)~~/g, '<del>$1</del>')
+            // Inline kode: `kode`
+            .replace(/`([^`]+)`/g, '<code>$1</code>');
     }
 
+    // Hvis editoren allerede leverer ferdig HTML (<p>, <div>, <h1> osv.)
+    if (bodyText.includes('<p>') || bodyText.includes('<div>') || bodyText.includes('<h')) {
+        return parseMarkdown(bodyText);
+    }
+
+    // Hvis editoren lagrer ren tekst / Markdown med linjeskift
     return bodyText
         .split(/\n\s*\n/)
         .map(p => {
-            let formatted = p.trim().replace(/\n/g, '<br>');
-            // Gjør [Tekst](https://...) om til klikkbare lenker med gyllen aksentfarge
-            formatted = formatted.replace(
-                /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
-                '<a href="$2" class="table-link" target="_blank" rel="noopener">$1</a>'
-            );
-            return `<p>${formatted}</p>`;
+            const trimmed = p.trim();
+            // Støtte for overskrifter (f.eks. ## Overskrift)
+            if (trimmed.startsWith('### ')) {
+                return `<h3>${parseMarkdown(trimmed.slice(4))}</h3>`;
+            }
+            if (trimmed.startsWith('## ')) {
+                return `<h2>${parseMarkdown(trimmed.slice(3))}</h2>`;
+            }
+            if (trimmed.startsWith('# ')) {
+                return `<h2>${parseMarkdown(trimmed.slice(2))}</h2>`;
+            }
+            // Sitatblokk (> tekst)
+            if (trimmed.startsWith('> ')) {
+                return `<blockquote>${parseMarkdown(trimmed.slice(2))}</blockquote>`;
+            }
+
+            const formatted = trimmed.replace(/\n/g, '<br>');
+            return `<p>${parseMarkdown(formatted)}</p>`;
         })
         .join('\n');
 }
-
 function getLinkIcon(link) {
     const text = (link.label || '').toLowerCase();
     const url = (link.url || '').toLowerCase();
