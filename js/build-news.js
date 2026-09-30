@@ -37,7 +37,7 @@ function getLinkIcon(link) {
 function buildArticleHtml(item, year, index, allItems) {
     const articleUrl = `${SITE_URL}/news/${year}/${item.id}.html`;
 
-    let ogImageUrl = `${SITE_URL}/images/Geir Solerød profilbilde 1_1.jpg`;
+let ogImageUrl = `${SITE_URL}/img/profile.jpg`;
     let pageImageHtml = '';
 
     const chosenImage = (item.image && item.image.trim() !== '') ? item.image : (item.thumb || '');
