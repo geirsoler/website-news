@@ -3,7 +3,7 @@ chcp 65001 >nul
 echo ============================================
 echo   Henter endringer fra GitHub (f.eks. CMS)...
 echo ============================================
-git pull origin main
+git pull --rebase --autostash origin main
 
 echo.
 echo ============================================
