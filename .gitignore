@@ -1,0 +1,18 @@
+# Sikkerhetskopier
+*.bak
+
+# Midlertidige redigeringsfiler og kladder
+*~
+*.tmp
+
+# Windows systemfiler
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS systemfiler (kjekt å ha i tilfelle)
+.DS_Store
+._*
+
+# Loggfiler
+*.log
