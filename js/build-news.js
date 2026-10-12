@@ -13,7 +13,6 @@ function extractYouTubeId(urlOrId) {
 function formatDate(dateStr) {
     if (!dateStr) return '';
 
-    // Håndterer formater som '11.10.2026' eller '11. 10. 2026'
     let isoStr = dateStr;
     const dotMatch = dateStr.match(/^(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/);
     if (dotMatch) {
@@ -23,7 +22,6 @@ function formatDate(dateStr) {
     const d = new Date(isoStr);
     if (isNaN(d.getTime())) return dateStr;
 
-    // Formaterer på engelsk (eller endre 'en-GB' til 'nb-NO' hvis du foretrekker norsk)
     return d.toLocaleDateString('en-GB', {
         day: 'numeric',
         month: 'long',
@@ -50,19 +48,86 @@ function formatBody(bodyText) {
             .replace(/`([^`]+)`/g, '<code>$1</code>');
     }
 
-    // Hvis editoren allerede leverer ferdig HTML (<p>, <div>, <h1> osv.)
     if (bodyText.includes('<p>') || bodyText.includes('<div>') || bodyText.includes('<h')) {
         return parseMarkdown(bodyText);
     }
 
-    // Hvis editoren lagrer ren tekst / Markdown med linjeskift
     return bodyText
         .split(/\n\s*\n/)
         .map(p => {
             const trimmed = p.trim();
-            // Støtte for overskrifter (f.eks. ## Overskrift)
             if (trimmed.startsWith('### ')) {
                 return `<h3>${parseMarkdown(trimmed.slice(4))}</h3>`;
             }
             if (trimmed.startsWith('## ')) {
-                return `<h2>${parseMarkdown(trimmed.slice(3))}
+                return `<h2>${parseMarkdown(trimmed.slice(3))}</h2>`;
+            }
+            if (trimmed.startsWith('# ')) {
+                return `<h2>${parseMarkdown(trimmed.slice(2))}</h2>`;
+            }
+            if (trimmed.startsWith('> ')) {
+                return `<blockquote>${parseMarkdown(trimmed.slice(2))}</blockquote>`;
+            }
+
+            const formatted = trimmed.replace(/\n/g, '<br>');
+            return `<p>${parseMarkdown(formatted)}</p>`;
+        })
+        .join('\n');
+}
+
+function getLinkIcon(link) {
+    const text = (link.label || '').toLowerCase();
+    const url = (link.url || '').toLowerCase();
+
+    if (text.includes('score') || text.includes('sheet') || url.includes('scoreexchange')) {
+        return '<img src="../../svg/C-clef.svg" alt="" class="table-icon icon-score">';
+    }
+    if (text.includes('catalog') || url.includes('catalogue')) {
+        return '<img src="../../svg/bulleted-list-catalogue-svgrepo-com.svg" alt="" class="table-icon icon-cat">';
+    }
+    return '';
+}
+
+function buildArticleHtml(item, year, index, allItems) {
+    const articleUrl = `${SITE_URL}/news/${year}/${item.id}.html`;
+
+    let ogImageUrl = `${SITE_URL}/img/profile.jpg`;
+    let pageImageHtml = '';
+
+    const chosenImage = (item.image && item.image.trim() !== '') ? item.image : (item.thumb || '');
+    if (chosenImage && chosenImage.trim() !== '') {
+        let cleanPath = chosenImage.trim();
+        if (cleanPath.startsWith('http')) {
+            ogImageUrl = cleanPath;
+        } else {
+            if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+            ogImageUrl = `${SITE_URL}${cleanPath}`;
+        }
+
+        if (item.image && item.image.trim() !== '') {
+            let pageImgPath = item.image.trim();
+            if (!pageImgPath.startsWith('http') && !pageImgPath.startsWith('/')) pageImgPath = '/' + pageImgPath;
+            pageImageHtml = `
+                <div class="article-image-container">
+                    <img src="${pageImgPath}" alt="${item.title.replace(/"/g, '&quot;')}" class="article-image">
+                </div>
+            `;
+        }
+    }
+
+    const ytId = extractYouTubeId(item.youtube);
+    const mediaHtml = ytId ? `
+        <div class="article-video-container">
+            <iframe
+                src="https://www.youtube.com/embed/${ytId}"
+                title="${item.title.replace(/"/g, '&quot;')}"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    ` : '';
+
+    const linksHtml = (item.links && item.links.length) ? `
+        <div class="article-resources">
+            <span class="resources-label">Score & Catalogue Links</span>
+            <div class="article-links">
