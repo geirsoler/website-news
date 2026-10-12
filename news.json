@@ -2,8 +2,7 @@
   "items": [
     {
       "id": "victorys-desolation",
-      "date": "2026-09-15",
-      "displayDate": "September 2026",
+      "date": "2026-09-16",
       "category": "Concert Band",
       "title": "«Victory's Desolation» Published for Concert Band",
       "teaser": "Movement III from Suite for Concert Band is now available with full score, parts, and score video.",
@@ -20,12 +19,12 @@
           "label": "View in Works Catalogue",
           "url": "https://geirsolerod.no/catalogue#cat-band"
         }
-      ]
+      ],
+      "displayDate": "September 2026"
     },
     {
       "id": "sheet-music-available-on-score-exchange",
       "date": "2026-09-15",
-      "displayDate": "September 2026",
       "category": "Sheet Music & Sales",
       "title": "Sheet Music Available on Score Exchange",
       "teaser": "Digital sheet music editions, complete study scores, and instrumental parts are now available for purchase and instant download.",
@@ -42,12 +41,12 @@
           "label": "View in Works Catalogue",
           "url": "../../catalogue.html"
         }
-      ]
+      ],
+      "displayDate": "September 2026"
     },
     {
       "id": "velsigne-dette-land",
       "date": "2026-09-14",
-      "displayDate": "September 2026",
       "category": "Choir",
       "title": "«Velsigne dette land»",
       "teaser": "An earthbound, gently spiritual choral piece from the opera Marko og Adriane, well suited as an accessible concert work.",
@@ -64,12 +63,12 @@
           "label": "View in Works Catalogue",
           "url": "https://geirsolerod.no/catalogue#cat-choir"
         }
-      ]
+      ],
+      "displayDate": "September 2026"
     },
     {
       "id": "market-in-lydia",
       "date": "2026-09-08",
-      "displayDate": "September 2026",
       "category": "Concert Band",
       "title": "«Market in Lydia» Available for Concert Band",
       "teaser": "Movement II from Suite for Concert Band. A lively and spirited concert march in Grade 2.5.",
@@ -86,12 +85,12 @@
           "label": "View in Works Catalogue",
           "url": "https://geirsolerod.no/catalogue#cat-band"
         }
-      ]
+      ],
+      "displayDate": "September 2026"
     },
     {
       "id": "new-composer-website-launched",
-      "date": "2026-09-16",
-      "displayDate": "September 2026",
+      "date": "2026-09-15",
       "category": "Website",
       "title": "New Composer Website and Works Catalogue Launched",
       "teaser": "A dedicated home for orchestral works, concert band compositions, choral pieces, and upcoming news.",
@@ -104,12 +103,12 @@
           "label": "Home",
           "url": "https://geirsolerod.no/"
         }
-      ]
+      ],
+      "displayDate": "September 2026"
     },
     {
       "id": "jordens-elementer",
       "date": "2026-10-11",
-      "displayDate": "",
       "category": "Choir",
       "title": "Jordens elementer for kor (SATB) og piano",
       "teaser": "Ny konsertutgave for blandakor (SATB) og piano hentet fra operamusikalen Marko og Adriane. Noter er nå publisert på Score Exchange sammen med en score-video.",
@@ -117,7 +116,8 @@
       "youtube": "R0qNR0MabD8",
       "thumb": "/images/Jordens elementer_thumb.jpg",
       "image": "",
-      "links": []
+      "links": [],
+      "displayDate": ""
     }
   ]
 }
