@@ -1,0 +1,10 @@
+[build]
+  command = "node js/build-news.js"
+  publish = "."
+
+[build.processing]
+  skip_processing = false
+
+# Hopper over bygging hvis kun batch-filer, README eller backup-filer endres
+[context.production]
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':!*.bat' ':!*.bak' ':!README.md'"
