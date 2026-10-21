@@ -149,7 +149,7 @@
                 margin-bottom: 1.8rem !important;
             }
         }
-        
+
         @media (max-width: 768px) {
             .main-nav {
                 top: 0;
@@ -278,8 +278,9 @@
                 <p>Score releases, upcoming concerts, and project milestones.</p>
             </header>
 
-            <div id="all-news-list" class="news-feed-list">
-                <div style="color: #94a3b8; text-align: center; padding: 3rem 0;">Loading news updates...</div>
+<div id="all-news-list" class="news-feed-list">
+<!-- START_NEWS_FEED -->
+<!-- END_NEWS_FEED -->
             </div>
 
             <!-- Beholder for Paginering / Sidetall -->
@@ -315,65 +316,5 @@
         <span>&uarr; Top</span>
     </a>
 
-    <!-- Felles skript -->
-    <script src="js/jsmain.js"></script>
-    <script src="js/news-loader.js"></script>
-    <script>
-async function renderAllNews() {
-    const items = await fetchNews();
-    const container = document.getElementById('all-news-list');
-    if (!container) return;
-
-    if (!items || items.length === 0) {
-        container.innerHTML = '<p style="color: #94a3b8; text-align: center;">No news updates found.</p>';
-        return;
-    }
-
-    container.innerHTML = items.map(item => {
-        // Bruker 'thumb' først, faller tilbake på 'image'
-        let rawThumb = item.thumb || item.image;
-        let thumbUrl = '';
-
-        if (rawThumb) {
-            thumbUrl = rawThumb.startsWith('http')
-                ? rawThumb
-                : `https://raw.githubusercontent.com/geirsoler/website-news/main${rawThumb.startsWith('/') ? '' : '/'}${rawThumb}`;
-        }
-
-        // Hent ut årstall for statisk URL
-        const year = (item.date && item.date.match(/^\d{4}/)) ? item.date.slice(0, 4) : '2026';
-        const articleUrl = `/news/${year}/${encodeURIComponent(item.id)}.html`;
-
-        const thumbHtml = thumbUrl ? `
-            <a href="${articleUrl}" class="news-feed-thumb-link">
-                <img src="${thumbUrl}" alt="${item.title}" class="news-feed-thumb-img">
-            </a>
-        ` : '';
-
-        return `
-            <article class="news-feed-entry">
-                <div class="news-feed-inner">
-                    ${thumbHtml}
-                    <div class="news-feed-content">
-                        <div class="news-meta-row">
-                            <span class="news-tag">${item.category || 'Update'}</span>
-                            <span class="news-date">${item.date || ''}</span>
-                        </div>
-                        <h2><a href="${articleUrl}">${item.title}</a></h2>
-                        <p class="teaser-text">${item.teaser || ''}</p>
-                        <div>
-                            <a href="${articleUrl}" class="btn btn-secondary">
-                                Read full article &rarr;
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        `;
-    }).join('');
-}
-
-renderAllNews();
-    </script>
 </body>
 </html>

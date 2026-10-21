@@ -3,6 +3,8 @@ const path = require('path');
 
 const SITE_URL = 'https://geirsolerod.no';
 const NEWS_FILE = path.join(__dirname, '..', 'news.json');
+const INDEX_HTML_FILE = path.join(__dirname, '..', 'index.html');
+const NEWS_HTML_FILE = path.join(__dirname, '..', 'news.html');
 
 function extractYouTubeId(urlOrId) {
     if (!urlOrId) return null;
@@ -83,6 +85,22 @@ function getLinkIcon(link) {
     return '';
 }
 
+function getThumbUrl(item) {
+    const rawThumb = item.thumb || item.image;
+    if (!rawThumb) return '';
+    return rawThumb.startsWith('http')
+        ? rawThumb
+        : `https://raw.githubusercontent.com/geirsoler/website-news/main${rawThumb.startsWith('/') ? '' : '/'}${rawThumb}`;
+}
+
+function getItemYear(item) {
+    if (item.date) {
+        const yearMatch = item.date.match(/\b(20\d{2})\b/);
+        if (yearMatch) return yearMatch[1];
+    }
+    return '2026';
+}
+
 function buildArticleHtml(item, year, index, allItems) {
     const articleUrl = `${SITE_URL}/news/${year}/${item.id}.html`;
 
@@ -147,7 +165,7 @@ function buildArticleHtml(item, year, index, allItems) {
 
     let prevBtnHtml = '';
     if (prevItem) {
-        const prevYear = (prevItem.date && prevItem.date.match(/^\d{4}/)) ? prevItem.date.slice(0, 4) : '2026';
+        const prevYear = getItemYear(prevItem);
         prevBtnHtml = `<a href="/news/${prevYear}/${prevItem.id}.html" class="news-nav-btn news-nav-prev" title="${prevItem.title.replace(/"/g, '&quot;')}">&lt; Prev</a>`;
     } else {
         prevBtnHtml = `<span class="news-nav-btn disabled" style="opacity: 0.3; cursor: default;">&lt; Prev</span>`;
@@ -155,7 +173,7 @@ function buildArticleHtml(item, year, index, allItems) {
 
     let nextBtnHtml = '';
     if (nextItem) {
-        const nextYear = (nextItem.date && nextItem.date.match(/^\d{4}/)) ? nextItem.date.slice(0, 4) : '2026';
+        const nextYear = getItemYear(nextItem);
         nextBtnHtml = `<a href="/news/${nextYear}/${nextItem.id}.html" class="news-nav-btn news-nav-next" title="${nextItem.title.replace(/"/g, '&quot;')}">Next &gt;</a>`;
     } else {
         nextBtnHtml = `<span class="news-nav-btn disabled" style="opacity: 0.3; cursor: default;">Next &gt;</span>`;
@@ -523,6 +541,99 @@ function buildArticleHtml(item, year, index, allItems) {
 </html>`;
 }
 
+function generateIndexNewsHtml(items) {
+    const latest = items.slice(0, 2);
+    return latest.map(item => {
+        const thumbUrl = getThumbUrl(item);
+        const year = getItemYear(item);
+        const articleUrl = `/news/${year}/${encodeURIComponent(item.id)}.html`;
+
+        const thumbHtml = thumbUrl ? `
+                    <a href="${articleUrl}" class="news-card-thumb-link">
+                        <img src="${thumbUrl}" alt="${item.title.replace(/"/g, '&quot;')}" class="news-card-thumb-img">
+                    </a>` : '';
+
+        return `                <article class="news-card-compact ${thumbUrl ? 'has-thumb' : 'no-thumb'}">
+                    <div class="news-card-inner">
+                        ${thumbHtml}
+                        <div class="news-card-content">
+                            <div class="news-meta-row">
+                                <span class="news-tag">${item.category || 'Update'}</span>
+                                <span class="news-date">${item.date || ''}</span>
+                            </div>
+                            <h3><a href="${articleUrl}">${item.title}</a></h3>
+                            <p>${item.teaser || ''}</p>
+                            <div>
+                                <a href="${articleUrl}" class="read-more">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>`;
+    }).join('\n');
+}
+
+function generateNewsPageHtml(items) {
+    if (!items || items.length === 0) {
+        return '                <p style="color: #94a3b8; text-align: center;">No news updates found.</p>';
+    }
+
+    return items.map(item => {
+        const thumbUrl = getThumbUrl(item);
+        const year = getItemYear(item);
+        const articleUrl = `/news/${year}/${encodeURIComponent(item.id)}.html`;
+
+        const thumbHtml = thumbUrl ? `
+                        <a href="${articleUrl}" class="news-feed-thumb-link">
+                            <img src="${thumbUrl}" alt="${item.title.replace(/"/g, '&quot;')}" class="news-feed-thumb-img">
+                        </a>` : '';
+
+        return `            <article class="news-feed-entry">
+                <div class="news-feed-inner">
+                    ${thumbHtml}
+                    <div class="news-feed-content">
+                        <div class="news-meta-row">
+                            <span class="news-tag">${item.category || 'Update'}</span>
+                            <span class="news-date">${item.date || ''}</span>
+                        </div>
+                        <h2><a href="${articleUrl}">${item.title}</a></h2>
+                        <p class="teaser-text">${item.teaser || ''}</p>
+                        <div>
+                            <a href="${articleUrl}" class="btn btn-secondary">
+                                Read full article &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>`;
+    }).join('\n');
+}
+
+function updateFileFeed(filePath, newFeedHtml) {
+    if (!fs.existsSync(filePath)) {
+        console.warn(`Advarsel: Fant ikke fil ${filePath}`);
+        return;
+    }
+
+    const content = fs.readFileSync(filePath, 'utf8');
+    const startTag = '<!-- START_NEWS_FEED -->';
+    const endTag = '<!-- END_NEWS_FEED -->';
+
+    const startIndex = content.indexOf(startTag);
+    const endIndex = content.indexOf(endTag);
+
+    if (startIndex === -1 || endIndex === -1 || endIndex <= startIndex) {
+        console.warn(`Advarsel: Fant ikke markørene ${startTag} og ${endTag} i ${path.basename(filePath)}`);
+        return;
+    }
+
+    const before = content.slice(0, startIndex + startTag.length);
+    const after = content.slice(endIndex);
+    const updated = `${before}\n${newFeedHtml}\n${after}`;
+
+    fs.writeFileSync(filePath, updated, 'utf8');
+    console.log(`✓ Oppdatert statisk nyhetsfeed i ${path.basename(filePath)}`);
+}
+
 function runBuild() {
     if (!fs.existsSync(NEWS_FILE)) {
         console.error('Fant ikke news.json på sti:', NEWS_FILE);
@@ -546,12 +657,7 @@ function runBuild() {
     console.log(`Bygger ${newsItems.length} artikler...`);
 
     newsItems.forEach((item, index) => {
-        let year = '2026';
-        if (item.date) {
-            const yearMatch = item.date.match(/\b(20\d{2})\b/);
-            if (yearMatch) year = yearMatch[1];
-        }
-
+        const year = getItemYear(item);
         const targetDir = path.join(__dirname, '..', 'news', year);
         if (!fs.existsSync(targetDir)) {
             fs.mkdirSync(targetDir, { recursive: true });
@@ -563,6 +669,13 @@ function runBuild() {
         fs.writeFileSync(filePath, html, 'utf8');
         console.log(`✓ Generert: news/${year}/${item.id}.html`);
     });
+
+    // Bak nyhetene direkte inn i index.html og news.html
+    const indexNewsHtml = generateIndexNewsHtml(newsItems);
+    updateFileFeed(INDEX_HTML_FILE, indexNewsHtml);
+
+    const newsPageHtml = generateNewsPageHtml(newsItems);
+    updateFileFeed(NEWS_HTML_FILE, newsPageHtml);
 
     console.log('Ferdig!');
 }
