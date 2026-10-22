@@ -2,9 +2,27 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE_URL = 'https://geirsolerod.no';
-const NEWS_FILE = path.join(__dirname, '..', 'news.json');
-const INDEX_HTML_FILE = path.join(__dirname, '..', 'index.html');
-const NEWS_HTML_FILE = path.join(__dirname, '..', 'news.html');
+const ROOT_DIR = path.join(__dirname, '..');
+const NEWS_FILE = path.join(ROOT_DIR, 'news.json');
+const INDEX_HTML_FILE = path.join(ROOT_DIR, 'index.html');
+const NEWS_HTML_FILE = path.join(ROOT_DIR, 'news.html');
+const SITEMAP_FILE = path.join(ROOT_DIR, 'sitemap.xml');
+const ROBOTS_FILE = path.join(ROOT_DIR, 'robots.txt');
+
+// Hjelpefunksjon: Skriver kun til filen hvis innholdet faktisk er endret
+function writeIfChanged(filePath, newContent) {
+    if (fs.existsSync(filePath)) {
+        const existingContent = fs.readFileSync(filePath, 'utf8');
+        // Normaliserer linjeskift slik at CRLF vs LF ikke trigger unødvendig skriving
+        const normExisting = existingContent.replace(/\r\n/g, '\n');
+        const normNew = newContent.replace(/\r\n/g, '\n');
+        if (normExisting === normNew) {
+            return false; // Ingen faktisk innholdsendring
+        }
+    }
+    fs.writeFileSync(filePath, newContent, 'utf8');
+    return true; // Filen ble oppdatert
+}
 
 function extractYouTubeId(urlOrId) {
     if (!urlOrId) return null;
@@ -630,8 +648,59 @@ function updateFileFeed(filePath, newFeedHtml) {
     const after = content.slice(endIndex);
     const updated = `${before}\n${newFeedHtml}\n${after}`;
 
-    fs.writeFileSync(filePath, updated, 'utf8');
-    console.log(`✓ Oppdatert statisk nyhetsfeed i ${path.basename(filePath)}`);
+    if (writeIfChanged(filePath, updated)) {
+        console.log(`✓ Oppdatert statisk nyhetsfeed i ${path.basename(filePath)}`);
+    }
+}
+
+function buildSitemapAndRobots(newsItems) {
+    // 1. robots.txt
+    const robotsTxt = `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`;
+    if (writeIfChanged(ROBOTS_FILE, robotsTxt)) {
+        console.log(`✓ Oppdatert: robots.txt`);
+    }
+
+    // 2. sitemap.xml
+    const today = new Date().toISOString().split('T')[0];
+    const staticPages = [
+        { loc: `${SITE_URL}/`, priority: '1.0', changefreq: 'weekly' },
+        { loc: `${SITE_URL}/catalogue.html`, priority: '0.9', changefreq: 'monthly' },
+        { loc: `${SITE_URL}/news.html`, priority: '0.8', changefreq: 'weekly' }
+    ];
+
+    let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+    sitemapXml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+
+    staticPages.forEach(p => {
+        sitemapXml += `  <url>\n`;
+        sitemapXml += `    <loc>${p.loc}</loc>\n`;
+        sitemapXml += `    <lastmod>${today}</lastmod>\n`;
+        sitemapXml += `    <changefreq>${p.changefreq}</changefreq>\n`;
+        sitemapXml += `    <priority>${p.priority}</priority>\n`;
+        sitemapXml += `  </url>\n`;
+    });
+
+    newsItems.forEach(item => {
+        const year = getItemYear(item);
+        const articleUrl = `${SITE_URL}/news/${year}/${item.id}.html`;
+        let modDate = today;
+        if (item.date && item.date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+            modDate = item.date;
+        }
+
+        sitemapXml += `  <url>\n`;
+        sitemapXml += `    <loc>${articleUrl}</loc>\n`;
+        sitemapXml += `    <lastmod>${modDate}</lastmod>\n`;
+        sitemapXml += `    <changefreq>monthly</changefreq>\n`;
+        sitemapXml += `    <priority>0.7</priority>\n`;
+        sitemapXml += `  </url>\n`;
+    });
+
+    sitemapXml += `</urlset>\n`;
+
+    if (writeIfChanged(SITEMAP_FILE, sitemapXml)) {
+        console.log(`✓ Oppdatert: sitemap.xml (${staticPages.length + newsItems.length} adresser)`);
+    }
 }
 
 function runBuild() {
@@ -654,11 +723,12 @@ function runBuild() {
         return parseD(b.date) - parseD(a.date);
     });
 
-    console.log(`Bygger ${newsItems.length} artikler...`);
+    console.log(`Sjekker ${newsItems.length} artikler...`);
 
+    let generatedCount = 0;
     newsItems.forEach((item, index) => {
         const year = getItemYear(item);
-        const targetDir = path.join(__dirname, '..', 'news', year);
+        const targetDir = path.join(ROOT_DIR, 'news', year);
         if (!fs.existsSync(targetDir)) {
             fs.mkdirSync(targetDir, { recursive: true });
         }
@@ -666,16 +736,25 @@ function runBuild() {
         const filePath = path.join(targetDir, `${item.id}.html`);
         const html = buildArticleHtml(item, year, index, newsItems);
 
-        fs.writeFileSync(filePath, html, 'utf8');
-        console.log(`✓ Generert: news/${year}/${item.id}.html`);
+        if (writeIfChanged(filePath, html)) {
+            console.log(`✓ Generert / oppdatert: news/${year}/${item.id}.html`);
+            generatedCount++;
+        }
     });
 
-    // Bak nyhetene direkte inn i index.html og news.html
+    if (generatedCount === 0) {
+        console.log(`(Alle artikler var uendret – hoppet over generering)`);
+    }
+
+    // Bak nyhetene direkte inn i index.html og news.html (kun hvis endret)
     const indexNewsHtml = generateIndexNewsHtml(newsItems);
     updateFileFeed(INDEX_HTML_FILE, indexNewsHtml);
 
     const newsPageHtml = generateNewsPageHtml(newsItems);
     updateFileFeed(NEWS_HTML_FILE, newsPageHtml);
+
+    // Generer SEO-filer (sitemap.xml og robots.txt)
+    buildSitemapAndRobots(newsItems);
 
     console.log('Ferdig!');
 }
