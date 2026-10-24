@@ -55,6 +55,7 @@ function formatBody(bodyText) {
         return str
             .replace(/!\[([^\]]*)\]\((https?:\/\/[^\s)]+|\/[^\s)]+)\)/g, '<img src="$2" alt="$1" class="article-body-img">')
             .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]+)\)/g, '<a href="$2" class="table-link" target="_blank" rel="noopener">$1</a>')
+            .replace(/\\([*_{}[\]()#+\-.!])/g, '$1') // Fjerner unødvendige backslasher fra Sveltia
             .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
             .replace(/(^|[^*])\*([^*]+)\*([^*]|$)/g, '$1<em>$2</em>$3')
             .replace(/(^|[^_])_([^_]+)_([^_]|$)/g, '$1<em>$2</em>$3')
@@ -62,7 +63,8 @@ function formatBody(bodyText) {
             .replace(/`([^`]+)`/g, '<code>$1</code>');
     }
 
-    if (bodyText.includes('<p>') || bodyText.includes('<div>') || bodyText.includes('<h')) {
+    // Hvis Sveltia leverer ferdig HTML (f.eks. med <p>, <ul>, <h3> osv.)
+    if (bodyText.includes('<p>') || bodyText.includes('<div>') || bodyText.includes('<h') || bodyText.includes('<ul>')) {
         return parseMarkdown(bodyText);
     }
 
@@ -81,6 +83,16 @@ function formatBody(bodyText) {
             }
             if (trimmed.startsWith('> ')) {
                 return `<blockquote>${parseMarkdown(trimmed.slice(2))}</blockquote>`;
+            }
+
+            // Håndterer punktlister (hvis avsnittet starter med * eller -)
+            const lines = trimmed.split('\n').map(l => l.trim()).filter(Boolean);
+            const isBulletList = lines.every(l => l.startsWith('* ') || l.startsWith('- '));
+            if (isBulletList) {
+                const listItems = lines
+                    .map(l => `  <li>${parseMarkdown(l.slice(2))}</li>`)
+                    .join('\n');
+                return `<ul>\n${listItems}\n</ul>`;
             }
 
             const formatted = trimmed.replace(/\n/g, '<br>');
