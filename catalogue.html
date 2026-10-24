@@ -1269,31 +1269,40 @@
     <script src="js/jsmain.js"></script>
 
     <!-- Sidespesifikt skript for katalogen -->
+<!-- Sidespesifikt skript for katalogen -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             function handleHashAccordion() {
                 const hash = window.location.hash;
                 if (!hash) return;
 
-                const targetEl = document.querySelector(hash);
+                // Hvis lenken er #cat-stage, eller inneholder en spesifikk sang:
+                let targetEl = document.querySelector(hash);
                 if (!targetEl) return;
 
-                // 1. Hvis elementet ligger inne i en lukket <details>, åpne den
-                const parentAccordion = targetEl.closest('details');
-                if (parentAccordion) {
-                    parentAccordion.open = true;
+                // 1. Hvis man klikker direkte på en sang (f.eks. #en-ekte-mann),
+                // finn overordnet <details> og åpne den:
+                let accordionToOpen = targetEl.closest('details');
+
+                // 2. Hvis man klikket på en hel seksjon (f.eks. #cat-stage),
+                // finn alle trekkspill inni den seksjonen og åpne dem:
+                if (!accordionToOpen) {
+                    const innerAccordions = targetEl.querySelectorAll('details');
+                    innerAccordions.forEach(acc => acc.open = true);
+                } else {
+                    accordionToOpen.open = true;
                 }
 
-                // 2. Hvis målet selv er en seksjon med trekkspill under seg (f.eks. #cat-stage)
-                const childAccordions = targetEl.querySelectorAll('details.suite-accordion');
-                childAccordions.forEach(acc => {
-                    acc.open = true;
-                });
+                // Hvis målet er en sang, men vi også vil sikre at hele seksjonens trekkspill er oppe:
+                const section = targetEl.closest('section');
+                if (section) {
+                    section.querySelectorAll('details').forEach(acc => acc.open = true);
+                }
 
-                // 3. Vent litt så listen rekker å åpnes, scroll og kjør faden
+                // 3. Gi nettleseren litt mer tid (250ms) til å beregne full høyde etter at menyen spratt opp
                 setTimeout(() => {
                     const nav = document.querySelector('.nav-wrapper');
-                    const navHeight = nav ? nav.offsetHeight + 35 : 100;
+                    const navHeight = nav ? nav.offsetHeight + 30 : 90;
                     const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
                     const offsetPosition = elementPosition - navHeight;
 
@@ -1302,17 +1311,17 @@
                         behavior: 'smooth'
                     });
 
-                    // Trigger fade-animasjonen nøyaktig når raden er synlig
-                    targetEl.classList.remove('highlight-fade');
-                    void targetEl.offsetWidth; // Nullstiller animasjonen
-                    targetEl.classList.add('highlight-fade');
-
-                    // Rydd opp klassen etter at 5-sekunders animasjonen er ferdig
-                    setTimeout(() => {
+                    // 4. Kjør 5-sekunders fade hvis målet er en tabellrad
+                    if (targetEl.tagName === 'TR') {
                         targetEl.classList.remove('highlight-fade');
-                    }, 5100);
+                        void targetEl.offsetWidth; // Force reflow
+                        targetEl.classList.add('highlight-fade');
 
-                }, 160);
+                        setTimeout(() => {
+                            targetEl.classList.remove('highlight-fade');
+                        }, 5100);
+                    }
+                }, 250);
             }
 
             handleHashAccordion();
