@@ -1252,29 +1252,37 @@
     <!-- Felles skript -->
     <script src="js/jsmain.js"></script>
 
-    <!-- Sidespesifikt skript for katalogen -->
+<!-- Sidespesifikt skript for katalogen -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             function handleHashAccordion() {
                 const hash = window.location.hash;
                 if (!hash) return;
 
-                const targetSection = document.querySelector(hash);
-                if (targetSection) {
-                    const accordions = targetSection.querySelectorAll('details.suite-accordion');
-                    accordions.forEach(acc => {
-                        acc.open = true;
-                    });
+                const targetEl = document.querySelector(hash);
+                if (!targetEl) return;
 
-                    setTimeout(() => {
-                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 120);
+                // 1. Hvis elementet ligger inni en lukket <details>, åpne den
+                const parentAccordion = targetEl.closest('details');
+                if (parentAccordion) {
+                    parentAccordion.open = true;
                 }
+
+                // 2. Hvis målet selv er en seksjon som har trekkspill under seg (f.eks. #cat-stage)
+                const childAccordions = targetEl.querySelectorAll('details.suite-accordion');
+                childAccordions.forEach(acc => {
+                    acc.open = true;
+                });
+
+                // 3. Vent et lite øyeblikk så nettleseren rekker å tegne opp innholdet, og scroll rett til elementet
+                setTimeout(() => {
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 150);
             }
 
             handleHashAccordion();
             window.addEventListener('hashchange', handleHashAccordion);
         });
     </script>
-</body>
+    </body>
 </html>
