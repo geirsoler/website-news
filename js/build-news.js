@@ -53,9 +53,15 @@ function formatBody(bodyText) {
 
     function parseMarkdown(str) {
         return str
+            // Fjern backslasher som CMS-et av og til legger inn
+            .replace(/\\([*_{}[\]()#+\-.!])/g, '$1')
+            // Bilder: ![alt](url)
             .replace(/!\[([^\]]*)\]\((https?:\/\/[^\s)]+|\/[^\s)]+)\)/g, '<img src="$2" alt="$1" class="article-body-img">')
+            // Markdown-lenker: [Tekst](url)
             .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]+)\)/g, '<a href="$2" class="table-link" target="_blank" rel="noopener">$1</a>')
-            .replace(/\\([*_{}[\]()#+\-.!])/g, '$1') // Fjerner unødvendige backslasher fra Sveltia
+            // Rene URL-er som ikke allerede er i en tagg eller lenke (Autolink)
+            .replace(/(^|[^"'>])(https?:\/\/[^\s<]+)/g, '$1<a href="$2" class="table-link" target="_blank" rel="noopener">$2</a>')
+            // Uthevet / kursiv
             .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
             .replace(/(^|[^*])\*([^*]+)\*([^*]|$)/g, '$1<em>$2</em>$3')
             .replace(/(^|[^_])_([^_]+)_([^_]|$)/g, '$1<em>$2</em>$3')
@@ -85,7 +91,7 @@ function formatBody(bodyText) {
                 return `<blockquote>${parseMarkdown(trimmed.slice(2))}</blockquote>`;
             }
 
-            // Håndterer punktlister (hvis avsnittet starter med * eller -)
+            // Håndterer punktlister
             const lines = trimmed.split('\n').map(l => l.trim()).filter(Boolean);
             const isBulletList = lines.every(l => l.startsWith('* ') || l.startsWith('- '));
             if (isBulletList) {
@@ -400,12 +406,90 @@ function buildArticleHtml(item, year, index, allItems) {
         .article-body p {
             margin-bottom: 1.4rem;
         }
+		
+		.article-body p {
+            margin-bottom: 1.4rem;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Bodoni Moda', serif;
+            color: var(--text-bright);
+            margin: 2rem 0 1rem 0;
+            line-height: 1.25;
+        }
+
+        .article-body ul {
+            margin: 0.8rem 0 1.6rem 1.4rem;
+            padding-left: 0.5rem;
+            list-style-type: disc;
+        }
+
+        .article-body li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .article-body li strong {
+            color: var(--text-bright);
+        }
+
+        .article-body a.table-link {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .article-body a.table-link:hover {
+            color: var(--accent-hover);
+        }
 
         .article-resources {
             margin-top: 2.5rem;
             padding-top: 1.5rem;
             border-top: 1px solid var(--border);
             background: transparent;
+        }
+
+        .article-body p {
+            margin-bottom: 1.4rem;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Bodoni Moda', serif;
+            color: var(--text-bright);
+            margin: 2rem 0 1rem 0;
+            line-height: 1.25;
+        }
+
+        .article-body ul {
+            margin: 0.8rem 0 1.6rem 1.4rem;
+            padding-left: 0.5rem;
+            list-style-type: disc;
+        }
+
+        .article-body li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .article-body li strong {
+            color: var(--text-bright);
+        }
+
+        .article-body a.table-link {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .article-body a.table-link:hover {
+            color: var(--accent-hover);
         }
 
         .resources-label {
