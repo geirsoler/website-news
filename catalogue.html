@@ -162,6 +162,12 @@
             margin-top: 0.2rem;
         }
 
+        tr:target {
+    background: rgba(196, 154, 69, 0.25) !important;
+    outline: 2px solid var(--accent);
+    box-shadow: 0 0 15px rgba(196, 154, 69, 0.4);
+}
+
         /* Accordion / Foldable styling */
         .suite-accordion summary.suite-summary {
             cursor: pointer;
@@ -876,7 +882,7 @@
                                                 <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Jeg%20g%C3%A5r%20til%20striden#contact" class="table-link">Request Score</a></td>
                                             </tr>
 
-                                            <tr>
+                                            <tr id="en-ekte-mann">
                                                 <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
                                                     No. 39 En ekte mann
                                                     <span class="subtext">Humoristic Aria (Marko) &bull; Premiered at Villa Lunde (2022). Standalone edition (Rev. 2026).</span>
