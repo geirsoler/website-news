@@ -7,7 +7,6 @@ const NEWS_FILE = path.join(ROOT_DIR, 'news.json');
 const INDEX_HTML_FILE = path.join(ROOT_DIR, 'index.html');
 const NEWS_HTML_FILE = path.join(ROOT_DIR, 'news.html');
 const SITEMAP_FILE = path.join(ROOT_DIR, 'sitemap.xml');
-const ROBOTS_FILE = path.join(ROOT_DIR, 'robots.txt');
 
 // Hjelpefunksjon: Skriver kun til filen hvis innholdet faktisk er endret
 function writeIfChanged(filePath, newContent) {
@@ -653,14 +652,7 @@ function updateFileFeed(filePath, newFeedHtml) {
     }
 }
 
-function buildSitemapAndRobots(newsItems) {
-    // 1. robots.txt
-    const robotsTxt = `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`;
-    if (writeIfChanged(ROBOTS_FILE, robotsTxt)) {
-        console.log(`✓ Oppdatert: robots.txt`);
-    }
-
-    // 2. sitemap.xml
+function buildSitemap(newsItems) {
     const today = new Date().toISOString().split('T')[0];
     const staticPages = [
         { loc: `${SITE_URL}/`, priority: '1.0', changefreq: 'weekly' },
@@ -754,8 +746,7 @@ function runBuild() {
     updateFileFeed(NEWS_HTML_FILE, newsPageHtml);
 
     // Generer SEO-filer (sitemap.xml og robots.txt)
-    buildSitemapAndRobots(newsItems);
-
+buildSitemap(newsItems);
     console.log('Ferdig!');
 }
 
