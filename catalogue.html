@@ -162,6 +162,28 @@
             margin-top: 0.2rem;
         }
 
+        /* Myk markering som pulserer lett og fader tilbake til normalt over 5 sekunder */
+        @keyframes highlightFade {
+            0% {
+                background-color: rgba(196, 154, 69, 0.35);
+            }
+            30% {
+                background-color: rgba(196, 154, 69, 0.22);
+            }
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        tr.highlight-fade td {
+            animation: highlightFade 5s ease-out forwards;
+        }
+
+        /* Sikrer at scroll har god avstand til den svevende menyen */
+        tr[id] {
+            scroll-margin-top: 110px;
+        }
+
         /* Accordion / Foldable styling */
         .suite-accordion summary.suite-summary {
             cursor: pointer;
@@ -876,14 +898,14 @@
                                                 <td style="width: 18%;"><a href="index.html?subject=Score%20Request:%20Jeg%20g%C3%A5r%20til%20striden#contact" class="table-link">Request Score</a></td>
                                             </tr>
 
-                                            <tr>
+                                            <tr id="en-ekte-mann">
                                                 <td style="width: 34%; padding-left: 1.5rem;" class="title-cell">
                                                     No. 39 En ekte mann
                                                     <span class="subtext">Humoristic Aria (Marko) &bull; Premiered at Villa Lunde (2022). Standalone edition (Rev. 2026).</span>
                                                 </td>
                                                 <td style="width: 10%;">2022 / 2026</td>
                                                 <td style="width: 26%;">Tenor / Baritone &amp; Piano</td>
-                                                <td style="width: 12%;">ca. 2 min</td>
+                                                <td style="width: 12%;">ca. 1m 30s</td>
                                                 <td style="width: 18%;">
                                                     <a href="https://www.scoreexchange.com/scores/en-ekte-mann-694884.html"
                                                        target="_blank"
@@ -1253,17 +1275,44 @@
                 const hash = window.location.hash;
                 if (!hash) return;
 
-                const targetSection = document.querySelector(hash);
-                if (targetSection) {
-                    const accordions = targetSection.querySelectorAll('details.suite-accordion');
-                    accordions.forEach(acc => {
-                        acc.open = true;
+                const targetEl = document.querySelector(hash);
+                if (!targetEl) return;
+
+                // 1. Hvis elementet ligger inne i en lukket <details>, åpne den
+                const parentAccordion = targetEl.closest('details');
+                if (parentAccordion) {
+                    parentAccordion.open = true;
+                }
+
+                // 2. Hvis målet selv er en seksjon med trekkspill under seg (f.eks. #cat-stage)
+                const childAccordions = targetEl.querySelectorAll('details.suite-accordion');
+                childAccordions.forEach(acc => {
+                    acc.open = true;
+                });
+
+                // 3. Vent litt så listen rekker å åpnes, scroll og kjør faden
+                setTimeout(() => {
+                    const nav = document.querySelector('.nav-wrapper');
+                    const navHeight = nav ? nav.offsetHeight + 35 : 100;
+                    const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - navHeight;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
                     });
 
+                    // Trigger fade-animasjonen nøyaktig når raden er synlig
+                    targetEl.classList.remove('highlight-fade');
+                    void targetEl.offsetWidth; // Nullstiller animasjonen
+                    targetEl.classList.add('highlight-fade');
+
+                    // Rydd opp klassen etter at 5-sekunders animasjonen er ferdig
                     setTimeout(() => {
-                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 120);
-                }
+                        targetEl.classList.remove('highlight-fade');
+                    }, 5100);
+
+                }, 160);
             }
 
             handleHashAccordion();
