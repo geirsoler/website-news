@@ -162,11 +162,27 @@
             margin-top: 0.2rem;
         }
 
+/* Myk markering som pulserer lett og fader tilbake til normalt */
+        @keyframes highlightFade {
+            0% {
+                background: rgba(196, 154, 69, 0.32);
+            }
+            50% {
+                background: rgba(196, 154, 69, 0.18);
+            }
+            100% {
+                background: transparent;
+            }
+        }
+
         tr:target {
-    background: rgba(196, 154, 69, 0.25) !important;
-    outline: 2px solid var(--accent);
-    box-shadow: 0 0 15px rgba(196, 154, 69, 0.4);
-}
+            animation: highlightFade 2.5s ease-out forwards;
+        }
+
+        /* Sikrer at scroll har god avstand til den svevende menyen */
+        tr[id] {
+            scroll-margin-top: 110px;
+        }
 
         /* Accordion / Foldable styling */
         .suite-accordion summary.suite-summary {
@@ -1262,27 +1278,35 @@
                 const targetEl = document.querySelector(hash);
                 if (!targetEl) return;
 
-                // 1. Hvis elementet ligger inni en lukket <details>, åpne den
+                // 1. Hvis elementet ligger inne i en lukket <details>, åpne den
                 const parentAccordion = targetEl.closest('details');
                 if (parentAccordion) {
                     parentAccordion.open = true;
                 }
 
-                // 2. Hvis målet selv er en seksjon som har trekkspill under seg (f.eks. #cat-stage)
+                // 2. Hvis målet selv er en seksjon med trekkspill under seg (f.eks. #cat-stage)
                 const childAccordions = targetEl.querySelectorAll('details.suite-accordion');
                 childAccordions.forEach(acc => {
                     acc.open = true;
                 });
 
-                // 3. Vent et lite øyeblikk så nettleseren rekker å tegne opp innholdet, og scroll rett til elementet
+                // 3. Vent litt så listen rekker å utvide seg, og scroll med klaring til toppmenyen
                 setTimeout(() => {
-                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 150);
+                    const nav = document.querySelector('.nav-wrapper');
+                    const navHeight = nav ? nav.offsetHeight + 35 : 100;
+                    const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - navHeight;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 160);
             }
 
             handleHashAccordion();
             window.addEventListener('hashchange', handleHashAccordion);
         });
     </script>
-    </body>
+        </body>
 </html>
